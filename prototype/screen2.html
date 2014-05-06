@@ -1,0 +1,159 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <div class="row">
+      <div class="small-6 columns">
+        <!-- New Business / QR / Sort Button -->
+        <button class="button small" id="newBusiness">+ New Business</button>
+        <button class="button small" id="printQR">Print QR</button>
+      </div>
+      <div class="small-6 columns">
+        <div class="small-3 columns">
+          <label class="inline right">Sort</label>
+        </div>
+        <div class="small-9 columns">
+          <select id="sortCategory">
+            <option></option>
+            <option value="opt1">Option1</option>
+            <option value="opt2">Option2</option>
+            <option value="opt3">Option3</option>
+            <option value="opt4">Option4</option>
+          </select>
+        </div>
+      </div>
+    </div>
+        
+    <div class="row">  
+      <div class="small-12 columns">
+        <div class="small-6 columns">
+          <p>Store</p>
+        </div>
+        <div class="small-2 columns">
+          <p>Status</p>
+        </div>
+        <div class="small-2 columns">
+          <p>Last Visited</p>
+        </div>
+        <div class="small-2 columns">
+          <p>Next Visit</p>
+        </div>
+
+        <hr>
+
+        <div class="small-6 columns">
+          <div class="small-1 columns">
+            <input type="checkbox"/>
+          </div>
+          <div class="small-11 columns">
+            <p>A. Dodsons<br>1217 Colley Ave</p>
+          </div>
+        </div>
+        <div class="small-2 columns">
+          <p>Pending</p>
+        </div>
+        <div class="small-2 columns">
+          <p>4/17/2014</p>
+        </div>
+        <div class="small-2 columns">
+          <p>4/21/2014</p>
+        </div>
+
+        <hr>
+
+        <div class="small-6 columns">
+          <div class="small-1 columns">
+            <input type="checkbox"/>
+          </div>
+          <div class="small-11 columns">
+            <p>The Ten Top<br>1217 Colley Ave<br>Address Line 2</p>
+          </div>
+        </div>
+        <div class="small-2 columns">
+          <p>Active</p>
+        </div>
+        <div class="small-2 columns">
+          <p>4/17/2014</p>
+        </div>
+        <div class="small-2 columns">
+          <p>4/21/2014</p>
+        </div>
+
+        <hr>
+
+        <!-- Disabled Rows -->
+
+        <div class="small-6 columns">
+          <div class="small-1 columns">
+            <input type="checkbox" disabled="disabled" />
+          </div>
+          <div class="small-11 columns">
+            <p></p>
+          </div>
+        </div>
+        <div class="small-2 columns">
+          <p></p>
+        </div>
+        <div class="small-2 columns">
+          <p></p>
+        </div>
+        <div class="small-2 columns">
+          <p></p>
+        </div>
+
+        <hr>
+
+        <div class="small-6 columns">
+          <div class="small-1 columns">
+            <input type="checkbox" disabled="disabled" />
+          </div>
+          <div class="small-11 columns">
+            <p></p>
+          </div>
+        </div>
+        <div class="small-2 columns">
+          <p></p>
+        </div>
+        <div class="small-2 columns">
+          <p></p>
+        </div>
+        <div class="small-2 columns">
+          <p></p>
+        </div>
+
+        <hr>
+
+        <!-- Links for Pagination -->
+        <!-- Basic style to make the list of page indexes appear inline -->
+        <style>
+        .paginationLinks li { display: inline;}
+        </style>
+
+        <div class="small-4 push-4 columns">
+            <ul class="paginationLinks">
+              <li><button class="button tiny"> < </button></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><button class="button tiny"> > </button></li>
+            </ul>
+          
+        </div>
+
+      </div>
+    </div>
+          
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

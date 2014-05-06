@@ -1,0 +1,111 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <h1>Name Last Name</h1>
+        <p>Here is some basic information<br>
+        about the person in general<br>
+        and some more random facts</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns text-center">
+        <a href="#" class="button">Update Info</a>
+      </div>
+      <div class="small-6 columns text-center">
+        <a href="#" class="button">Change Password</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <h2>Pending Gifts:</h2>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-9 columns">
+        <p>To: kimglover@gmail.com<br>
+        Sent on 3/25/2014</p>
+      </div>
+      <div class="small-3 columns">
+        <a href="#" class="button">cancel</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns text-center">
+        <a href="#" class="button">Terms of Use</a>
+      </div>
+      <div class="small-6 columns text-center">
+        <a href="#" class="button">Contact</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns text-center">
+        <a href="#" class="button" data-reveal-id="fbModal" data-reveal>FB Settings</a>
+      </div>
+      <div class="small-6 columns text-center">
+        <a href="#" class="button" data-reveal-id="twModal" data-reveal>Twitter Sett.</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns text-center">
+        <a href="#" class="button large">Sign Out</a>
+      </div>
+    </div>
+
+
+    <!-- Modal windows for social media settings -->
+
+    <!-- facebook modal-->
+    <div id="fbModal" class="reveal-modal" data-reveal>
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <h1>Facebook Settings</h1>
+          <input type="text" placeholder="username"/>
+          <input type="text" placeholder="password"/>
+          <a href="#" class="button right">Connect</a>
+        </div>
+      </div>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <!-- twitter modal-->
+    <div id="twModal" class="reveal-modal" data-reveal>
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <h1>Twitter Settings</h1>
+          <input type="text" placeholder="username"/>
+          <input type="text" placeholder="password"/>
+          <a href="#" class="button right">Connect</a>
+        </div>
+      </div>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

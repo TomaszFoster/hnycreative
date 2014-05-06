@@ -1,0 +1,381 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+    
+    <div class="row">
+      <div class="small-7 columns">
+        <!-- Business Name-->
+        <div class="row">
+	        <div class="small-3 columns">
+	        	<label for="bName" class="right inline">Business Name</label>
+	        </div>
+	        <div class="small-9 columns">
+	        	<input type="text" id="bName" placeholder="Business Name"/>
+	        </div>
+        </div>
+
+        <!-- Business Description-->
+       <div class="row">
+	        <div class="small-3 columns">
+	        	<label for="bDescription" class="right inline">Description</label>
+	        </div>
+	        <div class="small-9 columns">
+	        	<textarea rows="3" class="right" id="bDescription" placeholder="Description"></textarea><br>
+	        </div>
+        </div>
+
+        <!-- Address Line 1 and 2 -->
+        <div class="row">
+	        <div class="small-3 columns">
+	        	<label for="bAddress" class="right inline">Address</label>
+	        </div>
+	        <div class="small-9 columns">
+	        	<input type="text" id="bAddress" placeholder="Address Line 1"/>
+	        	<input type="text" id="bAddress2" placeholder="Address Line 2"/>
+	        </div>
+        </div>
+
+        <!-- City, State and Zip-->
+        <div class="row">
+	        <div class="small-3 columns">
+	        	<label for="bCity" class="right inline">City, State Zip</label>
+	        </div>
+	        <div class="small-9 columns">
+		        <div class="row">
+		          <div class="small-6 columns">
+		            <input type="text" id="bCity" placeholder="City"/>
+		          </div>
+		          <div class="small-3 columns">
+		            <input type="text" id="bState" placeholder="State"/>
+		          </div>
+		          <div class="small-3 columns">
+		            <input type="text" id="bZip" placeholder="ZIP"/>
+		          </div>
+		        </div>
+		    </div>
+		</div>
+
+        <!-- Phone -->
+        <div class="row">
+	        <div class="small-3 columns">
+	        	<label for="bPhone" class="right inline">Phone</label>
+	        </div>
+	        <div class="small-9 columns">
+	        	<input type="text" id="bPhone" placeholder="XXX-XXX-XXXX"/>
+	        </div>
+	    </div>
+
+        <!-- Reward Title and Description-->
+        <div class="row">
+	        <div class="small-3 columns">
+	        	<label for="bName" class="right inline">Reward Title</label>
+	        </div>
+	        <div class="small-9 columns">
+	        	<input type="text" id="bName" placeholder="Reward Title"/>
+	        </div>
+	    </div>
+	    <div class="row">
+	        <div class="small-3 columns">
+	        	<label for="bRewardDetail" class="right inline">Reward Detail</label>
+	        </div>
+	        <div class="small-9 columns">
+	        	<textarea rows="3" id="bRewardDetail" placeholder="Reward Detail"></textarea>
+	        </div>
+	    </div>
+
+        <!-- Logo w/ Browse & Upload -->
+        <div class="row">
+	        <div class="small-3 columns">
+	        	<label for="bLogo" class="right inline">Upload Logo</label>
+	        </div>
+	        <div class="small-9 columns">
+		        <div class="row">
+		          <div class="small-6 columns">
+		            <input type="file" id="bLogo" placeholder="Logo"/>
+		          </div>
+		          <div class="small-3 columns">
+		            <button class="button tiny">Upload</button>
+		          </div>
+		        </div>
+		    </div>
+		</div>
+
+        <!-- Image w/ Browse & Upload -->
+        <div class="row">
+	        <div class="small-3 columns">
+	        	<label for="bImage" class="right inline">Upload Image</label>
+	        </div>
+	        <div class="small-9 columns">
+		        <div class="row">
+		          <div class="small-6 columns">
+		            <input type="file" id="bImage" placeholder="Image"/>
+		          </div>
+		          <div class="small-3 columns">
+		            <button class="button tiny">Upload</button>
+		          </div>
+		        </div>
+		    </div>
+		</div>
+
+        <!-- SOCIAL MEDIA -->
+        <!-- Facebook -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bFacebook" class="right inline">Facebook</label>
+        	</div>
+        	<div class="small-9 columns">
+		        <input type="text" id="bFacebook" placeholder="Facebook Url"/>
+		    </div>
+		</div>
+
+        <!-- Twitter -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bTwitter" class="right inline">Twitter</label>
+        	</div>
+        	<div class="small-9 columns">
+        		<input type="text" id="bTwitter" placeholder="Twitter Url"/>
+        	</div>
+        </div>
+
+        <!-- Google+ -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bG+" class="right inline">Google+</label>
+        	</div>
+        	<div class="small-9 columns">
+        		<input type="text" id="bG+" placeholder="Google+ Url"/>
+        	</div>
+        </div>
+
+        <!-- Yelp! -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bYelp" class="right inline">Yelp</label>
+        	</div>
+        	<div class="small-9 columns">
+        		<input type="text" id="bYelp" placeholder="Yelp! Url"/>
+        	</div>
+        </div>
+
+        <!-- Pinterest -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bPinterest" class="right inline">Pinterest</label>
+        	</div>
+        	<div class="small-9 columns">
+        		<input type="text" id="bPinterest" placeholder="Pinterest Url"/>
+        	</div>
+        </div>
+
+        <!-- Instagram -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bInstagram" class="right inline">Instagram</label>
+        	</div>
+        	<div class="small-9 columns">
+        		<input type="text" id="bInstagram" placeholder="Instagram Url"/></label>
+      		</div>
+      	</div>
+      </div>
+
+      <div class="small-5 columns">
+        <!-- Category - Dropdown -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bCategory" class="right inline">Category</label>
+        	</div>
+        	<div class="small-9 columns">
+		        <select id="bCategory">
+		          <option></option>
+		          <option value="opt1">Option1</option>
+		          <option value="opt2">Option2</option>
+		          <option value="opt3">Option3</option>
+		          <option value="opt4">Option4</option>
+		        </select>
+		    </div>
+		</div>
+        <!-- Sub Cat 1 -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bSubCat1" class="right inline">Sub Cat 1</label>
+        	</div>
+        	<div class="small-9 columns">
+		        <select id="bSubCat1">
+		          <option></option>
+		          <option value="opt1">Option1</option>
+		          <option value="opt2">Option2</option>
+		          <option value="opt3">Option3</option>
+		          <option value="opt4">Option4</option>
+		        </select>
+		    </div>
+		</div>
+        <!-- Sub Cat 2 -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bSubCat2" class="right inline">Sub Cat 2</label>
+        	</div>
+        	<div class="small-9 columns">
+		        <select id="bSubCat2">
+		          <option></option>
+		          <option value="opt1">Option1</option>
+		          <option value="opt2">Option2</option>
+		          <option value="opt3">Option3</option>
+		          <option value="opt4">Option4</option>
+		        </select>
+		    </div>
+		</div>
+        <!-- Sub Cat 3 -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bSubCat3" class="right inline">Sub Cat 3</label>
+        	</div>
+        	<div class="small-9 columns">
+		        <select id="bSubCat3">
+		          <option></option>
+		          <option value="opt1">Option1</option>
+		          <option value="opt2">Option2</option>
+		          <option value="opt3">Option3</option>
+		          <option value="opt4">Option4</option>
+		        </select>
+		    </div>
+		</div>
+
+        <!-- Profile Categories - 3 Dropdowns -->
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bProfile1" class="right inline">Profile 1</label>
+        	</div>
+        	<div class="small-9 columns">
+		        <select id="bProfile1">
+		          <option></option>
+		          <option value="opt1">Option1</option>
+		          <option value="opt2">Option2</option>
+		          <option value="opt3">Option3</option>
+		          <option value="opt4">Option4</option>
+		        </select>
+		    </div>
+		</div>
+
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bProfile2" class="right inline">Profile 2</label>
+        	</div>
+        	<div class="small-9 columns">
+		        <select id="bProfile2">
+		          <option></option>
+		          <option value="opt1">Option1</option>
+		          <option value="opt2">Option2</option>
+		          <option value="opt3">Option3</option>
+		          <option value="opt4">Option4</option>
+		        </select>
+		    </div>
+		</div>
+
+        <div class="row">
+	        <div class="small-3 columns">
+        		<label for="bProfile3" class="right inline">Profile 3</label>
+        	</div>
+        	<div class="small-9 columns">
+		        <select id="bProfile3">
+		          <option></option>
+		          <option value="opt1">Option1</option>
+		          <option value="opt2">Option2</option>
+		          <option value="opt3">Option3</option>
+		          <option value="opt4">Option4</option>
+		        </select>
+		    </div>
+		</div>
+
+        <!-- Hours of Operation - 7 Double Dropdowns with :30 min increments -->
+
+        <!-- Dynamically generate all lists of hours, will make it much easier to change later -->
+        <script type="text/javascript">
+          var dayOfWeek;
+          for (var j=0; j<7;j++){
+            switch (j)
+            {
+            case 0:
+                dayOfWeek = "Sunday";
+                break;
+            case 1:
+              dayOfWeek = "Monday";
+              break;
+            case 2:
+              dayOfWeek = "Tuesday";
+              break;
+            case 3:
+              dayOfWeek = "Wednesday";
+              break;
+            case 4:
+              dayOfWeek = "Thursday";
+              break;
+            case 5:
+              dayOfWeek = "Friday";
+              break;
+            case 6:
+              dayOfWeek = "Saturday";
+              break;
+            }
+            	document.write("<div class='row'>"); /* close row */
+	            document.write("<div class='small-3 columns'>");
+	            	document.write("<label class='right inline'>"+dayOfWeek+"</label>");
+	            document.write("</div>");
+	            document.write("<div class='small-9 columns'>");
+	            	document.write("<div class='row'>");
+
+            for (var k=1; k<3;k++){
+              var openTime = 4;
+              var increment = 30;
+              document.write("<div class='small-6 columns'>");
+              if (k==1){
+                document.write("<select class='openTime' id='"+ dayOfWeek+k+"'>");
+                document.write("<option>closed</option>");
+              }else{
+                document.write("<select class='closeTime' id='"+ dayOfWeek+k+"'>");
+                document.write("<option></option>");
+              }
+              for (var i=1; i <=8; i++)
+              {
+                openTime+=1;
+                document.write("<option>" + openTime + ":00 AM</option>");
+                document.write("<option>" + openTime + ":" + increment + " AM</option>");
+              }
+              var openTime = 1;
+              for (var i=1; i <=10; i++)
+              {
+                document.write("<option>" + openTime + ":00 PM</option>");
+                document.write("<option>" + openTime + ":" + increment + " PM</option>");
+                openTime+=1;
+              }
+              document.write("</select>");
+              document.write("</div>"); /* close small-6 div */
+              
+            }
+            document.write("</div>"); /* close row */
+            document.write("</div>"); /* close small-9 */
+            document.write("</div>"); /* close row */
+          }
+        </script>
+
+      </div>
+
+      
+    </div>
+
+    <!-- Save Button -->
+    <button class="button">Save</button>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

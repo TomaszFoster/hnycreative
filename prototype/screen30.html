@@ -1,0 +1,136 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/OpenLayers.js"></script>
+    <style type="text/css">
+      html, body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+      }
+      .nav li {list-style: none;display: inline;}
+    </style>
+    <script>
+      function init() {
+        map = new OpenLayers.Map("basicMap");
+        var mapnik         = new OpenLayers.Layer.OSM();
+        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+        var position       = new OpenLayers.LonLat(13.41,52.52).transform( fromProjection, toProjection);
+        var zoom           = 15; 
+ 
+        map.addLayer(mapnik);
+        map.setCenter(position, zoom );
+      }
+    </script>
+  </head>
+  <body onload="init();">
+
+    <div class="row">
+      <div class="small-12 columns text-center">
+        
+        <a href="#" class="right">Local Business? Sign Up</a><br>
+        <img class="center" src="img/logo.png" />
+
+        <!-- Navigation -->
+        <ul class="nav">
+          <li><a href="#">Navigation</a></li>
+          <li><a href="#">Navigation</a></li>
+          <li><a href="#">Navigation</a></li>
+          <li><a href="#">Navigation</a></li>
+        </ul>
+
+        <!-- Feature Map -->
+        <div id="basicMap" style="width:100%;height:350px;"></div>
+
+        <div class="panel text-left">
+          <h2>Search Local Businesses:</h2>
+          <input type="text" placeholder="keyword, name, address" />
+        </div>
+
+        <!-- Results and Sort By -->
+        <div class="row">
+          <div class="small-6 columns text-left">
+            <p>(17 Results)</p>
+          </div>
+          <div class="small-6 columns">
+            <!-- Inline label for select filter option -->
+            <div class="row">
+              <div class="small-6 columns">
+                <label for="sortBy" class="inline right">Sort By: </label>
+              </div>
+              <div class="small-6 columns">
+                <select id="sortBy">
+                  <option></option>
+                  <option value="selectName">name</option>
+                  <option value="selectDate">date</option>
+                  <option value="selectEtc">whatever</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-4 columns text-left">
+            <img src="img/logo.png"/>
+            <h3>Taylors Hardware</h3>
+            <h4>Norfolk, VA</h4>
+          </div>
+          <div class="small-4 columns text-left">
+            <img src="img/logo.png"/>
+            <h3>Taylors Hardware</h3>
+            <h4>Norfolk, VA</h4>
+          </div>
+          <div class="small-4 columns text-left">
+            <img src="img/logo.png"/>
+            <h3>Taylors Hardware</h3>
+            <h4>Norfolk, VA</h4>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-4 columns text-left">
+            <img src="img/logo.png"/>
+            <h3>Taylors Hardware</h3>
+            <h4>Norfolk, VA</h4>
+          </div>
+          <div class="small-4 columns text-left">
+            <img src="img/logo.png"/>
+            <h3>Taylors Hardware</h3>
+            <h4>Norfolk, VA</h4>
+          </div>
+          <div class="small-4 columns text-left">
+            <img src="img/logo.png"/>
+            <h3>Taylors Hardware</h3>
+            <h4>Norfolk, VA</h4>
+          </div>
+        </div>
+
+        <a href="#" class="button right">UP</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns">        
+        <p>Copyright 2014</p>
+      </div>
+      <div class="small-6 columns text-right">
+        <a href="#">HNY</a>  <a href="#">Retail Alliance</a>
+      </div>
+    </div>
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/OpenLayers.js"></script>
+    <style type="text/css">
+      html, body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+      }
+      .nav li {list-style: none;display: inline;}
+    </style>
+    <script>
+      function init() {
+        map = new OpenLayers.Map("basicMap");
+        var mapnik         = new OpenLayers.Layer.OSM();
+        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+        var position       = new OpenLayers.LonLat(13.41,52.52).transform( fromProjection, toProjection);
+        var zoom           = 15; 
+ 
+        map.addLayer(mapnik);
+        map.setCenter(position, zoom );
+      }
+    </script>
+  </head>
+  <body onload="init();">
+
+    <div class="row">
+      <div class="small-12 columns text-center">
+        
+        <a href="#" class="right">Local Business? Sign Up</a><br>
+        <img class="center" src="img/logo.png" />
+
+        <!-- Navigation -->
+        <ul class="nav">
+          <li><a href="#">Navigation</a></li>
+          <li><a href="#">Navigation</a></li>
+          <li><a href="#">Navigation</a></li>
+          <li><a href="#">Navigation</a></li>
+        </ul>
+
+        <!-- Return to search page -->
+        <a href="#" class="button left">Back To Search</a>
+
+        <!-- Business Name and Hard Break -->
+        <div class="row">
+          <div class="small-12 columns text-left">
+            <h1>A. Dodson's</h1>
+            <hr>
+            <h3>Category and Subcategories</h3>
+          </div>
+        </div>
+
+        <!-- Featured image and map -->
+        <div class="row">
+
+          <div class="small-8 columns">
+            <img src="img/logo.png" style="width:100%;height:300px;"/>
+          </div>
+          <div class="small-4 columns">
+            <!-- Feature Map -->
+            <div id="basicMap" style="width:100%;height:300px;"></div>
+          </div>
+
+        </div>
+
+        
+        <div class="row">
+          <!-- logo, blurb, reward -->
+          <div class="small-8 columns">
+
+            <div class="row">
+
+              <div class="small-6 columns">
+                <img src="img/logo.png" style="width:100%;height:200px;"/>
+              </div>
+
+              <div class="small-6 columns text-left">
+                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p>
+              </div>
+
+            </div><!-- end row -->
+
+            <!-- Current LoveVA Reward-->
+            <div class="panel text-left">
+              <h3>Current LoveVA Reward</h3>
+              <div class="row">
+
+                <div class="small-2 columns">
+                  <img src="img/plant1.jpeg" />
+                </div>
+
+                <div class="small-8 columns">
+                  <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system</p>
+                </div>
+
+                <div class="small-2 columns">
+                  <a href="#" class="button tiny">App Link</a>
+                  <a href="#" class="button tiny">App Link</a>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Social Media Buttons -->
+            <ul class="small-block-grid-6">
+              <!-- These are just placeholders for the final social media buttons -->
+              <li><img src="img/heart.png"/></li>
+              <li><img src="img/heart.png"/></li>
+              <li><img src="img/heart.png"/></li>
+              <li><img src="img/heart.png"/></li>
+              <li><img src="img/heart.png"/></li>
+              <li><img src="img/heart.png"/></li>
+            </ul>
+
+          </div> <!-- end small-8-->
+
+          <div class="small-4 columns">
+          <!-- ADDRESS -->
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="bAddress" class="right">Address</label>                
+              </div>
+              <div class="small-8 columns text-left">
+                <p id="bAddress">1234 Anywhere St<br>Norfolk, VA 23506</p>
+              </div>
+            </div>
+            <!-- Phone -->
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="bPhone" class="right">Phone</label>                
+              </div>
+              <div class="small-8 columns text-left">
+                <p id="bPhone">757-867-5309</p>
+              </div>
+            </div>
+            <!-- Website -->
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="bWebsite" class="right">Website</label>               
+              </div>
+              <div class="small-8 columns text-left">
+                <p id="bWebsite">www.ADodsons.com</p>
+              </div>
+            </div>
+            <!-- Hours -->
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="bHours" class="right">Hours M</label>               
+              </div>
+              <div class="small-8 columns text-left">
+                <p id="bHours">7:00 AM - 7:00 PM</p>
+              </div>
+            </div>
+            <!-- Hours -->
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="bHours" class="right">T</label>               
+              </div>
+              <div class="small-8 columns text-left">
+                <p id="bHours">7:00 AM - 7:00 PM</p>
+              </div>
+            </div>
+            <!-- Hours -->
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="bHours" class="right">W</label>               
+              </div>
+              <div class="small-8 columns text-left">
+                <p id="bHours">7:00 AM - 7:00 PM</p>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="bHours" class="right">T</label>               
+              </div>
+              <div class="small-8 columns text-left">
+                <p id="bHours">7:00 AM - 7:00 PM</p>
+              </div>
+            </div>
+            <!-- Hours -->
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="bHours" class="right">F</label>               
+              </div>
+              <div class="small-8 columns text-left">
+                <p id="bHours">7:00 AM - 7:00 PM</p>
+              </div>
+            </div>
+            <!-- Hours -->
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="bHours" class="right">Sa</label>               
+              </div>
+              <div class="small-8 columns text-left">
+                <p id="bHours">8:00 AM - 6:00 PM</p>
+              </div>
+            </div>
+            <!-- Hours -->
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="bHours" class="right">Su</label>               
+              </div>
+              <div class="small-8 columns text-left">
+                <p id="bHours">Closed</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns">        
+        <p>Copyright 2014</p>
+      </div>
+      <div class="small-6 columns text-right">
+        <a href="#">HNY</a>  <a href="#">Retail Alliance</a>
+      </div>
+    </div>
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+  </body>
+</html>

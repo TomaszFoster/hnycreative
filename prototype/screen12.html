@@ -1,0 +1,149 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <!-- You got a heart notification. top center image -->
+    <div class="row">
+
+      <div class="small-12 columns text-center">
+        <img src="img/gotHeart.png"/>
+      </div>
+
+    </div>
+
+    <!-- Social Sharing Buttons -->
+    <div class="row">
+
+      <div class="small-6 columns text-center">
+        <button class="button large" data-reveal-id="fbModal">Share On<br>Facebook</button>
+      </div>
+      <div class="small-6 columns text-center">
+        <button class="button large" data-reveal-id="twitterModal">Share On<br>Twitter</button>
+      </div>
+
+    </div>
+
+    <!-- Modal Windows For Social Media -->
+
+    <!-- Facebook modal window -->
+
+    <div id="fbModal" class="reveal-modal" data-reveal>
+
+      <div class="row">
+        <div class="small-12 columns">
+          <h2>Sign into Facebook</h2>
+          <input type="text" placeholder="username"/>
+          <input type="text" placeholder="password"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-6 columns">
+          <!-- link to close modal window -->
+          <!-- Foundations close-reveal-modal class has strange styling for buttons -->
+          <button class="close-reveal-modal">Cancel</button>
+        </div>
+        <div class="small-6 columns">
+          <!-- link to connect to facebook -->
+          <button class="button" data-reveal-id="fbShare">Connect</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Secondary Facebook Modal -->
+    
+    <div id="fbShare" class="reveal-modal" data-reveal>
+
+      <div class="row">
+        <div class="small-12 columns">
+          <h2>Share on Facebook</h2>
+          <p>Some random text that will be shared on Facebook</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-6 columns">
+          <!-- link to close modal window -->
+          <button class="button close-reveal-modal">Cancel</button>
+        </div>
+        <div class="small-6 columns">
+          <!-- link to share to facebook -->
+          <button class="button">Share</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Twitter Modal Window -->
+
+    <div id="twitterModal" class="reveal-modal" data-reveal>
+
+      <div class="row">
+        <div class="small-12 columns">
+          <h2>Sign into Twitter</h2>
+          <input type="text" placeholder="username"/>
+          <input type="text" placeholder="password"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-6 columns">
+          <!-- link to close modal window -->
+          <!-- Foundations close-reveal-modal class has strange styling for buttons -->
+          <button class="button close-reveal-modal">Cancel</button>
+        </div>
+        <div class="small-6 columns">
+          <!-- link to connect to twitter -->
+          <button class="button" data-reveal-id="twitterShare">Connect</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Secondary Twitter Modal -->
+
+    <div id="twitterShare" class="reveal-modal" data-reveal>
+
+      <div class="row">
+        <div class="small-12 columns">
+          <h2>Share on Twitter</h2>
+          <p>Some random text that will be shared on Twitter</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-6 columns">
+          <!-- link to close modal window -->
+          <button class="button close-reveal-modal">Cancel</button>
+        </div>
+        <div class="small-6 columns">
+          <!-- link to share to facebook -->
+          <button class="button">Share</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Return to dashboard button -->
+    <div class="row">
+
+      <div class="small-12 columns text-center">
+        <button class="button large">Return To Dashboard</button>
+      </div>
+
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
