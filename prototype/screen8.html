@@ -9,6 +9,7 @@
   <body>
 
     <!-- Registration and Login -->
+    <form>
     <div class="row">
       <div class="small-9 columns">
         <span>Registration</span>
@@ -31,7 +32,7 @@
         <label for="fName" class="inline">First Name:</span>
       </div>
       <div class="small-9 columns">
-        <input type="text" id="fName"/>
+        <input type="text" name="fName"/>
       </div>
     </div>
 
@@ -40,7 +41,7 @@
         <label for="lName" class="inline">Last Name:</span>
       </div>
       <div class="small-9 columns">
-        <input type="text" id="lName"/>
+        <input type="text" name="lName"/>
       </div>
     </div>
 
@@ -49,7 +50,7 @@
         <label for="eName" class="inline">Email:</span>
       </div>
       <div class="small-9 columns">
-        <input type="text" id="eName"/>
+        <input type="text" name="eName"/>
       </div>
     </div>
 
@@ -58,7 +59,7 @@
         <label for="passName" class="inline">Password:</span>
       </div>
       <div class="small-9 columns">
-        <input type="text" id="passName"/>
+        <input type="text" name="passName"/>
       </div>
     </div>
 
@@ -67,7 +68,7 @@
         <label for="confirmName" class="inline">Confirm:</span>
       </div>
       <div class="small-9 columns">
-        <input type="text" id="confirmName"/>
+        <input type="text" name="confirmName"/>
       </div>
     </div>
 
@@ -76,7 +77,7 @@
         <label for="add1" class="inline">Address:</span>
       </div>
       <div class="small-9 columns">
-        <input type="text" id="address1"/>
+        <input type="text" name="address1"/>
       </div>
     </div>
 
@@ -85,7 +86,7 @@
         <label for="addCity" class="inline">City:</span>
       </div>
       <div class="small-9 columns">
-        <input type="text" id="addCity"/>
+        <input type="text" name="addCity"/>
       </div>
     </div>
 
@@ -94,16 +95,56 @@
         <label for="addZip" class="inline">Zip:</span>
       </div>
       <div class="small-9 columns">
-        <input type="text" id="addZip"/>
+        <input type="text" name="addZip"/>
       </div>
     </div>
+    </form>
 
     <div class="row">
       <div class="small-12 columns">
-        <button class="button right">Save</button>
+        <button class="button right" onclick="sendAllVariables()">Save</button>
       </div>
     </div>
 
+    <script>
+      function sendAllVariables(){
+
+        $.fn.serializeObject = function()
+        {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+
+        var formData = $('form').serializeObject();
+
+        console.log(formData);
+
+        $.ajax({
+            url: "http://localhost/index8.php",
+            type: "POST",
+            data: formData,
+            dataType: "json",
+            success: function (jsonStr) {
+                console.log(jsonStr);
+            },
+            error: function(response) {
+                console.log(response);
+                console.log('Test failed!');                  
+            }
+        });  
+      }
+    </script>
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
