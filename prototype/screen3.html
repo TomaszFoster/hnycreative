@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body>
+  <body onload="getUserInfo()">
 
     <form>  
     <div class="row">
@@ -347,22 +347,23 @@
               document.write("<div class='small-6 columns'>");
               if (k==1){
                 document.write("<select class='openTime' name='"+ dayOfWeek+k+"'>");
-                document.write("<option>closed</option>");
+                document.write("<option value='closed'>closed</option>");
               }else{
                 document.write("<select class='closeTime' name='"+ dayOfWeek+k+"'>");
-                document.write("<option></option>");
+                document.write("<option value=''></option>");
               }
               for (var i=1; i <=8; i++)
               {
                 openTime+=1;
-                document.write("<option>" + openTime + ":00 AM</option>");
-                document.write("<option>" + openTime + ":" + increment + " AM</option>");
+                document.write("<option value='"+openTime+"00'>" + openTime + ":00 AM</option>");
+                document.write("<option value='"+openTime+increment+"'>" + openTime + ":" + increment + " AM</option>");
               }
               var openTime = 1;
               for (var i=1; i <=10; i++)
               {
-                document.write("<option>" + openTime + ":00 PM</option>");
-                document.write("<option>" + openTime + ":" + increment + " PM</option>");
+                var displayTime = openTime + 12;
+                document.write("<option value='"+displayTime+"00'>" + openTime + ":00 PM</option>");
+                document.write("<option value='"+displayTime+""+increment+"'>" + openTime + ":" + increment + " PM</option>");
                 openTime+=1;
               }
               document.write("</select>");
@@ -384,7 +385,7 @@
         			<label for="bLastVisit" class="right inline">Last Visit</label>
         		</div>
         		<div class="small-9 columns">
-          			<input type="text" name="bLastvisit"/>
+          			<input type="text" name="bLastVisit"/>
           		</div>
         	</div>
 
@@ -465,6 +466,38 @@
             }
         });  
       }
+
+      function getUserInfo(){
+
+        $.ajax({
+            url: "http://localhost/getBusinessInfo.php",
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                //console.log("success");
+                populateInfo(response);
+            },
+            error: function(response) {
+                console.log(response);
+                console.log('Test failed!');                  
+            }
+        }); 
+      }
+
+      function populateInfo(incomingJson){
+        jsonInfo = incomingJson['11782'];
+        for(a in jsonInfo){
+          $("input[name='"+a+"']").val(jsonInfo[a]);
+          $("textarea[name='bDescription']").val(jsonInfo['bDescription']);
+          $("textarea[name='bRewardDetail']").val(jsonInfo['bRewardDetail']);
+          $('select[name="'+a+'"] option[value="'+jsonInfo[a]+'"]').prop('selected', true);
+          
+          //console.log(jsonInfo[a]);
+        }
+        console.log("success!");
+      }
+
+
     </script>
 
     <!-- Save Button -->

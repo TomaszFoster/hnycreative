@@ -11,7 +11,7 @@
     <!-- Back Button -->
     <div class="row">
       <div class="small-12 columns">
-        <a href="#" class="button">Back</a>
+        <button class="button" onclick="history.back();">Back</button>
         <hr> <!-- page break -->
       </div>
     </div>
@@ -21,15 +21,15 @@
         <img src="img/logo.png"/>
       </div>
       <div class="small-8 columns">
-        <h2>Business Detail</h2>
-        <h3>Categories</h3>
+        <h2 class="bDescription">Business Detail</h2>
+        <h3 class="bCategories"></h3>
         <p>Some random information about the business</p>
       </div>
     </div>
 
     <div class="row">
       <div class="small-12 columns">
-        <img src="img/logo.png" style="width:100%;"/>
+        <img class="bLogo" style="width:100%;"/>
         <p>Some random information about the business<br>
         I would put some lorem ipsum but I'm getting sick of latin<br>
         and frankly I'm sure you are as well. It's a dead language<br>
@@ -42,9 +42,8 @@
         <h2>Address</h2>
       </div>
       <div class="small-8 columns">
-        <p>123 Anywhere St<br>
-        Norfolk, VA 12345</p>
-        <a href="#" class="button right">Open in Maps</a>
+        <p class="bFullAddress"></p>
+        <a class="button right bDirections">Open in Maps</a>
       </div>
     </div>
 
@@ -53,8 +52,8 @@
         <h2>Phone:</h2>
       </div>
       <div class="small-8 columns">
-        <p>757-867-5309</p>
-        <a href="#" class="button right">Call Now</a>
+        <p class="bPhone"></p>
+        <a href="#" class="button right bPhoneCall">Call Now</a>
       </div>
     </div>
 
@@ -63,7 +62,7 @@
         <h2>Website:</h2>
       </div>
       <div class="small-8 columns">
-        <a href="http://news.ycombinator.com/">www.BusinessWebsite.com</a>
+        <a class="bWebsite"></a>
       </div>
     </div>
 
@@ -83,6 +82,35 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+
+      $.ajax({
+          url: "http://localhost/getBusinessInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            //console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      });
+
+      function populateInfo(incomingJson){
+        //console.log(incomingJson);
+        jsonInfo = incomingJson['11782'];
+        $('.bLogo').attr("src",jsonInfo['bLogo']);
+        $('.bWebsite').attr("href",jsonInfo['bWebsite']);
+        $('.bWebsite').html(jsonInfo['bWebsite'].substr(7));
+        $('.bPhone').html(jsonInfo['bPhone']);
+        $('.bPhoneCall').attr("href", "tel:"+jsonInfo['bPhone']);
+        $('.bDirections').attr("href", jsonInfo['bDirections']);
+        $('.bFullAddress').html(jsonInfo['bAddress']+"<br>"+jsonInfo['bCity']+", "+jsonInfo['bState']+
+          " "+jsonInfo['bZip']);
+        $('.bCategories').html(jsonInfo['bCategory']+" | "+jsonInfo['bSubCat1']+
+          " | "+jsonInfo['bSubCat2']+" | "+jsonInfo['bSubCat3']);
+      }
     </script>
   </body>
 </html>

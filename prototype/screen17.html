@@ -17,8 +17,8 @@
           </section>
 
           <section class="middle tab-bar-section">
-            <a href="#">Listing</a>
-            <a href="#">Map</a>
+            <a href="screen17.html">Listing</a>
+            <a href="screen20.html">Map</a>
           </section>
 
           <!-- Right side navigation for search-->
@@ -32,11 +32,11 @@
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
             <li><a href="#">Scan A Purchase</a></li>
-            <li><a href="#">Your Badges</a></li>
-            <li><a href="#">Find A Business</a></li>
+            <li><a href="screen24.html">Your Badges</a></li>
+            <li><a href="screen17.html">Find A Business</a></li>
             <li><a href="#">Find Nearby</a></li>
-            <li><a href="#">Browse Rewards</a></li>
-            <li><a href="#">User Settings</a></li>
+            <li><a href="screen22.html">Browse Rewards</a></li>
+            <li><a href="screen25.html">User Settings</a></li>
           </ul>
         </aside>
 
@@ -80,59 +80,60 @@
             <!-- main content goes here -->
             <div class="row">
               <div class="small-3 columns text-centered">
-                <img src="img/logo.png"/>
+                <img class="bLogo"/>
               </div>
               <div class="small-9 columns">
-                <h3>Business Name</h3>
-                <h3>Norfolk, VA (2 miles)</h3>
-                <h3>Reward Headline Here</h3>
+                <h3 class="bName"></h3>
+                <h3 class="bLocation"></h3>
+                <h3 class="bReward"></h3>
               </div>
             </div>
             <hr>
-            <div class="row">
-              <div class="small-3 columns text-centered">
-                <img src="img/logo.png"/>
-              </div>
-              <div class="small-9 columns">
-                <h3>Business Name</h3>
-                <h3>Norfolk, VA (2 miles)</h3>
-                <h3>Reward Headline Here</h3>
-              </div>
-            </div>
 
-            <hr>
             <div class="row">
               <div class="small-3 columns text-centered">
-                <img src="img/logo.png"/>
+                <img class="bLogo"/>
               </div>
               <div class="small-9 columns">
-                <h3>Business Name</h3>
-                <h3>Norfolk, VA (2 miles)</h3>
-                <h3>Reward Headline Here</h3>
+                <h3 class="bName"></h3>
+                <h3 class="bLocation"></h3>
+                <h3 class="bReward"></h3>
               </div>
             </div>
-
             <hr>
+
             <div class="row">
               <div class="small-3 columns text-centered">
-                <img src="img/logo.png"/>
+                <img class="bLogo"/>
               </div>
               <div class="small-9 columns">
-                <h3>Business Name</h3>
-                <h3>Norfolk, VA (2 miles)</h3>
-                <h3>Reward Headline Here</h3>
+                <h3 class="bName"></h3>
+                <h3 class="bLocation"></h3>
+                <h3 class="bReward"></h3>
               </div>
             </div>
-
             <hr>
+
             <div class="row">
               <div class="small-3 columns text-centered">
-                <img src="img/logo.png"/>
+                <img class="bLogo"/>
               </div>
               <div class="small-9 columns">
-                <h3>Business Name</h3>
-                <h3>Norfolk, VA (2 miles)</h3>
-                <h3>Reward Headline Here</h3>
+                <h3 class="bName"></h3>
+                <h3 class="bLocation"></h3>
+                <h3 class="bReward"></h3>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="small-3 columns text-centered">
+                <img class="bLogo"/>
+              </div>
+              <div class="small-9 columns">
+                <h3 class="bName"></h3>
+                <h3 class="bLocation"></h3>
+                <h3 class="bReward"></h3>
               </div>
             </div>
 
@@ -149,6 +150,35 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+      $.ajax({
+          url: "http://localhost/getBusinessInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      function populateInfo(incomingJson){
+        //console.log(incomingJson);
+        var i = 0;
+        for(a in incomingJson){
+          jsonInfo = incomingJson[a];
+          console.log(jsonInfo);
+
+          $('.bName:eq('+i+')').html(jsonInfo['bName']);
+          $('.bLocation:eq('+i+')').html(jsonInfo['bCity']+', '+jsonInfo['bState']+" (2 Miles)");
+          $('.bLogo:eq('+i+')').attr("src",jsonInfo['bLogo']);
+          $('.bReward:eq('+i+')').html(jsonInfo['bReward']);
+
+          i++;
+        }
+      }
     </script>
   </body>
 </html>

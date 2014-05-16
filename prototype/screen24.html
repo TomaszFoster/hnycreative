@@ -15,43 +15,60 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <ul class="small-block-grid-3">
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
+    <div class="heart-display">
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <ul class="small-block-grid-3">
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+          </ul>
+        </div>
       </div>
+
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <ul class="small-block-grid-3">
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <ul class="small-block-grid-3">
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <ul class="small-block-grid-3">
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <ul class="small-block-grid-3">
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+            <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/displayNoHeart.png"/></a></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
 
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <ul class="small-block-grid-3">
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <ul class="small-block-grid-3">
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <ul class="small-block-grid-3">
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-      </div>
-    </div>
-
-
+    <!-- data-reveal-id="heartModal" data-reveal -->
 
     <!-- Modal window for detail view -->
     <div id="heartModal" class="reveal-modal" data-reveal>
@@ -77,6 +94,34 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+
+      $.ajax({
+          url: "http://localhost/getUserInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            //console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      function populateInfo(incomingJson){
+        console.log(incomingJson);
+        
+        var badgeCount = incomingJson['numberOfHearts'];
+
+        for(i=0;i<badgeCount;i++){
+          //console.log(jsonInfo);
+          $('.heart-display img:eq('+i+')').attr( "src", "img/displayHeart.png");
+          $('.heart-display a:eq('+i+')').attr('data-reveal-id', 'heartModal');
+          $('.heart-display a:eq('+i+')').removeAttr("disabled").removeAttr("style");
+          
+        }
+      }
     </script>
   </body>
 </html>

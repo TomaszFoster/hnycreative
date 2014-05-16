@@ -7,7 +7,7 @@
     <script src="js/vendor/modernizr.js"></script>
     
   </head>
-  <body onload="init();">
+  <body>
 
     <!-- OffCanvas Menu / Navigation -->
     <div class="off-canvas-wrap" data-offcanvas>
@@ -33,11 +33,11 @@
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
             <li><a href="#">Scan A Purchase</a></li>
-            <li><a href="#">Your Badges</a></li>
-            <li><a href="#">Find A Business</a></li>
+            <li><a href="screen24.html">Your Badges</a></li>
+            <li><a href="screen17.html">Find A Business</a></li>
             <li><a href="#">Find Nearby</a></li>
-            <li><a href="#">Browse Rewards</a></li>
-            <li><a href="#">User Settings</a></li>
+            <li><a href="screen22.html">Browse Rewards</a></li>
+            <li><a href="screen25.html">User Settings</a></li>
           </ul>
         </aside>
 
@@ -83,69 +83,60 @@
             <!-- main content goes here -->
             <div class="row">
               <div class="small-9 columns text-center">
-                <h2>Reward Headline</h2>
-                <h3>Business Name Here</h3>
+                <h2 class="bReward"></h2>
+                <h3 class="bName"></h3>
               </div>
               <div class="small-3 columns">
-                <img src="img/logo.png" />
+                <a class="button large bGetReward" disabled="disabled">Get Reward </a>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="small-9 columns text-center">
+                <h2 class="bReward"></h2>
+                <h3 class="bName"></h3>
+              </div>
+              <div class="small-3 columns">
+                <a class="button large bGetReward" disabled="disabled">Get Reward </a>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="small-9 columns text-center">
+                <h2 class="bReward"></h2>
+                <h3 class="bName"></h3>
+              </div>
+              <div class="small-3 columns">
+                <a class="button large bGetReward" disabled="disabled">Get Reward </a>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="small-9 columns text-center">
+                <h2 class="bReward"></h2>
+                <h3 class="bName"></h3>
+              </div>
+              <div class="small-3 columns">
+                <a class="button large bGetReward" disabled="disabled">Get Reward </a>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="small-9 columns text-center">
+                <h2 class="bReward"></h2>
+                <h3 class="bName"></h3>
+              </div>
+              <div class="small-3 columns">
+                <a class="button large bGetReward" disabled="disabled">Get Reward </a>
               </div>
             </div>
             <hr>
             
-            <div class="row">
-              <div class="small-9 columns text-center">
-                <h2>Reward Headline</h2>
-                <h3>Business Name Here</h3>
-              </div>
-              <div class="small-3 columns">
-                <img src="img/logo.png" />
-              </div>
-            </div>
-            <hr>
-            
-            <div class="row">
-              <div class="small-9 columns text-center">
-                <h2>Reward Headline</h2>
-                <h3>Business Name Here</h3>
-              </div>
-              <div class="small-3 columns">
-                <img src="img/logo.png" />
-              </div>
-            </div>
-            <hr>
-            
-            <div class="row">
-              <div class="small-9 columns text-center">
-                <h2>Reward Headline</h2>
-                <h3>Business Name Here</h3>
-              </div>
-              <div class="small-3 columns">
-                <img src="img/logo.png" />
-              </div>
-            </div>
-            <hr>
-            
-            <div class="row">
-              <div class="small-9 columns text-center">
-                <h2>Reward Headline</h2>
-                <h3>Business Name Here</h3>
-              </div>
-              <div class="small-3 columns">
-                <img src="img/logo.png" />
-              </div>
-            </div>
-            <hr>
-            
-            <div class="row">
-              <div class="small-9 columns text-center">
-                <h2>Reward Headline</h2>
-                <h3>Business Name Here</h3>
-              </div>
-              <div class="small-3 columns">
-                <img src="img/logo.png" />
-              </div>
-            </div>
-            <hr>
+           
             
           <!-- close the off-canvas menu -->
         </section>
@@ -155,13 +146,40 @@
       </div>
     </div>
 
-
-
-
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+
+      $.ajax({
+          url: "http://localhost/getBusinessInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            //console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      });
+
+      function populateInfo(incomingJson){
+        //console.log(incomingJson);
+        var i = 0;
+        for(a in incomingJson){
+          jsonInfo = incomingJson[a];
+          console.log(jsonInfo);
+          $('.bName:eq('+i+')').html(jsonInfo['bName']);
+          $('.bGetReward:eq('+i+')').attr("href",jsonInfo['bGetReward']);
+          $('.bGetReward:eq('+i+')').removeAttr('disabled');
+          $('.bReward:eq('+i+')').html(jsonInfo['bReward']);
+          i++;
+          
+        }
+      }
+
     </script>
   </body>
 </html>

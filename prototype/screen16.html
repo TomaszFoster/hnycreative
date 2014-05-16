@@ -17,11 +17,11 @@
 
     <div class="row">
       <div class="small-12 columns text-center">
-        <img src="img/plant1.jpeg" />
-        <h2>FREE 6 inch Potted Plant</h2>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        <h3>Taylor Hardware - <a href="#" class="button">Now Open!</a></h3>
-        <a href="#" class="button large">Get Directions</a><br>
+        <img class="bRewardImage" src="img/small.png" />
+        <h2 class="bReward"></h2>
+        <p class="bRewardDetail"></p>
+        <h3 class="bName"></h3><a href="#" class="button">Now Open!</a>
+        <a href="#" class="button large bDirections">Get Directions</a><br>
         <a href="#" class="button large">Store Details</a>
       </div>
     </div>
@@ -30,6 +30,33 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+
+      $.ajax({
+          url: "http://localhost/getBusinessInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            //console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      function populateInfo(incomingJson){
+          console.log(incomingJson);
+          jsonInfo = incomingJson['11782'];
+          $('.bName').html(jsonInfo['bName']);
+          $('.bReward').html(jsonInfo['bReward']);
+          $('.bRewardDetail').html(jsonInfo['bRewardDetail']);
+          $('.bRewardImage').attr("src", jsonInfo['bRewardImage']);
+          //$('.latestBadgeLocation').html(jsonInfo['latestBadgeLocation']);
+          $('.bDirections').attr("href", jsonInfo['bDirections']);
+          
+      }
+      
     </script>
   </body>
 </html>

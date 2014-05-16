@@ -23,28 +23,38 @@
     </div>
 
     <!-- Login Information -->
-    <div class="row">
-      <div class="small-12 columns">
-        <input type="text" id="eMailInput" placeholder="email"/>
+    <form>
+      <div class="row">
+        <div class="small-12 columns">
+          <input type="text" name="emailInput" placeholder="email"/>
+        </div>
       </div>
-    </div>
+
+      <div class="row">
+        <div class="small-12 columns">
+          <input type="password" name="passInput" placeholder="password"/>
+        </div>
+      </div>
+    </form>
 
     <div class="row">
-      <div class="small-12 columns">
-        <input type="text" id="passInput" placeholder="password"/>
+      <div class="small-12 columns text-center">
+        <button class="button large" onclick="sendAllVariables()">LOGIN</button>
       </div>
     </div>
 
     <div class="row">
       <div class="small-12 columns text-center">
-        <button class="button large">LOGIN</button>
+        <p>New User? <a href="/screen8.html">Register Now</a></p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <p>New User? <a href="#">Register Now</a></p>
-      </div>
+    <!-- Here is the alert modal for when the password or email is incorrect -->
+    <div id="myModal" class="reveal-modal" data-reveal>
+      <h2>Woops!</h2>
+      <p class="lead">Your email or password are incorrect.</p>
+      <p>Don't give up!</p>
+      <a class="close-reveal-modal">&#215;</a>
     </div>
 
     
@@ -52,6 +62,47 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+      function sendAllVariables(){
+
+        $.fn.serializeObject = function()
+        {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+
+        var formData = $('form').serializeObject();
+
+        console.log(formData);
+
+        $.ajax({
+            url: "http://localhost/userAuthenticate.php",
+            type: "POST",
+            data: formData,
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+                if (response == "success"){
+                  window.location.href = 'screen10.html';
+                }else{
+                  $('#myModal').foundation('reveal', 'open');  
+                }
+            },
+            error: function(response) {
+                console.log(response);
+            }
+        });  
+    }
     </script>
   </body>
 </html>

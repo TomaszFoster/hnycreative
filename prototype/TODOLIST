@@ -1,0 +1,58 @@
+screen1
+- logo and image uploads
+
+screen2
+-make print qr code goes to a new php page. send the two store ids, probably just use a form submit and not a jquery
+-play around with the making the header links sortable
+-if you get the header links sortable, scrap the sort drop down
+
+screen5
+-if a storeID is passed into the URL, hide the storeID input and pass in the url
+
+http://retail.com/screen5.html?storeid=234234
+"don't have a qr reader? go to this url in your browser: 
+http://retail.com/screen5.html
+
+then type in: 234234
+
+screen12
+- play with the facebook api for logging in
+- play with the twitter api for logging in
+
+screen15
+- make the scroller thing a json array
+- make the buttons clickable
+- make the potted plant clickable
+- check if the slider is swipeable
+
+screen16
+- make the now open dynamic based on the store hours.
+- make it either say "now open" or "now closed"
+
+
+initial app loadup
+- store a local variable on the phone of "DateLastUpdated" send that date to the server
+have the php sample file send back a list of businesses that the phone is missing.
+- to test this have a JS object on the phone with a single business, then have a php object with 2 businesses. Send the date to the server and have the json packet sent to the phone contain ONLY the missing business. Then update the phone packet with the updated businesses.
+
+screen17b
+-make the list of categories dynamic from the server. make it only download the list of categories when the app is initially loaded, similar to downloading the businesses
+-make the filter work.
+
+screen 20
+- display markers on the map
+- filter the markers based on the popout filter
+
+screen 21
+- play with the facebook api. Once you're logged in, have a popup for sharing
+- play with the twitter api. once you're logged in, have a popup for sharing
+
+screen 22
+- only show the get reward button if they have 10 hearts
+
+screen 24
+- make the facebook and twitter links work like screen 21
+- make the badges an array from the server
+
+screen25 
+- make the facebook and twitter settings work

@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
+    
   </head>
   <body>
 
     <div class="row">
       <div class="small-6 columns">
         <!-- New Business / QR / Sort Button -->
-        <button class="button small" id="newBusiness">+ New Business</button>
-        <button class="button small" id="printQR">Print QR</button>
+        <a href="/screen1.html" class="button small" id="newBusiness">+ New Business</a>
+        <a href="#" class="button small" id="printQR">Print QR</a>
       </div>
       <div class="small-6 columns">
         <div class="small-3 columns">
@@ -49,40 +50,44 @@
 
         <div class="small-6 columns">
           <div class="small-1 columns">
-            <input type="checkbox"/>
+            <input class="bCheckbox" type="checkbox" disabled="disabled"/>
           </div>
           <div class="small-11 columns">
-            <p>A. Dodsons<br>1217 Colley Ave</p>
+            <p class="bName"></p>
+            <p class="bAddress"></p>
+            <p class="bAddress2"></p>
           </div>
         </div>
         <div class="small-2 columns">
-          <p>Pending</p>
+          <p class="bStatus"></p>
         </div>
         <div class="small-2 columns">
-          <p>4/17/2014</p>
+          <p class="bLastVisit"></p>
         </div>
         <div class="small-2 columns">
-          <p>4/21/2014</p>
+          <p class="bNextVisit"></p>
         </div>
 
         <hr>
 
         <div class="small-6 columns">
           <div class="small-1 columns">
-            <input type="checkbox"/>
+            <input class="bCheckbox" type="checkbox" disabled="disabled"/>
           </div>
           <div class="small-11 columns">
-            <p>The Ten Top<br>1217 Colley Ave<br>Address Line 2</p>
+            <p class="bName"></p>
+            <p class="bAddress"></p>
+            <p class="bAddress2"></p>
           </div>
         </div>
         <div class="small-2 columns">
-          <p>Active</p>
+          <p class="bStatus"></p>
         </div>
         <div class="small-2 columns">
-          <p>4/17/2014</p>
+          <p class="bLastVisit"></p>
         </div>
         <div class="small-2 columns">
-          <p>4/21/2014</p>
+          <p class="bNextVisit"></p>
         </div>
 
         <hr>
@@ -91,40 +96,44 @@
 
         <div class="small-6 columns">
           <div class="small-1 columns">
-            <input type="checkbox" disabled="disabled" />
+            <input class="bCheckbox" type="checkbox" disabled="disabled"/>
           </div>
           <div class="small-11 columns">
-            <p></p>
+            <p class="bName"></p>
+            <p class="bAddress"></p>
+            <p class="bAddress2"></p>
           </div>
         </div>
         <div class="small-2 columns">
-          <p></p>
+          <p class="bStatus"></p>
         </div>
         <div class="small-2 columns">
-          <p></p>
+          <p class="bLastVisit"></p>
         </div>
         <div class="small-2 columns">
-          <p></p>
+          <p class="bNextVisit"></p>
         </div>
 
         <hr>
 
         <div class="small-6 columns">
           <div class="small-1 columns">
-            <input type="checkbox" disabled="disabled" />
+            <input class="bCheckbox" type="checkbox" disabled="disabled"/>
           </div>
           <div class="small-11 columns">
-            <p></p>
+            <p class="bName"></p>
+            <p class="bAddress"></p>
+            <p class="bAddress2"></p>
           </div>
         </div>
         <div class="small-2 columns">
-          <p></p>
+          <p class="bStatus"></p>
         </div>
         <div class="small-2 columns">
-          <p></p>
+          <p class="bLastVisit"></p>
         </div>
         <div class="small-2 columns">
-          <p></p>
+          <p class="bNextVisit"></p>
         </div>
 
         <hr>
@@ -148,12 +157,42 @@
 
       </div>
     </div>
-          
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+      $.ajax({
+          url: "http://localhost/getBusinessInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      function populateInfo(incomingJson){
+            //console.log(incomingJson);
+            var i = 0;
+            for(a in incomingJson){
+              jsonInfo = incomingJson[a];
+              console.log(jsonInfo);
+              $('.bCheckbox:eq('+i+')').removeAttr("disabled");
+              $('.bName:eq('+i+')').html(jsonInfo['bName']);
+              $('.bAddress:eq('+i+')').html(jsonInfo['bAddress']);
+              $('.bAddress2:eq('+i+')').html(jsonInfo['bAddress2']);
+              $('.bLastVisit:eq('+i+')').html(jsonInfo['bLastVisit']);
+              $('.bNextVisit:eq('+i+')').html(jsonInfo['bNextVisit']);
+              $('.bStatus:eq('+i+')').html(jsonInfo['bStatus']);
+
+              i++;
+            }
+          }
     </script>
   </body>
 </html>
