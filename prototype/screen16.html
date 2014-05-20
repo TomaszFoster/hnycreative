@@ -20,7 +20,7 @@
         <img class="bRewardImage" src="img/small.png" />
         <h2 class="bReward"></h2>
         <p class="bRewardDetail"></p>
-        <h3 class="bName"></h3><a href="#" class="button">Now Open!</a>
+        <h3 class="bName"></h3><button id="storeHourDisplay" class="button">Closed</button>
         <a href="#" class="button large bDirections">Get Directions</a><br>
         <a href="#" class="button large">Store Details</a>
       </div>
@@ -46,7 +46,7 @@
       }); 
 
       function populateInfo(incomingJson){
-          console.log(incomingJson);
+          //console.log(incomingJson);
           jsonInfo = incomingJson['11782'];
           $('.bName').html(jsonInfo['bName']);
           $('.bReward').html(jsonInfo['bReward']);
@@ -54,8 +54,46 @@
           $('.bRewardImage').attr("src", jsonInfo['bRewardImage']);
           //$('.latestBadgeLocation').html(jsonInfo['latestBadgeLocation']);
           $('.bDirections').attr("href", jsonInfo['bDirections']);
-          
+          compareDate(jsonInfo);
       }
+
+      // here we compare todays date and time against store hours
+      function compareDate(jsonInfo){
+        var d = new Date();
+        var day = d.getDay();
+        var dayOfWeek;
+        switch (day){
+          case 0:
+              dayOfWeek = "Sunday";
+              break;
+          case 1:
+            dayOfWeek = "Monday";
+            break;
+          case 2:
+            dayOfWeek = "Tuesday";
+            break;
+          case 3:
+            dayOfWeek = "Wednesday";
+            break;
+          case 4:
+            dayOfWeek = "Thursday";
+            break;
+          case 5:
+            dayOfWeek = "Friday";
+            break;
+          case 6:
+            dayOfWeek = "Saturday";
+            break;
+        }
+
+        var hours = d.getHours();
+        var minutes = d.getMinutes();
+        var currentTime=(hours*100)+minutes;
+        if(currentTime>=jsonInfo[dayOfWeek+'1']&&currentTime<=jsonInfo[dayOfWeek+'2']){
+          $('#storeHourDisplay').html('Now Open!');
+        }
+      }
+      
       
     </script>
   </body>

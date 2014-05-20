@@ -13,7 +13,7 @@
       <div class="small-6 columns">
         <!-- New Business / QR / Sort Button -->
         <a href="/screen1.html" class="button small" id="newBusiness">+ New Business</a>
-        <a href="#" class="button small" id="printQR">Print QR</a>
+        <button href="#" class="button small" id="printQR" onclick="sendQR()">Print QR</button>
       </div>
       <div class="small-6 columns">
         <div class="small-3 columns">
@@ -50,7 +50,7 @@
 
         <div class="small-6 columns">
           <div class="small-1 columns">
-            <input class="bCheckbox" type="checkbox" disabled="disabled"/>
+            <input class="bCheckbox" type="checkbox" disabled="disabled" id="firstCheck"/>
           </div>
           <div class="small-11 columns">
             <p class="bName"></p>
@@ -162,37 +162,67 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+      var objectCount = 0;
       $.ajax({
           url: "http://localhost/getBusinessInfo.php",
           type: "GET",
           dataType: "json",
           success: function (incomingJson) {
-            console.log(incomingJson);
+            //console.log(incomingJson);
             populateInfo(incomingJson);
+            
           },
           error: function(response) {
               console.log(response);
               console.log('Test failed!');                  
           }
-      }); 
+      });       
 
       function populateInfo(incomingJson){
-            //console.log(incomingJson);
-            var i = 0;
-            for(a in incomingJson){
-              jsonInfo = incomingJson[a];
-              console.log(jsonInfo);
-              $('.bCheckbox:eq('+i+')').removeAttr("disabled");
-              $('.bName:eq('+i+')').html(jsonInfo['bName']);
-              $('.bAddress:eq('+i+')').html(jsonInfo['bAddress']);
-              $('.bAddress2:eq('+i+')').html(jsonInfo['bAddress2']);
-              $('.bLastVisit:eq('+i+')').html(jsonInfo['bLastVisit']);
-              $('.bNextVisit:eq('+i+')').html(jsonInfo['bNextVisit']);
-              $('.bStatus:eq('+i+')').html(jsonInfo['bStatus']);
+        //console.log(incomingJson);
+        var i = 0;
+        for(a in incomingJson){
+          objectCount++;
+          jsonInfo = incomingJson[a];
+          //console.log(jsonInfo);
+          $('.bCheckbox:eq('+i+')').removeAttr("disabled");
+          $('.bCheckbox:eq('+i+')').attr("value",a);
+          $('.bName:eq('+i+')').html(jsonInfo['bName']);
+          $('.bAddress:eq('+i+')').html(jsonInfo['bAddress']);
+          $('.bAddress2:eq('+i+')').html(jsonInfo['bAddress2']);
+          $('.bLastVisit:eq('+i+')').html(jsonInfo['bLastVisit']);
+          $('.bNextVisit:eq('+i+')').html(jsonInfo['bNextVisit']);
+          $('.bStatus:eq('+i+')').html(jsonInfo['bStatus']);
+          i++;
+        }
+      }
 
-              i++;
-            }
+      function sendQR(){
+        var checkArray = [];
+        for (i=0;i<objectCount;i++){ 
+          if( $('.bCheckbox:eq('+i+'):checked').val()?true:false ){
+            checkArray.push( $('.bCheckbox:eq('+i+')').val() );
           }
+        }
+
+        console.log(checkArray);
+
+        $.ajax({
+            url: "http://localhost/printQR.php",
+            type: "POST",
+            data:  { 'QRToPrint': checkArray },
+            dataType: "json",
+            success: function (jsonStr) {
+                console.log(jsonStr);
+            },
+            error: function(response) {
+                console.log(response);
+                console.log('Test failed!');                  
+            }
+        }); 
+      }
+
+
     </script>
   </body>
 </html>

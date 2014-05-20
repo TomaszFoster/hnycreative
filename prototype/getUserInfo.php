@@ -9,6 +9,7 @@
 
     // here is an array of all the information that we send as JSON to the app
     $userInfo = array(
+    	'lastUpdated' => '20131220',
 	    'userName' => 'Jason1411',
 	    'firstName' => 'Weyland',
 	    'lastName' => 'Yutani',

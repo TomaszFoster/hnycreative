@@ -428,9 +428,41 @@
     </div>
     </form>
 
+    <!-- Save Button -->
+    <button class="button" onclick="sendAllVariables()">Save</button>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
     <script>
+      $(document).foundation();
+
+      /* 
+      * Here is the code to save the last updated date to localstorage
+      * We save the date in YYYYMMDD format as it's the easiest to compare to
+      */
+
+      //instantiate a new date object
+      var d = new Date();
+      // get date in YYYYMMDD format
+      var fullDate = (d.getFullYear()*10000)+((d.getMonth()+1)*100)+d.getDate();
+      //save to localstorage as lastUpdated
+      window.localStorage.setItem( 'lastUpdated', JSON.stringify(fullDate));
+      //output localstorage contents to console
+      //console.log(window.localStorage);
+
+      /*
+      * End of code to save last updated date
+      */
+
+      /*
+      * Function to send all the variables on the form once button is clicked
+      */
       function sendAllVariables(){
 
+        /* 
+        * this array is needed to get the values of all the form inputs given an
+        * identifier input
+        */
         $.fn.serializeObject = function()
         {
             var o = {};
@@ -448,10 +480,11 @@
             return o;
         };
 
+        // use previous function to read all form elements
         var formData = $('form').serializeObject();
-
-        console.log(formData);
-
+        /* now we send the form data as an ajax packet
+        * to a php server which processes the data on the back end
+        */
         $.ajax({
             url: "http://localhost/index3.php",
             type: "POST",
@@ -467,14 +500,19 @@
         });  
       }
 
+      /*
+      * Get all the information about the business to populate the form
+      * send last updated timestamp from localstorage to compare and see
+      * which business information we need to get back
+      */
       function getUserInfo(){
-
         $.ajax({
             url: "http://localhost/getBusinessInfo.php",
             type: "GET",
+            data: {'lastUpdated':window.localStorage['lastUpdated']},
             dataType: "json",
             success: function (response) {
-                //console.log("success");
+                console.log(response);
                 populateInfo(response);
             },
             error: function(response) {
@@ -484,6 +522,10 @@
         }); 
       }
 
+      /* 
+      * populate the form with business information for a particular business
+      * in this case being one with storeID 11782
+      */
       function populateInfo(incomingJson){
         jsonInfo = incomingJson['11782'];
         for(a in jsonInfo){
@@ -491,22 +533,9 @@
           $("textarea[name='bDescription']").val(jsonInfo['bDescription']);
           $("textarea[name='bRewardDetail']").val(jsonInfo['bRewardDetail']);
           $('select[name="'+a+'"] option[value="'+jsonInfo[a]+'"]').prop('selected', true);
-          
-          //console.log(jsonInfo[a]);
         }
         console.log("success!");
       }
-
-
-    </script>
-
-    <!-- Save Button -->
-    <button class="button" onclick="sendAllVariables()">Save</button>
-    
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
     </script>
   </body>
 </html>

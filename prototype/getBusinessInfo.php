@@ -7,12 +7,11 @@
     header('Content-type: application/json');
 
 
-    //return array of zero items if the date last updated 
+    // return array of zero items if the date last updated 
     // here is an array of all the information that we send as JSON to the app
     $businessInfo = array(
     	'11782' => array(
-    		'lastUpdatedDate' => '3/31/2014', // add this to all businesses and compare against phone data
-    		'storeID' => '73028', // use this as PRIMARY key in table
+    		'lastUpdatedDate' => '20150112',
 		    'bName' => 'Weyland-Yutani',
 		    'bDescription' => 'Cybernetic Organisms',
 		    'bWebsite' => 'http://www.Weyland-Yutani.com',
@@ -48,7 +47,7 @@
 			'Sunday1' => '900',
 			'Sunday2' => '1700',
 			'Monday1' => '900',
-			'Monday2' => '900',
+			'Monday2' => '1700',
 			'Tuesday1' => 'closed',
 			'Tuesday2' => '',
 			'Wednesday1' => '930',
@@ -70,6 +69,7 @@
 
 			),
 		'11783' => array(
+			'lastUpdatedDate' => '20140313',
 			'bName' => 'Dog and Burger',
 		    'bDescription' => 'Home of the Good Burger',
 		    'bWebsite' => 'www.dognburger.com',
@@ -128,6 +128,16 @@
 			)
 	);
 
-	echo json_encode($businessInfo);
+	$infoToSend = array();
+	//echo $_GET['lastUpdated'];
+	foreach ($businessInfo as $key => $value) {
+		# code...
+		if ($value['lastUpdatedDate'] > $_GET['lastUpdated']){
+			$infoToSend[] = array( $key => $value );
+		}
+	}
+	echo json_encode($infoToSend);
+
+	//echo json_encode($businessInfo);
 
 ?>

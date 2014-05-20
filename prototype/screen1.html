@@ -384,6 +384,7 @@
     </form>
 
     <script>
+
       function sendAllVariables(){
 
         $.fn.serializeObject = function()
@@ -412,13 +413,13 @@
             type: "POST",
             data: formData,
             //dataType: "json",
-            xhr: function() {  // Custom XMLHttpRequest
+            /*xhr: function() {  // Custom XMLHttpRequest
               var myXhr = $.ajaxSettings.xhr();
               if(myXhr.upload){ // Check if upload property exists
                   myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
               }
               return myXhr;
-              },
+              },*/
             success: function (jsonStr) {
                 console.log(jsonStr);
             },
