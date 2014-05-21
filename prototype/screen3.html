@@ -4,6 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('css/Kreon-Regular.ttf');
+      }
+      body, label {
+        font-family: 'Kreon-Regular';
+      }
+    </style>
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body onload="getUserInfo()">
@@ -448,7 +457,7 @@
       //save to localstorage as lastUpdated
       window.localStorage.setItem( 'lastUpdated', JSON.stringify(fullDate));
       //output localstorage contents to console
-      //console.log(window.localStorage);
+      console.log(window.localStorage);
 
       /*
       * End of code to save last updated date
@@ -512,7 +521,7 @@
             data: {'lastUpdated':window.localStorage['lastUpdated']},
             dataType: "json",
             success: function (response) {
-                console.log(response);
+                //console.log(response);
                 populateInfo(response);
             },
             error: function(response) {

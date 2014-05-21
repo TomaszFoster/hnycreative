@@ -50,8 +50,8 @@
 			'Monday2' => '1700',
 			'Tuesday1' => 'closed',
 			'Tuesday2' => '',
-			'Wednesday1' => '930',
-			'Wednesday2' => '930',
+			'Wednesday1' => '1133',
+			'Wednesday2' => '1230',
 			'Thursday1' => '1900',
 			'Thursday2' => '2100',
 			'Friday1' => '630',
@@ -133,11 +133,10 @@
 	foreach ($businessInfo as $key => $value) {
 		# code...
 		if ($value['lastUpdatedDate'] > $_GET['lastUpdated']){
-			$infoToSend[] = array( $key => $value );
+			$infoToSend[$key] = $value;
 		}
 	}
-	echo json_encode($infoToSend);
 
-	//echo json_encode($businessInfo);
+	echo json_encode($infoToSend);
 
 ?>

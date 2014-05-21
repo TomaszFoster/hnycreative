@@ -1,0 +1,41 @@
+@font-face {
+	font-family: 'Kreon-Regular';
+	src: url('Kreon-Regular.ttf');
+	font-family: 'Kreon-Bold';
+	src: url('Kreon-Bold.ttf');
+}
+body, label, h1, h2 {
+	font-family: 'Kreon-Regular' !important;
+}
+aside.left-off-canvas-menu {
+	background-image: url('/img/menuBackground.png');
+	width: 350px !important;
+}
+.move-right {
+	padding-left: 100px;
+}
+.menu-loveva-logo {
+	background-color: #fff;
+	padding: 10px;
+}
+.left-off-canvas-menu li a {
+	font-family: 'Kreon-Bold';
+	color: #389281 !important;
+	font-size: 30px;
+}
+.loveva-icon {
+	width: 62px;
+	padding-right: 10px;
+}
+.left-off-canvas-menu li {
+	box-shadow: 0px 3px 3px #888;
+}
+ul.off-canvas-list li a {
+	border-bottom: none !important;
+}
+.tab-bar {
+	background: #73c8b7;
+}
+h1.title {
+	font-size: 30px;
+}
