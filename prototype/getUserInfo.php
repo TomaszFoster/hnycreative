@@ -11,7 +11,7 @@
     $userInfo = array(
     	'lastUpdated' => '20131220',
 	    'userName' => 'Jason1411',
-	    'firstName' => 'Weyland',
+	    'firstName' => 'Melissa',
 	    'lastName' => 'Yutani',
 		'userEmail' => 'Jason@Weyland-Yutani-Corp.org',
     	'userAddress' => '123 21st Street',

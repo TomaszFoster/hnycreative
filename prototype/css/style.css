@@ -4,12 +4,27 @@
 	font-family: 'Kreon-Bold';
 	src: url('Kreon-Bold.ttf');
 }
-body, label, h1, h2 {
-	font-family: 'Kreon-Regular' !important;
+body {
+	background-image: url('/img/menuBackground.png');
+}
+body, label, h1, h2, p {
+	font-family: 'Kreon-Regular';
+}
+.listing-page {
+	background-image: none;
+	background-color: #fff;
 }
 aside.left-off-canvas-menu {
 	background-image: url('/img/menuBackground.png');
 	width: 350px !important;
+}
+aside.right-off-canvas-menu {
+	width: 400px !important;
+	background-color: #fff;
+}
+/* move-left is for the right side menu and vise versa */
+.move-left {
+	padding-right:150px;
 }
 .move-right {
 	padding-left: 100px;
@@ -38,4 +53,306 @@ ul.off-canvas-list li a {
 }
 h1.title {
 	font-size: 30px;
+}
+.left-small {
+	border-right: none;
+}
+.right-small {
+	border-left: none;
+}
+.gift-icon {
+	margin: 80px 0 10px -20px;
+}
+.heart-count-text {
+	font-family: 'Kreon-Bold';
+	color:#888;
+	font-size: 20px;
+	margin-left:30px;
+}
+.tab-bar {
+	box-shadow: 0px 5px 20px #888;
+}
+.heart-grid {
+	background: url('/img/heartGridBanner.png') no-repeat center;
+	height:215px;
+}
+.userHearts {
+	width:485px;
+	margin-top:30px;
+	margin-left:51px;
+}
+.welcome-text {
+	margin:40px auto;
+	max-width: 615px;
+}
+.firstName {
+	font-size: 140px;
+	line-height: 80px;
+	padding-left: 5px;
+	padding-bottom: 30px;
+}
+.welcome-text p {
+	margin:0;
+}
+.welcome-text div {
+	padding-right: 0;
+	padding-left: 0;
+}
+.row {
+	max-width:615px;
+}
+.button.large, button.large {
+	background-color: #e94949;
+	padding: .75em 1em .75em 1em;
+	width:100%;
+}
+/* Styling for button icons on screen 10  */
+.buttonIcon {
+	float: left;
+	margin-top:8px;
+}
+.buttonIcon2 {
+	float: left;
+	margin-top:4px;
+}
+button p, .button p {
+	font-size: 35px;
+	line-height: 35px;
+	text-align: left;
+	margin-bottom: 0;
+	margin-left: 75px;
+}
+.bottom-buttons {
+	background-color: #fff;
+	width: 100%;
+}
+.bottom-buttons-first { padding-top: 20px;}
+.button-container {
+	max-width: 100%;
+	background-color: #fff;
+	box-shadow: 0 -3px 40px #bbb;
+}
+.welcome-greeting {
+	color: #3d3a36;
+	font-size:30px;
+	line-height: 30px;
+}
+.latestBadgeLocation {
+	font-size: 25px;
+	color: #8c8883;
+	line-height: 20px;
+}
+.progressBar {
+	position: absolute;
+	width: 100%;
+	margin-left: -25px;
+	margin-top: -20px;
+}
+.earned-reward-notification {
+	margin: 40px auto;
+}
+.earned-heart-page h1 {
+	color: #e94949;
+	font-size: 3.2em;
+}
+.earned-heart-page p {
+	font-size:2.3em;
+	line-height:1.2em;
+	color:#3d3a36;
+	font-family: 'Kreon-Light';
+}
+.sharing-buttons {
+	margin: 30px auto;
+}
+.sharing-buttons a {
+	font-size: 30px;
+	color: #3d3a36;
+}
+.sharing-buttons img {
+	padding-bottom: 15px;
+}
+.sharing-buttons div {
+	margin-top:10px;
+}
+.column-divider {
+	margin-top: 0px !important;
+}
+.bottom-home-button {
+	width: 100%;
+	max-width: 100%;
+	padding-top:20px;
+	margin-top:40px;
+	box-shadow: 0 -3px 10px #888;
+	background-color: #fff;
+}
+.return-home-button {
+	background-color:#73c8b7;
+	box-shadow: inset 0px -5px 5px #389281;
+}
+.return-home-button p {
+	color: #fff;
+	font-size:35px;
+	line-height: 30px;
+}
+.return-home-button img {
+	margin-top: 3px;
+}
+.tab-bar-section a, .tab-bar-section p {
+	color: #fff;
+	font-size: 25px;
+	padding: 2px 20px;
+}
+.right-off-canvas-menu h2 {
+	color: #e94949;
+}
+
+.move-left .exit-off-canvas {
+	box-shadow: none;
+}
+.move-right .exit-off-canvas {
+	box-shadow: none;
+}
+
+input.search-box {
+	border-radius:5px;
+	height:50px;
+	background-color: #ddd;
+}
+.search-box-container {
+	width: 400px;
+	padding:10px;
+	margin-left:-15px;
+	margin-bottom:20px;
+	box-shadow: 0 3px 5px #888;
+}
+.search-filter-container {
+	background-image: url('/img/menuBackground.png');
+	margin-left: -15px;
+	padding: 0 15px 0 15px;
+	margin-right: -15px;
+	margin-top: -15px;
+}
+.search-filter-list {
+	list-style: none;
+}
+.search-filter-list li {
+	box-shadow: 0 3px 10px #888;
+	margin-left: -33px;
+	width: 400px;
+	padding: 10px 10px 5px 10px;
+}
+.search-filter-list p {
+	font-size: 35px;
+	color: #389281;
+	padding-top:10px;
+}
+.right-menu-icon {
+	float: left;
+	padding-right:20px;
+	max-width: 90%;
+	padding-top:5px;
+}
+
+/* 
+* Listing Page Styles
+*/
+
+.item-listing {
+	margin-top: 20px;
+}
+.main-section {
+	margin-top: 40px;
+}
+.bLogo {
+	border-style: solid;
+	border-width: 2px;
+	border-color: #a3a3a5;
+	padding: 30px 20px;
+	width:100%;
+	height:auto;
+}
+.item-listing .bName {
+	color:#389281;
+	font-size: 26px;
+	line-height: 25px;
+	font-family: 'Kreon-Bold';
+}
+.item-listing .bLocation {
+	font-size: 15px;
+	color: #888;
+}
+.gift-logo {
+	padding-right:10px;
+	margin-top: -10px;
+}
+.item-listing .bReward {
+	font-size: 20px;
+	color: #444;
+}
+.search-icon {
+	height:60%;
+	width:60%;
+}
+
+/*
+* Screen 15 styles - You've Earned a Reward
+*/
+
+.earned-reward-page h1 {
+	font-size: 3.4em;
+	color: #e94949;
+}
+.earned-sub-header {
+	font-size: 2.2em;
+	line-height:1.2em;
+	color: #3d3a36;
+	font-family: 'Kreon-Light';
+}
+.orbit-container h2 {
+	color: #429787;
+}
+.orbit-container h3 {
+	font-size: 1.3em;
+}
+.social-sharing-icon img {
+	height:65px;
+	width: auto;
+}
+.orbit-slider li {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #a3a3a5;
+	background-color: #fff;
+}
+.orbit-bullets-container {
+	display: none;
+}
+.orbit-container {
+	width:60%;
+	margin-left: 20%;
+	margin-right: 20%;
+	box-shadow: 0 0 20px #888;
+}
+.orbit-container div {
+	width:50%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	height: 100%;
+}
+.display-rewards-link {
+	font-size:2em;
+	color: #429787;
+	font-family: 'Kreon-Light';
+}
+.last-div-section {
+	margin: 20px auto 30px auto;
+}
+.bDistance {
+	color: #888;
+}
+.orbit-slider {
+	margin-bottom: 20px !important;
 }
