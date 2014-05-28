@@ -66,7 +66,7 @@
         <aside class="right-off-canvas-menu">
           <div class="row">
             <div class="small-12 columns text-centered">
-              <h2>Filter Your Results</h2>
+              <h2 class="right-nav-header">Filter Your Results</h2>
               <div class="search-box-container">
                 <input class="search-box" type="text" placeholder="search" />
               </div>
@@ -296,6 +296,43 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+      $.ajax({
+          url: "http://localhost/getCategories.php",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            //console.log(response);
+            addCategories(response);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      function addCategories(response){
+        //console.log(response);
+        
+        var arrayLength = Object.keys(response).length;
+
+        for(a in response){
+          console.log(a);
+        }
+
+        /*for(a in incomingJson){
+          jsonInfo = incomingJson[a];
+          console.log(jsonInfo);
+
+          $('.bName:eq('+i+')').html(jsonInfo['bName']);
+          $('.bLocation:eq('+i+')').html(jsonInfo['bCity']+', '+jsonInfo['bState']+" (2 Miles)");
+          $('.bLogo:eq('+i+')').attr("src",jsonInfo['bLogo']);
+          $('.bLogo:eq('+i+')').removeAttr("style");
+          $('.hard-return:eq('+i+')').removeAttr("style");
+          $('.bReward:eq('+i+')').html("<img class='gift-logo' src='img/smallGiftLogo.png' />"+jsonInfo['bReward']);
+
+          i++;
+        }*/
+      }
     </script>
   </body>
 </html>
