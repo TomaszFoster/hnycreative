@@ -388,6 +388,10 @@
 
       function sendAllVariables(){
 
+        /* 
+        * this array is needed to get the values of all the form inputs given an
+        * identifier input
+        */
         $.fn.serializeObject = function()
         {
             var o = {};
@@ -405,32 +409,23 @@
             return o;
         };
 
+        // use previous function to read all form elements
         var formData = $('form').serializeObject();
-
-        console.log(formData);
-
+        /* now we send the form data as an ajax packet
+        * to a php server which processes the data on the back end
+        */
         $.ajax({
-            url: "http://localhost/index1.php",
+            url: "/index1.php",
             type: "POST",
             data: formData,
-            //dataType: "json",
-            /*xhr: function() {  // Custom XMLHttpRequest
-              var myXhr = $.ajaxSettings.xhr();
-              if(myXhr.upload){ // Check if upload property exists
-                  myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
-              }
-              return myXhr;
-              },*/
+            dataType: "json",
             success: function (jsonStr) {
                 console.log(jsonStr);
             },
             error: function(response) {
                 console.log(response);
                 console.log('Test failed!');                  
-            },
-            cache: false,
-            contentType: false,
-            processData: false
+            }
         });  
       }
     </script>
