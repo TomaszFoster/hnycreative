@@ -40,7 +40,7 @@
     				)
     			)
 			 ),
-    	'numberOfHearts' => '3',
+    	'numberOfHearts' => '5',
     	'latestBadge' => 'img/badgeLatest.png',
     	'latestBadgeLocation' => 'Norfolk, VA',
 		'fbOAuth' => '1234567890ABCDEF',

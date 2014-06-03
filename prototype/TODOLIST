@@ -5,36 +5,23 @@ screen2
 -play around with the making the header links sortable
 -if you get the header links sortable, scrap the sort drop down
 
-screen12
-- play with the facebook api for logging in
-- play with the twitter api for logging in
-
-//   http://coenraets.org/blog/2014/04/facebook-phonegap-cordova-without-plugin/
-
 screen15
-- make the scroller thing a json array
-- make the buttons clickable
-- make the potted plant clickable
 - check if the slider is swipeable
+- make white button faded next/previous
 
 screen17b
--make the list of categories dynamic from the server. make it only download the list of categories when the app is initially loaded, similar to downloading the businesses
 -make the filter work.
 
 screen 20
 - display markers on the map
 - filter the markers based on the popout filter
 
-screen 21
-- play with the facebook api. Once you're logged in, have a popup for sharing
-- play with the twitter api. once you're logged in, have a popup for sharing
-
 screen 22
 - only show the get reward button if they have 10 hearts
 
 screen 24
-- make the facebook and twitter links work like screen 21
 - make the badges an array from the server
+- dynamically populate the badges
 
-screen25 
-- make the facebook and twitter settings work
+FACEBOOK/TWITTER for screens 12, 21, 24, 25
+//   http://coenraets.org/blog/2014/04/facebook-phonegap-cordova-without-plugin/

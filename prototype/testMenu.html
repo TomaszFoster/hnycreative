@@ -36,7 +36,7 @@
       <!-- mp-menu -->
         <nav id="mp-menu" class="mp-menu">
           <div class="mp-level">
-            <div class="small-12 columns text-centered">
+            <div class="small-12 columns text-centered mp-menu-custom">
                 <h2 class="right-nav-header">Filter Your Results</h2>
                 <div class="search-box-container">
                   <input class="search-box" type="text" placeholder="search" />
@@ -51,7 +51,10 @@
                         <h2 class="right-menu-subheader">Kind of business?</h2>
                         <a class="mp-back button radius" href="#"><img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>
                         <button class="mp-back button radius">All Categories</button>
-                        <ul>
+                        <ul class="kind-of-business">
+
+                          <!-- temporarily removed
+
                           <li>
                             <a href="#">Mobile Phones</a>
                           </li>
@@ -59,8 +62,28 @@
                             <a class="icon icon-tv" href="#">Televisions</a>  
                           </li>
                           <li>
+                            <a href="#">Whoa!</a>
+                            <div class="mp-level">
+                              <h2 class="right-menu-subheader">Moar?</h2>
+                              <ul>
+                                <li><a href="#">Whoa!</a></li>
+                                <li><a href="#">It goes on!</a></li>
+                                <li><a href="#">And Moar!</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li>
                             <a href="#">Cameras</a>
                           </li>
+                          <li>
+                            <a href="#">Cameras</a>
+                          </li>
+                          <li>
+                            <a href="#">Cameras</a>
+                          </li>
+
+                          -->
+
                         </ul>
                       </div>
                     </li>
@@ -318,28 +341,72 @@
         
         var arrayLength = Object.keys(response).length;
 
+        var counter = 1;
+
         for(a in response){
-          console.log(a);
+
+          //open kind of business main list
+          $('.kind-of-business').append('<li class="class'+a+'"><a href="#">'+a+'</a></li>');
+          var className = String('.class'+a);
+          className = className.replace(/\s+\/+/g, '');
+          //console.log(className);
+
+          $(className).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+            'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+            '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+            '<button class="mp-back button radius">All '+a+'</button>'+
+            '<ul class="subClass'+a+'"></ul></div>');
+
+          for(b in response[a]){
+            var subClassName = String('subClass'+b);
+
+            subClassName = subClassName.replace(/\s+/g, '').replace(/\/+/g, '');
+            var addTo = String('.subClass'+a);
+            //console.log(subClassName);
+            $(addTo).append('<li class="'+subClassName+'"><a href="#">'+b+'</a></li>');
+
+            //subClassName = String('.'+subClassName);
+
+            $( String('.'+subClassName) ).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+            'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+            '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+            '<button class="mp-back button radius">All '+b+'</button>'+
+            '<ul class="'+subClassName+'"></ul></div>');
+
+            for(c in response[a][b]){
+              var addTo2 = String('ul.'+subClassName);
+              var subClassName2 = String('subClass'+c);
+              subClassName2 = subClassName2.replace(/\s+/g, '').replace(/\/+/g, '');
+
+              $(addTo2).append('<li class="'+subClassName2+'"><a href="#">'+c+'</a></li>');
+
+              if(response[a][b][c].length !== 0){
+                $( String('.'+subClassName2) ).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+                'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+                '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+                '<button class="mp-back button radius">All '+c+'</button>'+
+                '<ul class="'+subClassName2+'"></ul></div>');
+
+                for(d in response[a][b][c]){
+                  if(d.length > 1){
+                    var addTo3 = String('ul.'+subClassName2);
+                    var subClassName3 = String('subClass'+d);
+                    subClassName3 = subClassName3.replace(/\s+/g, '').replace(/\/+/g, '');
+                    $(addTo3).append('<li class="'+subClassName3+'"><a href="#">'+d+'</a></li>');
+                  }
+                }
+              } 
+            }
+          }
         }
 
-        /*for(a in incomingJson){
-          jsonInfo = incomingJson[a];
-          console.log(jsonInfo);
-
-          $('.bName:eq('+i+')').html(jsonInfo['bName']);
-          $('.bLocation:eq('+i+')').html(jsonInfo['bCity']+', '+jsonInfo['bState']+" (2 Miles)");
-          $('.bLogo:eq('+i+')').attr("src",jsonInfo['bLogo']);
-          $('.bLogo:eq('+i+')').removeAttr("style");
-          $('.hard-return:eq('+i+')').removeAttr("style");
-          $('.bReward:eq('+i+')').html("<img class='gift-logo' src='img/smallGiftLogo.png' />"+jsonInfo['bReward']);
-
-          i++;
-        }*/
-      }
-
-      new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ), {
+        new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ), {
         type : 'cover'
       } );
+
+      }
+
+      
     </script>
   </body>
 </html>
