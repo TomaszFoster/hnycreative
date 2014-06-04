@@ -459,6 +459,118 @@
       //output localstorage contents to console
       console.log(window.localStorage);
 
+	$.ajax({
+          url: "getCategories.php",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            //console.log(response);
+            populateCategories(response);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+         
+      }); 
+	$.ajax({
+          url: "getProfiles.php",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            //console.log(response);
+            populateProfiles(response);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+         
+      }); 
+      
+	function populateCategories(categories){
+		console.log(categories);
+	}
+	function populateProfiles(profiles){
+		console.log(profiles);
+	}
+	function addCategories(response){
+        //console.log(response);
+        
+        var arrayLength = Object.keys(response).length;
+
+        var counter = 1;
+
+        /*
+        * These nested for loops should have been done recursively to dynamically build up
+        * our multi level nav menu from the incoming JSON packet of categories/subcategories/businesses
+        */
+
+        for(a in response){
+
+          //open kind of business main list
+          $('.kind-of-business').append('<li class="class'+a+'"><a href="#">'+a+'</a></li>');
+          var className = String('.class'+a);
+          className = className.replace(/\s+\/+/g, '');
+          //console.log(className);
+
+          $(className).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+            'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+            '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+            '<button class="mp-back button radius">All '+a+'</button>'+
+            '<ul class="subClass'+a+'"></ul></div>');
+
+          for(b in response[a]){
+            var subClassName = String('subClass'+b);
+
+            subClassName = subClassName.replace(/\s+/g, '').replace(/\/+/g, '');
+            var addTo = String('.subClass'+a);
+            //console.log(subClassName);
+            $(addTo).append('<li class="'+subClassName+'"><a href="#">'+b+'</a></li>');
+
+            $( String('.'+subClassName) ).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+            'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+            '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+            '<button class="mp-back button radius">All '+b+'</button>'+
+            '<ul class="'+subClassName+'"></ul></div>');
+
+            for(c in response[a][b]){
+              var addTo2 = String('ul.'+subClassName);
+              var subClassName2 = String('subClass'+c);
+              subClassName2 = subClassName2.replace(/\s+/g, '').replace(/\/+/g, '');
+
+              $(addTo2).append('<li class="'+subClassName2+'"><a href="#">'+c+'</a></li>');
+
+              if(response[a][b][c].length !== 0){
+                $( String('.'+subClassName2) ).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+                'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+                '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+                '<button class="mp-back button radius">All '+c+'</button>'+
+                '<ul class="'+subClassName2+'"></ul></div>');
+
+                for(d in response[a][b][c]){
+                  if(d.length > 1){
+                    var addTo3 = String('ul.'+subClassName2);
+                    var subClassName3 = String('subClass'+d);
+                    subClassName3 = subClassName3.replace(/\s+/g, '').replace(/\/+/g, '');
+                    $(addTo3).append('<li class="'+subClassName3+'"><a href="#">'+d+'</a></li>');
+                  }
+                }
+              } 
+            }
+          }
+        }
+
+        /* 
+        * This is for the multi-level push menu. The location of this function is important.
+        * The function addCategories has to instantiate this, rather than have it done outside
+        * of this funtion, which will stop it from working. We MUST dynamically build our multi
+        * level menu before we call this.
+        */
+        
+
+      }
+
       /*
       * End of code to save last updated date
       */
