@@ -32,14 +32,14 @@
 			'bYelp' => 'http://www.yelp.com/someuser',
 			'bInstagram' => 'http://www.instagram.com/someuser',
 			'bPinterest' => 'http://www.pinterest.com/someuser',
-			'bCategory' => 'Fitness',
-			'bSubCat1' => 'Free Weights',
-			'bSubCat2' => 'Barbells',
-			'bSubCat3' => 'Bumpers',
+			'bCategory' => 'Eat',
+			'bSubCat1' => 'Restaurants',
+			'bSubCat2' => 'Asian',
+			'bSubCat3' => 'Pho 79',
 
-			'bProfile1' => 'opt1',
-			'bProfile2' => 'opt2',
-			'bProfile3' => 'opt3',
+			'bProfile1' => 'Multiple Locations',
+			'bProfile2' => 'Family Owned',
+			'bProfile3' => 'Fresh From the Farm',
 
 			//hours of operation
 			'Saturday1' => '500',
