@@ -111,7 +111,7 @@
 			'Wednesday2' => '930',
 			'Thursday1' => '1900',
 			'Thursday2' => '2100',
-			'Friday1' => '630',
+			'Friday1' => '700',
 			'Friday2' => '900',
 			//admin section
 			'bLastVisit' => '3/12/2014',

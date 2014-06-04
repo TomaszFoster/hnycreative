@@ -32,112 +32,78 @@
       </div>
     </div>
         
-    <div class="row">  
-      <div class="small-12 columns">
-        <div class="small-6 columns">
-          <p>Store</p>
-        </div>
-        <div class="small-2 columns">
-          <p>Status</p>
-        </div>
-        <div class="small-2 columns">
-          <p>Last Visited</p>
-        </div>
-        <div class="small-2 columns">
-          <p>Next Visit</p>
-        </div>
-
-        <hr>
-
-        <div class="small-6 columns">
-          <div class="small-1 columns">
-            <input class="bCheckbox" type="checkbox" disabled="disabled" id="firstCheck"/>
-          </div>
-          <div class="small-11 columns">
-            <p class="bName"></p>
-            <p class="bAddress"></p>
-            <p class="bAddress2"></p>
-          </div>
-        </div>
-        <div class="small-2 columns">
-          <p class="bStatus"></p>
-        </div>
-        <div class="small-2 columns">
-          <p class="bLastVisit"></p>
-        </div>
-        <div class="small-2 columns">
-          <p class="bNextVisit"></p>
-        </div>
-
-        <hr>
-
-        <div class="small-6 columns">
-          <div class="small-1 columns">
-            <input class="bCheckbox" type="checkbox" disabled="disabled"/>
-          </div>
-          <div class="small-11 columns">
-            <p class="bName"></p>
-            <p class="bAddress"></p>
-            <p class="bAddress2"></p>
-          </div>
-        </div>
-        <div class="small-2 columns">
-          <p class="bStatus"></p>
-        </div>
-        <div class="small-2 columns">
-          <p class="bLastVisit"></p>
-        </div>
-        <div class="small-2 columns">
-          <p class="bNextVisit"></p>
-        </div>
-
-        <hr>
-
-        <!-- Disabled Rows -->
-
-        <div class="small-6 columns">
-          <div class="small-1 columns">
-            <input class="bCheckbox" type="checkbox" disabled="disabled"/>
-          </div>
-          <div class="small-11 columns">
-            <p class="bName"></p>
-            <p class="bAddress"></p>
-            <p class="bAddress2"></p>
-          </div>
-        </div>
-        <div class="small-2 columns">
-          <p class="bStatus"></p>
-        </div>
-        <div class="small-2 columns">
-          <p class="bLastVisit"></p>
-        </div>
-        <div class="small-2 columns">
-          <p class="bNextVisit"></p>
-        </div>
-
-        <hr>
-
-        <div class="small-6 columns">
-          <div class="small-1 columns">
-            <input class="bCheckbox" type="checkbox" disabled="disabled"/>
-          </div>
-          <div class="small-11 columns">
-            <p class="bName"></p>
-            <p class="bAddress"></p>
-            <p class="bAddress2"></p>
+        <div class="row">  
+          <div class="small-12 columns">
+            <table>
+              <thead>
+                <tr>
+                  <th width="300" colspan="2">Store</th>
+                  <th width="100">Status</th>
+                  <th width="150">Last Visit</th>
+                  <th width="150">Next Visit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td width="20%">
+                    <input class="bCheckbox" type="checkbox" disabled="disabled"/>
+                  </td>
+                  <td width="80%">
+                    <p class="bName"></p>
+                    <p class="bAddress"></p>
+                    <p class="bAddress2"></p>
+                  </td>
+                  <td>
+                    <p class="bStatus"></p>
+                  </td>
+                  <td>
+                    <p class="bLastVisit"></p>
+                  </td>
+                  <td>
+                    <p class="bNextVisit"></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <input class="bCheckbox" type="checkbox" disabled="disabled"/>
+                  </td>
+                  <td width="80%">
+                    <p class="bName"></p>
+                    <p class="bAddress"></p>
+                    <p class="bAddress2"></p>
+                  </td>
+                  <td>
+                    <p class="bStatus"></p>
+                  </td>
+                  <td>
+                    <p class="bLastVisit"></p>
+                  </td>
+                  <td>
+                    <p class="bNextVisit"></p>
+                  </td>
+                </tr><tr>
+                  <td width="20%">
+                    <input class="bCheckbox" type="checkbox" disabled="disabled"/>
+                  </td>
+                  <td width="80%">
+                    <p class="bName"></p>
+                    <p class="bAddress"></p>
+                    <p class="bAddress2"></p>
+                  </td>
+                  <td>
+                    <p class="bStatus"></p>
+                  </td>
+                  <td>
+                    <p class="bLastVisit"></p>
+                  </td>
+                  <td>
+                    <p class="bNextVisit"></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <div class="small-2 columns">
-          <p class="bStatus"></p>
-        </div>
-        <div class="small-2 columns">
-          <p class="bLastVisit"></p>
-        </div>
-        <div class="small-2 columns">
-          <p class="bNextVisit"></p>
-        </div>
-
-        <hr>
 
         <!-- Links for Pagination -->
         <!-- Basic style to make the list of page indexes appear inline -->
@@ -170,6 +136,7 @@
           dataType: "json",
           success: function (incomingJson) {
             //console.log(incomingJson);
+            window.localStorage.setItem('businessInfo' ,JSON.stringify(incomingJson));
             populateInfo(incomingJson);
             
           },
@@ -185,9 +152,11 @@
         for(a in incomingJson){
           objectCount++;
           jsonInfo = incomingJson[a];
+          var j = i + 1;
           //console.log(jsonInfo);
           $('.bCheckbox:eq('+i+')').removeAttr("disabled");
           $('.bCheckbox:eq('+i+')').attr("value",a);
+          $('tr:eq('+j+')').attr("onclick", 'location.href="screen3.html?storeID='+a+'"');
           $('.bName:eq('+i+')').html(jsonInfo['bName']);
           $('.bAddress:eq('+i+')').html(jsonInfo['bAddress']);
           $('.bAddress2:eq('+i+')').html(jsonInfo['bAddress2']);
@@ -197,6 +166,51 @@
           i++;
         }
       }
+
+      function repopulate(classifier){
+        console.log(classifier);
+        incomingJson = JSON.parse( window.localStorage['businessInfo'] );
+
+        var newArray = [];
+
+        for (a in incomingJson){
+          console.log(incomingJson[a]);
+          newArray.push(incomingJson[a]);
+        }
+
+        console.log(newArray);
+
+        newArray.sort(function (a,b) {
+          console.log(a.bName.toLowerCase() + " " + b.bName.toLowerCase() );
+          if ( a.bName.toLowerCase() < b.bName.toLowerCase() ) return  1;
+          if ( a.bName.toLowerCase() > b.bName.toLowerCase() ) return -1;
+          /*if (a[2] > b[2]) return  1;
+          if (a[2] < b[2]) return -1;*/
+          return 0;
+        });
+
+        console.log(newArray);
+        /*
+        var i = 0;
+        for(a in incomingJson){
+          objectCount++;
+          jsonInfo = incomingJson[a];
+          var j = i + 1;
+          //console.log(jsonInfo);
+          $('.bCheckbox:eq('+i+')').removeAttr("disabled");
+          $('.bCheckbox:eq('+i+')').attr("value",a);
+          $('tr:eq('+j+')').attr("onclick", 'location.href="screen3.html?storeID='+a+'"');
+          $('.bName:eq('+i+')').html(jsonInfo['bName']);
+          $('.bAddress:eq('+i+')').html(jsonInfo['bAddress']);
+          $('.bAddress2:eq('+i+')').html(jsonInfo['bAddress2']);
+          $('.bLastVisit:eq('+i+')').html(jsonInfo['bLastVisit']);
+          $('.bNextVisit:eq('+i+')').html(jsonInfo['bNextVisit']);
+          $('.bStatus:eq('+i+')').html(jsonInfo['bStatus']);
+          i++;
+        }*/
+      }
+
+      repopulate('bName');
 
       function sendQR(){
         var checkArray = [];
