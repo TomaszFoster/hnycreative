@@ -457,7 +457,7 @@
       //save to localstorage as lastUpdated
       window.localStorage.setItem( 'lastUpdated', JSON.stringify(fullDate));
       //output localstorage contents to console
-      console.log(window.localStorage);
+      //console.log(window.localStorage);
 		var categoryTree;
 	if (!window.localStorage.categories){ 
      	console.log('categories refreshed')
@@ -505,7 +505,6 @@
 	 }
 	 
 	function populateCategories(){
-		console.log('populateCategories()')
 		var categoryOptions='<option value=""></option>';
 		$('#bCategory').html("");
 		for (key0 in categoryTree){
@@ -522,7 +521,6 @@
 		
 	}
 	function populateSubCat1(){
-		console.log('populateSubCat1()')
 		if ($('#bCategory').val()){
 			var categoryOptions='<option value=""></option>';
 			for (key0 in categoryTree[$('#bCategory').val()]){
