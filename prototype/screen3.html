@@ -212,7 +212,7 @@
             <label for="bCategory" class="right inline">Category</label>
           </div>
           <div class="small-9 columns">
-            <select name="bCategory">
+            <select name="bCategory" id="bCategory" onchange="populateSubCat1()">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -227,7 +227,7 @@
             <label for="bSubCat1" class="right inline">Sub Cat 1</label>
           </div>
           <div class="small-9 columns">
-            <select name="bSubCat1">
+            <select name="bSubCat1" id="bSubCat1" onchange="populateSubCat2()">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -242,7 +242,7 @@
             <label for="bSubCat2" class="right inline">Sub Cat 2</label>
           </div>
           <div class="small-9 columns">
-            <select name="bSubCat2">
+            <select name="bSubCat2" id="bSubCat2" onchange="populateSubCat3()">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -257,7 +257,7 @@
             <label for="bSubCat3" class="right inline">Sub Cat 3</label>
           </div>
           <div class="small-9 columns">
-            <select name="bSubCat3">
+            <select name="bSubCat3" id="bSubCat3">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -273,7 +273,7 @@
             <label for="bProfile1" class="right inline">Profile 1</label>
           </div>
           <div class="small-9 columns">
-            <select name="bProfile1">
+            <select name="bProfile1" id="bProfile1">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -288,7 +288,7 @@
             <label for="bProfile2" class="right inline">Profile 2</label>
           </div>
           <div class="small-9 columns">
-            <select name="bProfile2">
+            <select name="bProfile2" id="bProfile2">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -303,7 +303,7 @@
             <label for="bProfile3" class="right inline">Profile 3</label>
           </div>
           <div class="small-9 columns">
-            <select name="bProfile3">
+            <select name="bProfile3" id="bProfile3">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -458,41 +458,126 @@
       window.localStorage.setItem( 'lastUpdated', JSON.stringify(fullDate));
       //output localstorage contents to console
       console.log(window.localStorage);
-
+		var categoryTree;
+	if (!window.localStorage.categories){ 
+     	console.log('categories refreshed')
 	$.ajax({
           url: "getCategories.php",
           type: "GET",
           dataType: "json",
           success: function (response) {
             //console.log(response);
-            populateCategories(response);
+            window.localStorage.setItem( 'categories', JSON.stringify(response));
+            categoryTree=response;
+            populateCategories();
           },
           error: function(response) {
               console.log(response);
               console.log('Test failed!');                  
           }
          
-      }); 
-	$.ajax({
-          url: "getProfiles.php",
-          type: "GET",
-          dataType: "json",
-          success: function (response) {
-            //console.log(response);
-            populateProfiles(response);
-          },
-          error: function(response) {
-              console.log(response);
-              console.log('Test failed!');                  
-          }
-         
-      }); 
-      
-	function populateCategories(categories){
-		console.log(categories);
+      });
+    }else{
+     	console.log('categories cached')
+        categoryTree=JSON.parse(window.localStorage.getItem( 'categories'));
+		populateCategories();
+    }
+     if (!window.localStorage.profiles){ 
+     	console.log('profiles refreshed')
+		$.ajax({
+	          url: "getProfiles.php",
+	          type: "GET",
+	          dataType: "json",
+	          success: function (response) {
+	            //console.log(response);
+	            window.localStorage.setItem( 'profiles', JSON.stringify(response));
+	            populateProfiles(JSON.parse(window.localStorage.getItem( 'profiles')))
+	          },
+	          error: function(response) {
+	              console.log(response);
+	              console.log('Test failed!');                  
+	          }
+	         
+	      });
+	 }else{
+	 	console.log('profile cached')
+	    populateProfiles(JSON.parse(window.localStorage.getItem( 'profiles')))
+	 }
+	 
+	function populateCategories(){
+		console.log('populateCategories()')
+		var categoryOptions='<option value=""></option>';
+		$('#bCategory').html("");
+		for (key0 in categoryTree){
+			categoryOptions+='<option value="'+key0+'">'+key0+'</option>';
+		}
+		$('#bCategory').html(categoryOptions);
+		$('#bSubCat1').html("");
+		$('#bSubCat2').html("");
+		$('#bSubCat3').html("");
+			
+        $('#bSubCat1').attr("disabled",true);
+        $('#bSubCat2').attr("disabled",true);
+        $('#bSubCat3').attr("disabled",true);
+		
+	}
+	function populateSubCat1(){
+		console.log('populateSubCat1()')
+		if ($('#bCategory').val()){
+			var categoryOptions='<option value=""></option>';
+			for (key0 in categoryTree[$('#bCategory').val()]){
+				categoryOptions+='<option value="'+key0+'">'+key0+'</option>';
+			}
+			$('#bSubCat1').html(categoryOptions);
+		} else{
+			$('#bSubCat1').html("");
+		}
+		
+		$('#bSubCat2').html("");
+		$('#bSubCat3').html("");
+		
+        $('#bSubCat1').removeAttr("disabled");
+        $('#bSubCat2').attr("disabled",true);
+        $('#bSubCat3').attr("disabled",true);
+	}
+	function populateSubCat2(){
+		if ($('#bSubCat1').val()){
+			var categoryOptions='<option value=""></option>';
+			for (key0 in categoryTree[$('#bCategory').val()][$('#bSubCat1').val()]){
+				categoryOptions+='<option value="'+key0+'">'+key0+'</option>';
+			}
+			$('#bSubCat2').html(categoryOptions);
+		} else{
+			$('#bSubCat2').html("");
+		}
+		$('#bSubCat3').html("");
+		
+        $('#bSubCat1').removeAttr("disabled");
+        $('#bSubCat2').removeAttr("disabled");
+        $('#bSubCat3').attr("disabled",true);
+		
+	}
+	function populateSubCat3(){
+		if ($('#bSubCat2').val()){
+			var categoryOptions='<option value=""></option>';
+			for (key0 in categoryTree[$('#bCategory').val()][$('#bSubCat1').val()][$('#bSubCat2').val()]){
+				categoryOptions+='<option value="'+key0+'">'+key0+'</option>';
+			}
+			$('#bSubCat3').html(categoryOptions);
+		} else{
+			$('#bSubCat3').html("");
+		}
+        $('#bSubCat3').removeAttr("disabled");
 	}
 	function populateProfiles(profiles){
-		console.log(profiles);
+		
+		var profileOptions='<option value=""></option>';
+		for (key in profiles){
+			profileOptions+='<option value="'+key+'">'+key+'</option>';
+		}
+		$('#bProfile1').html(profileOptions);
+		$('#bProfile2').html(profileOptions);
+		$('#bProfile3').html(profileOptions);
 	}
 	function addCategories(response){
         //console.log(response);
@@ -675,7 +760,18 @@
             $("textarea[name='bDescription']").val(jsonInfo['bDescription']);
             $("textarea[name='bRewardDetail']").val(jsonInfo['bRewardDetail']);
             $('select[name="'+a+'"] option[value="'+jsonInfo[a]+'"]').prop('selected', true);
+          
+          	if (a =='bCategory'){
+	          	populateSubCat1();
+	        }
+   			if (a =='bSubCat1'){
+	          	populateSubCat2();
+	        }
+	        if (a =='bSubCat2'){
+	          	populateSubCat3();
+	        }
           }
+          
           //console.log("success!");
           $('.admin-panel').show();  
         }
