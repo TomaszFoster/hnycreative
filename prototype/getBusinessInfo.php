@@ -66,10 +66,9 @@
 			//qr code url
 			'bQRCode' => 'img/qrcode.png',
 			'bDirections' => 'https://www.google.com/maps/place/2001+Manteo+St/@36.86936,-76.294072,17z/data=!3m1!4b1!4m2!3m1!1s0x89ba98389dd2afc5:0xafdf4ccfcb995aee'
-
 			),
 		'11783' => array(
-			'lastUpdatedDate' => '20140313',
+			'lastUpdatedDate' => '20150313',
 			'bName' => 'Dog and Burger',
 		    'bDescription' => 'Home of the Good Burger',
 		    'bWebsite' => 'www.dognburger.com',

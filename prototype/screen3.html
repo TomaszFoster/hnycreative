@@ -387,7 +387,7 @@
 
 
         <!-- HERE IS WHERE THE DIFFERENCES ARE FOR THE ADMIN PAGE -->
-        <div class="panel">
+        <div class="panel admin-panel">
           <!-- Last Visit -->
           	<div class="row">
 	        	<div class="small-3 columns">
@@ -449,7 +449,7 @@
       * Here is the code to save the last updated date to localstorage
       * We save the date in YYYYMMDD format as it's the easiest to compare to
       */
-
+      $('.admin-panel').hide();
       //instantiate a new date object
       var d = new Date();
       // get date in YYYYMMDD format
@@ -467,7 +467,6 @@
       * Function to send all the variables on the form once button is clicked
       */
       function sendAllVariables(){
-
         /* 
         * this array is needed to get the values of all the form inputs given an
         * identifier input
@@ -495,7 +494,7 @@
         * to a php server which processes the data on the back end
         */
         $.ajax({
-            url: "http://localhost/index3.php",
+            url: "index3.php",
             type: "POST",
             data: formData,
             dataType: "json",
@@ -516,12 +515,12 @@
       */
       function getUserInfo(){
         $.ajax({
-            url: "http://localhost/getBusinessInfo.php",
+            url: "getBusinessInfo.php",
             type: "GET",
             data: {'lastUpdated':window.localStorage['lastUpdated']},
             dataType: "json",
             success: function (response) {
-                //console.log(response);
+                console.log(response);
                 populateInfo(response);
             },
             error: function(response) {
@@ -531,19 +530,44 @@
         }); 
       }
 
+      //get variables from url string
+      function getUrlVars(){
+          var vars = [], hash;
+          var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+
+          for(var i = 0; i < hashes.length; i++)
+              {
+               hash = hashes[i].split('=');
+               vars.push(hash[0]);
+               vars[hash[0]] = hash[1];
+               }
+
+           return vars;
+      }
+
+      var get = getUrlVars();
+
       /* 
       * populate the form with business information for a particular business
       * in this case being one with storeID 11782
       */
       function populateInfo(incomingJson){
-        jsonInfo = incomingJson['11782'];
-        for(a in jsonInfo){
-          $("input[name='"+a+"']").val(jsonInfo[a]);
-          $("textarea[name='bDescription']").val(jsonInfo['bDescription']);
-          $("textarea[name='bRewardDetail']").val(jsonInfo['bRewardDetail']);
-          $('select[name="'+a+'"] option[value="'+jsonInfo[a]+'"]').prop('selected', true);
+        //jsonInfo = incomingJson['11782'];
+              //if we have a store ID passed through the URL
+        //we will hide the storeID input field and populate it with our information
+        if (get[0] == 'storeID'){
+          jsonInfo = incomingJson[get['storeID']];
+          //console.log(get['storeID']); 
+          for(a in jsonInfo){
+            $("input[name='"+a+"']").val(jsonInfo[a]);
+            $("textarea[name='bDescription']").val(jsonInfo['bDescription']);
+            $("textarea[name='bRewardDetail']").val(jsonInfo['bRewardDetail']);
+            $('select[name="'+a+'"] option[value="'+jsonInfo[a]+'"]').prop('selected', true);
+          }
+          //console.log("success!");
+          $('.admin-panel').show();  
         }
-        console.log("success!");
+        
       }
     </script>
   </body>
