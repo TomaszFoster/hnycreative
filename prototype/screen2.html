@@ -16,20 +16,6 @@
         <a href="screen3.html" class="button small" id="newBusiness">+ New Business</a>
         <button href="#" class="button small" id="printQR" onclick="sendQR()">Print QR</button>
       </div>
-      <div class="small-6 columns">
-        <div class="small-3 columns">
-          <label class="inline right">Sort</label>
-        </div>
-        <div class="small-9 columns">
-          <select id="sortCategory">
-            <option></option>
-            <option value="opt1">Option1</option>
-            <option value="opt2">Option2</option>
-            <option value="opt3">Option3</option>
-            <option value="opt4">Option4</option>
-          </select>
-        </div>
-      </div>
     </div>
         
         <div class="row">  
@@ -37,10 +23,10 @@
             <table>
               <thead>
                 <tr>
-                  <th width="300" colspan="2">Store</th>
-                  <th width="100">Status</th>
-                  <th width="150">Last Visit</th>
-                  <th width="150">Next Visit</th>
+                  <th width="300" colspan="2"><a onclick="repopulate('bName')">Store</a></th>
+                  <th width="100"><a onclick="repopulate('bStatus')">Status</a></th>
+                  <th width="150"><a onclick="repopulate('bLastVisit')">Last Visit</a></th>
+                  <th width="150"><a onclick="repopulate('bNextVisit')">Next Visit</a></th>
                 </tr>
               </thead>
               <tbody>
@@ -168,49 +154,45 @@
       }
 
       function repopulate(classifier){
-        console.log(classifier);
+        //console.log(classifier);
         incomingJson = JSON.parse( window.localStorage['businessInfo'] );
 
         var newArray = [];
 
         for (a in incomingJson){
-          console.log(incomingJson[a]);
+          //console.log(incomingJson[a]);
           newArray.push(incomingJson[a]);
         }
 
-        console.log(newArray);
-
+        /* Sort by Business Name */
         newArray.sort(function (a,b) {
-          console.log(a.bName.toLowerCase() + " " + b.bName.toLowerCase() );
-          if ( a.bName.toLowerCase() < b.bName.toLowerCase() ) return  1;
-          if ( a.bName.toLowerCase() > b.bName.toLowerCase() ) return -1;
+
+          if ( a[classifier].toLowerCase() > b[classifier].toLowerCase() ) return  1;
+          if ( a[classifier].toLowerCase() < b[classifier].toLowerCase() ) return -1;
           /*if (a[2] > b[2]) return  1;
           if (a[2] < b[2]) return -1;*/
           return 0;
         });
-
-        console.log(newArray);
-        /*
+        
         var i = 0;
-        for(a in incomingJson){
+        for(a in newArray){
           objectCount++;
-          jsonInfo = incomingJson[a];
+          jsonInfo = newArray[a];
           var j = i + 1;
           //console.log(jsonInfo);
-          $('.bCheckbox:eq('+i+')').removeAttr("disabled");
           $('.bCheckbox:eq('+i+')').attr("value",a);
           $('tr:eq('+j+')').attr("onclick", 'location.href="screen3.html?storeID='+a+'"');
           $('.bName:eq('+i+')').html(jsonInfo['bName']);
+          //console.log(jsonInfo['bName']);
           $('.bAddress:eq('+i+')').html(jsonInfo['bAddress']);
           $('.bAddress2:eq('+i+')').html(jsonInfo['bAddress2']);
           $('.bLastVisit:eq('+i+')').html(jsonInfo['bLastVisit']);
           $('.bNextVisit:eq('+i+')').html(jsonInfo['bNextVisit']);
           $('.bStatus:eq('+i+')').html(jsonInfo['bStatus']);
           i++;
-        }*/
-      }
+        }
 
-      repopulate('bName');
+      }
 
       function sendQR(){
         var checkArray = [];

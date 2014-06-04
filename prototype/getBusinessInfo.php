@@ -57,12 +57,12 @@
 			'Friday1' => '630',
 			'Friday2' => '900',
 			//admin section
-			'bLastVisit' => '3/12/2014',
-			'bNextVisit' => '3/18/2014',
+			'bLastVisit' => '3/13/2014',
+			'bNextVisit' => '3/20/2014',
 			'bQRCount' => '8',
 			'bNotes' => 'Random Text',
 
-			'bStatus' => 'Pending',
+			'bStatus' => 'Active',
 			//qr code url
 			'bQRCode' => 'img/qrcode.png',
 			'bDirections' => 'https://www.google.com/maps/place/2001+Manteo+St/@36.86936,-76.294072,17z/data=!3m1!4b1!4m2!3m1!1s0x89ba98389dd2afc5:0xafdf4ccfcb995aee'
@@ -119,7 +119,7 @@
 			'bQRCount' => '8',
 			'bNotes' => 'Random Text',
 
-			'bStatus' => 'Active',
+			'bStatus' => 'Pending',
 
 			//qr code url
 			'bQRCode' => 'img/qrcode.png',
