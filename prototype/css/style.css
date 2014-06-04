@@ -476,3 +476,34 @@ html, body {
 	padding-left: 42px;
 	height: 14px;
 }
+
+/*
+* Browser Confirmation Screen
+*/
+.browser-confirmation div.row {
+	margin-top: 20px;
+}
+.browser-confirmation {
+	background-image: none;
+}
+.browser-confirmation h2 {
+	font-family: 'Kreon-Regular';
+	color: #e94949;
+	padding-top:20px;
+}
+.browser-confirmation p {
+	font-family: 'Kreon-Light';
+	font-size: 1.2em;
+}
+.download-app-button {
+	background-color: #73c8b7 !important;
+	box-shadow: inset 0 -3px 0 #389281;
+	font-family: 'Kreon-Regular';
+	font-size: 1.4em !important;
+	padding:10px !important;
+	max-width: 300px;
+}
+.download-app-button img {
+	height:30px;
+	margin-right: 10px;
+}
