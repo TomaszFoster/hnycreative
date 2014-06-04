@@ -108,7 +108,7 @@
                   <button class="button large radius"><img class="buttonIcon2" src="img/whiteGiftIcon.png"/><p>Redeem<br>Reward</p></button>
                 </div>
                 <div class="small-6 columns text-center">
-                  <a href="/screen23.html" class="button large radius"><img class="buttonIcon2" src="img/whiteShareIcon.png"/><p>Gift A<br>Reward</p></a>
+                  <a href="screen23.html" class="button large radius"><img class="buttonIcon2" src="img/whiteShareIcon.png"/><p>Gift A<br>Reward</p></a>
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@
     <script>
       $(document).foundation();
       $.ajax({
-          url: "http://localhost/getUserInfo.php",
+          url: "./getUserInfo.php",
           type: "GET",
           dataType: "json",
           success: function (incomingJson) {

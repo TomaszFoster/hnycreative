@@ -20,7 +20,7 @@
     <!-- Back Button -->
     <div class="row">
       <div class="small-12 columns">
-        <a href="#" class="button">Back</a>
+        <a href="screen10.html" class="button">Back</a>
       </div>
     </div>
 
@@ -31,7 +31,7 @@
         <p class="bRewardDetail"></p>
         <h3 class="bName"></h3><button id="storeHourDisplay" class="button">Closed</button>
         <a href="#" class="button large bDirections">Get Directions</a><br>
-        <a href="#" class="button large">Store Details</a>
+        <a href="screen27.html" class="button large">Store Details</a>
       </div>
     </div>
 
@@ -41,7 +41,7 @@
       $(document).foundation();
 
       $.ajax({
-          url: "http://localhost/getBusinessInfo.php",
+          url: "getBusinessInfo.php",
           type: "GET",
           dataType: "json",
           success: function (incomingJson) {

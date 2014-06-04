@@ -56,5 +56,6 @@
 	$fridayClose = $_POST['Friday2'];
 
 	echo '{"instagram":"'.$businessInstagram.'"}';
+	
 
 ?>

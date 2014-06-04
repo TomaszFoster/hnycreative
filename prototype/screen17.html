@@ -193,7 +193,7 @@
     <script>
       $(document).foundation();
       $.ajax({
-          url: "http://localhost/getCategories.php",
+          url: "getCategories.php",
           type: "GET",
           dataType: "json",
           success: function (response) {
@@ -207,7 +207,7 @@
       }); 
 
       $.ajax({
-          url: "http://localhost/getBusinessInfo.php",
+          url: "getBusinessInfo.php",
           type: "GET",
           dataType: "json",
           success: function (incomingJson) {

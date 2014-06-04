@@ -495,7 +495,7 @@
         * to a php server which processes the data on the back end
         */
         $.ajax({
-            url: "http://localhost/index3.php",
+            url: "index3.php",
             type: "POST",
             data: formData,
             dataType: "json",
@@ -516,7 +516,7 @@
       */
       function getUserInfo(){
         $.ajax({
-            url: "http://localhost/getBusinessInfo.php",
+            url: "getBusinessInfo.php",
             type: "GET",
             data: {'lastUpdated':window.localStorage['lastUpdated']},
             dataType: "json",

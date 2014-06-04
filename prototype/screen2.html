@@ -13,7 +13,7 @@
     <div class="row">
       <div class="small-6 columns">
         <!-- New Business / QR / Sort Button -->
-        <a href="/screen1.html" class="button small" id="newBusiness">+ New Business</a>
+        <a href="screen3.html" class="button small" id="newBusiness">+ New Business</a>
         <button href="#" class="button small" id="printQR" onclick="sendQR()">Print QR</button>
       </div>
       <div class="small-6 columns">
@@ -165,7 +165,7 @@
       $(document).foundation();
       var objectCount = 0;
       $.ajax({
-          url: "http://localhost/getBusinessInfo.php",
+          url: "getBusinessInfo.php",
           type: "GET",
           dataType: "json",
           success: function (incomingJson) {
@@ -209,7 +209,7 @@
         console.log(checkArray);
 
         $.ajax({
-            url: "http://localhost/printQR.php",
+            url: "printQR.php",
             type: "POST",
             data:  { 'QRToPrint': checkArray },
             dataType: "json",

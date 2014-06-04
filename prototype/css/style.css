@@ -5,7 +5,7 @@
 	src: url('Kreon-Bold.ttf');
 }
 body {
-	background-image: url('/img/menuBackground.png');
+	background-image: url('../img/menuBackground.png');
 }
 body, label, h1, h2, p {
 	font-family: 'Kreon-Regular';
@@ -15,7 +15,7 @@ body, label, h1, h2, p {
 	background-color: #fff;
 }
 aside.left-off-canvas-menu {
-	background-image: url('/img/menuBackground.png');
+	background-image: url('../img/menuBackground.png');
 	width: 350px !important;
 }
 aside.right-off-canvas-menu {
@@ -73,7 +73,7 @@ h1.title {
 	box-shadow: 0px 5px 20px #888;
 }
 .heart-grid {
-	background: url('/img/heartGridBanner.png') no-repeat center;
+	background: url('../img/heartGridBanner.png') no-repeat center;
 	height:215px;
 }
 .userHearts {
@@ -229,7 +229,7 @@ input.search-box {
 	box-shadow: 0 3px 5px #888;
 }
 .search-filter-container {
-	background-image: url('/img/menuBackground.png');
+	background-image: url('../img/menuBackground.png');
 	margin-left: -15px;
 	padding: 0 15px 0 15px;
 	margin-right: -15px;
@@ -383,7 +383,7 @@ input.search-box {
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url('/img/menuBackground.png');
+	background-image: url('../img/menuBackground.png');
 }
 .reveal-modal {
 	left: 10%;
@@ -404,7 +404,7 @@ input.search-box {
 */
 
 .mp-level, .mp-level-open li {
-	background-image: url('/img/menuBackground.png');
+	background-image: url('../img/menuBackground.png');
 }
 .mp-level-open {
 	background-color: #fff;
