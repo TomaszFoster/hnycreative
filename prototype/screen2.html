@@ -34,7 +34,7 @@
                   <td width="20%">
                     <input class="bCheckbox" type="checkbox" disabled="disabled"/>
                   </td>
-                  <td width="80%">
+                  <td class="bDetails" width="80%">
                     <p class="bName"></p>
                     <p class="bAddress"></p>
                     <p class="bAddress2"></p>
@@ -142,7 +142,7 @@
           //console.log(jsonInfo);
           $('.bCheckbox:eq('+i+')').removeAttr("disabled");
           $('.bCheckbox:eq('+i+')').attr("value",a);
-          $('tr:eq('+j+')').attr("onclick", 'location.href="screen3.html?storeID='+a+'"');
+          $('.bDetails:eq('+i+')').attr("onclick", 'location.href="screen3.html?storeID='+a+'"');
           $('.bName:eq('+i+')').html(jsonInfo['bName']);
           $('.bAddress:eq('+i+')').html(jsonInfo['bAddress']);
           $('.bAddress2:eq('+i+')').html(jsonInfo['bAddress2']);
