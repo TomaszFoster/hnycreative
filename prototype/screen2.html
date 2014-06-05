@@ -6,15 +6,47 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/vendor/modernizr.js"></script>
-    
+    <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('Kreon-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'Kreon-Bold';
+        src: url('Kreon-Bold.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+      @font-face {
+        font-family: 'Kreon-Light';
+        src: url('Kreon-Light.ttf');
+      }
+      body, label, a, button {
+        font-family: 'Kreon-Regular';
+      }
+    </style>
   </head>
-  <body>
+  <body class="admin-listing-page">
 
     <div class="row">
+
+      <div class="small-4 columns text-center">
+        <img src="img/menuLogo.png"/>
+      </div>
+
       <div class="small-6 columns">
         <!-- New Business / QR / Sort Button -->
-        <a href="screen3.html" class="button small" id="newBusiness">+ New Business</a>
-        <button href="#" class="button small" id="printQR" onclick="sendQR()">Print QR</button>
+        <div class="row">
+          <div class="small-6 columns">
+            <input type="text" placeholder="search"></input>
+          </div>
+          <div class="small-6 columns">
+            <a href="screen3.html" class="button tiny" id="newBusiness">+New Business</a>
+          </div>
+        </div>
+        <!-- <button href="#" class="button small" id="printQR" onclick="sendQR()">Print QR</button> -->
       </div>
     </div>
         
@@ -22,12 +54,12 @@
           <div class="small-12 columns">
             <table>
               <thead>
-                <tr>
-                  <th width="300" colspan="2"><a onclick="repopulate('bName')">Store</a></th>
-                  <th width="150"><a onclick="repopulate('bCity')">City</a></th>
-                  <th width="100"><a onclick="repopulate('bStatus')">Status</a></th>
-                  <th width="150"><a onclick="repopulate('bLastVisit')">Last Visit</a></th>
-                  <th width="150"><a onclick="repopulate('bNextVisit')">Next Visit</a></th>
+                <tr class="header-links">
+                  <th width="300" colspan="2"><a onclick="repopulate('bName')">BUSINESS NAME</a></th>
+                  <th width="150"><a onclick="repopulate('bCity')">CITY</a></th>
+                  <th width="100"><a onclick="repopulate('bStatus')">STATUS</a></th>
+                  <th width="150"><a onclick="repopulate('bLastVisit')">LAST VISIT</a></th>
+                  <th width="150"><a onclick="repopulate('bNextVisit')">NEXT VISIT</a></th>
                 </tr>
               </thead>
               <tbody>

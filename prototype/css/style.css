@@ -483,7 +483,7 @@ html, body {
 .browser-confirmation div.row {
 	margin-top: 20px;
 }
-.browser-confirmation {
+.browser-confirmation, .admin-listing-page {
 	background-image: none;
 }
 .browser-confirmation h2 {
@@ -506,4 +506,20 @@ html, body {
 .download-app-button img {
 	height:30px;
 	margin-right: 10px;
+}
+.header-links a {
+	color:#fff;
+	font-size: 12px;
+	font-family: 'OpenSans Extra-Bold';
+}
+th {
+	background-color: #cdccc6;
+}
+table {
+	border:none;
+	border-spacing: 0;
+	margin-top: 30px;
+}
+.admin-listing-page .row {
+	max-width: 900px;
 }
