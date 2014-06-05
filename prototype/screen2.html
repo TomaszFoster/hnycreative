@@ -24,6 +24,7 @@
               <thead>
                 <tr>
                   <th width="300" colspan="2"><a onclick="repopulate('bName')">Store</a></th>
+                  <th width="150"><a onclick="repopulate('bCity')">City</a></th>
                   <th width="100"><a onclick="repopulate('bStatus')">Status</a></th>
                   <th width="150"><a onclick="repopulate('bLastVisit')">Last Visit</a></th>
                   <th width="150"><a onclick="repopulate('bNextVisit')">Next Visit</a></th>
@@ -31,13 +32,14 @@
               </thead>
               <tbody>
                 <tr>
-                  <td width="20%">
-                    <input class="bCheckbox" type="checkbox" disabled="disabled"/>
-                  </td>
-                  <td class="bDetails" width="80%">
+                  <td width="90%">
                     <p class="bName"></p>
-                    <p class="bAddress"></p>
-                    <p class="bAddress2"></p>
+                  </td>
+                  <td width="10%">
+                    <p>Edit</p>
+                  </td>
+                  <td>
+                    <p class="bCity"></p>
                   </td>
                   <td>
                     <p class="bStatus"></p>
@@ -50,13 +52,13 @@
                   </td>
                 </tr>
                 <tr>
-                  <td width="20%">
-                    <input class="bCheckbox" type="checkbox" disabled="disabled"/>
-                  </td>
-                  <td class="bDetails" width="80%">
+                  <td width="80%">
                     <p class="bName"></p>
-                    <p class="bAddress"></p>
-                    <p class="bAddress2"></p>
+                  </td>
+                  <td width="20%">
+                  </td>
+                  <td>
+                    <p class="bCity"></p>
                   </td>
                   <td>
                     <p class="bStatus"></p>
@@ -69,13 +71,13 @@
                   </td>
                 </tr>
                 <tr>
-                  <td width="20%">
-                    <input class="bCheckbox" type="checkbox" disabled="disabled"/>
-                  </td>
-                  <td class="bDetails" width="80%">
+                  <td width="80%">
                     <p class="bName"></p>
-                    <p class="bAddress"></p>
-                    <p class="bAddress2"></p>
+                  </td>
+                  <td width="20%">
+                  </td>
+                  <td>
+                    <p class="bCity"></p>
                   </td>
                   <td>
                     <p class="bStatus"></p>
@@ -88,13 +90,51 @@
                   </td>
                 </tr>
                 <tr>
-                  <td width="20%">
-                    <input class="bCheckbox" type="checkbox" disabled="disabled"/>
-                  </td>
-                  <td class="bDetails" width="80%">
+                  <td width="80%">
                     <p class="bName"></p>
-                    <p class="bAddress"></p>
-                    <p class="bAddress2"></p>
+                  </td>
+                  <td width="20%">
+                  </td>
+                  <td>
+                    <p class="bCity"></p>
+                  </td>
+                  <td>
+                    <p class="bStatus"></p>
+                  </td>
+                  <td>
+                    <p class="bLastVisit"></p>
+                  </td>
+                  <td>
+                    <p class="bNextVisit"></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="80%">
+                    <p class="bName"></p>
+                  </td>
+                  <td width="20%">
+                  </td>
+                  <td>
+                    <p class="bCity"></p>
+                  </td>
+                  <td>
+                    <p class="bStatus"></p>
+                  </td>
+                  <td>
+                    <p class="bLastVisit"></p>
+                  </td>
+                  <td>
+                    <p class="bNextVisit"></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="80%">
+                    <p class="bName"></p>
+                  </td>
+                  <td width="20%">
+                  </td>
+                  <td>
+                    <p class="bCity"></p>
                   </td>
                   <td>
                     <p class="bStatus"></p>
@@ -160,12 +200,9 @@
           jsonInfo = incomingJson[a];
           var j = i + 1;
           //console.log(jsonInfo);
-          $('.bCheckbox:eq('+i+')').removeAttr("disabled");
-          $('.bCheckbox:eq('+i+')').attr("value",a);
           $('.bDetails:eq('+i+')').attr("onclick", 'location.href="screen3.html?storeID='+a+'"');
           $('.bName:eq('+i+')').html(jsonInfo['bName']);
-          $('.bAddress:eq('+i+')').html(jsonInfo['bAddress']);
-          $('.bAddress2:eq('+i+')').html(jsonInfo['bAddress2']);
+          $('.bCity:eq('+i+')').html(jsonInfo['bCity']);
           $('.bLastVisit:eq('+i+')').html(jsonInfo['bLastVisit']);
           $('.bNextVisit:eq('+i+')').html(jsonInfo['bNextVisit']);
           $('.bStatus:eq('+i+')').html(jsonInfo['bStatus']);
