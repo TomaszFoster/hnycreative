@@ -523,3 +523,19 @@ table {
 .admin-listing-page .row {
 	max-width: 900px;
 }
+
+/*
+* Login Page Styles 
+*/
+.green-container {
+	background-color: #73c8b7;
+	padding-bottom: 40px;
+	margin-bottom: 30px;
+	border-bottom: solid 2px #207a69;
+}
+.green-container h2 {
+	color: #207a69;
+}
+.down-arrow-align {
+	
+}
