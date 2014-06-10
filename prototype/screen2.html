@@ -242,7 +242,13 @@
         }
       }
 
+	  var direction=[]
       function repopulate(classifier){
+      	if (!direction[classifier]){
+      		direction[classifier]=-1
+      	}else{
+      		direction[classifier]=direction[classifier]*-1
+      	}
         //console.log(classifier);
         incomingJson = JSON.parse( window.localStorage['businessInfo'] );
 
@@ -255,9 +261,10 @@
 
         /* Sort by Business Name */
         newArray.sort(function (a,b) {
+      
 
-          if ( a[classifier].toLowerCase() > b[classifier].toLowerCase() ) return  1;
-          if ( a[classifier].toLowerCase() < b[classifier].toLowerCase() ) return -1;
+          if ( a[classifier].toLowerCase() > b[classifier].toLowerCase() ) return  1 * direction[classifier];
+          if ( a[classifier].toLowerCase() < b[classifier].toLowerCase() ) return -1 * direction[classifier];
           /*if (a[2] > b[2]) return  1;
           if (a[2] < b[2]) return -1;*/
           return 0;
