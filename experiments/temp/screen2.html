@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+
+<!-- New Business / QR / Sort Button -->
+<button id="newBusiness">+ New Business</button>
+<button id="printQR">Print QR</button>
+<label for="sortCategory">Sort By</label>
+	<select id="sortCategory">
+	  <option></option>
+	  <option value="opt1">Option1</option>
+	  <option value="opt2">Option2</option>
+	  <option value="opt3">Option3</option>
+	  <option value="opt4">Option4</option>
+	</select><br>
+
+<!-- Styling just to make the list items display horizontal and a few VERY basic modifications -->
+<style>
+	#businessList li, #paginationList li { display: inline;}
+	#addressList li {display: block;}
+	#checkBox, #addressList {float: left;}
+	#addressList {margin-right:20px;}
+	.businessInfo {margin: 40px;}
+</style>
+
+<div id="businessList">
+	<ul id="businessLabels">
+		<li></li>
+		<li id="storeName">Store</li>
+		<li id="storeStatus">Status</li>
+		<li id="lastVisited">Last Visited</li>
+		<li id="nextVisit">Next Visit</li>
+	</ul>
+	<hr>
+	<!-- These will be dynamically generated -->
+	<ul id="business1Info" class="businessInfo">
+		<li id="checkBox"><input type="checkbox"></li>
+		<li id="storeName">
+			<ul id="addressList">
+				<li>A. Dodsons</li>
+				<li>12 Colley, Norfolk, VA</li>
+			</ul>
+		</li>
+		<li id="storeStatus">Active</li>
+		<li id="lastVisited">4/17/2014</li>
+		<li id="nextVisit">4/24/2014</li>
+	</ul>
+	<hr>
+	<ul id="business2Info" class="businessInfo">
+		<li id="checkBox"><input type="checkbox"></li>
+		<li id="storeName">
+			<ul id="addressList">
+				<li>The Ten Top</li>
+				<li>Spotswood, Nofolk, VA 48290</li>
+			</ul>
+		</li>
+		<li id="storeStatus">Pending</li>
+		<li id="lastVisited">4/17/2014</li>
+		<li id="nextVisit">4/24/2014</li>
+	</ul>
+	<hr>
+	<ul id="business3Info" class="businessInfo">
+		<li id="checkBox"><input type="checkbox"></li>
+		<li id="storeName">
+			<ul id="addressList">
+				<li>Handsome Biscuit</li>
+				<li>Colonial Ave, Norfolk, VA 23509</li>
+			</ul>
+		</li>
+		<li id="storeStatus">Pending</li>
+		<li id="lastVisited">4/17/2014</li>
+		<li id="nextVisit">4/24/2014</li>
+	</ul>
+	<hr>
+	<ul id="businessBlank" class="businessInfo">
+		<li id="checkBox"><input type="checkbox" disabled="disabled"></li>
+		<li id="storeName">----</li>
+		<li id="storeStatus">----</li>
+		<li id="lastVisited">----</li>
+		<li id="nextVisit">----</li>
+	</ul>
+	<hr>
+	<ul id="businessBlank" class="businessInfo">
+		<li id="checkBox"><input type="checkbox" disabled="disabled"></li>
+		<li id="storeName">----</li>
+		<li id="storeStatus">----</li>
+		<li id="lastVisited">----</li>
+		<li id="nextVisit">----</li>
+	</ul>
+	<hr>
+</div>
+<div id="paginationBottom">
+	<button id="leftButton"><</button>
+	<ul id="paginationList">
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+	</ul>
+	<button id="leftButton">></button>
+</div>
+
+
+<script type="text/javascript">
+	document.getElementById("businessBlank").disabled=true;
+</script>
+</body>
+</html>

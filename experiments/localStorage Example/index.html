@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+	<script src="phonegap.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css" media="screen"></link>
+	<script type="javascript">
+		function onLoad(){
+        	document.addEventListener("deviceready", onDeviceReady, false);
+        	console.log('Device is ready, launching onDeviceReady function.');
+    	}
+
+		function onDeviceReady(){
+			console.log('Device is ready...');
+		}
+	</script>
+</head>
+<body onload="onLoad()">
+	<h1 style="text-align: center;">Test App With Button</h1>
+	<!--<input type="button" class="button" onclick="scan()" value="Clicky"></input>-->
+	<input type="button" class="button" onclick="initDb()" value="Create LocalStorage"></input>
+	<input type="button" class="button" onclick="openDb()" value="Read LS"></input>
+	<input type="button" class="button" onclick="clearDb()" value="Clear LS"></input>
+
+	<script type="text/javascript">
+
+	
+
+    // PhoneGap is ready
+    function initDb() {
+    	console.log('Initializing local storage...');
+        window.localStorage.setItem("key", "value");
+        console.log('we set the name of the localstorage');
+        //var keyname = window.localStorage.key(i);
+        // keyname is now equal to "key"
+        var value = window.localStorage.getItem("key");
+        console.log('we just set the value param to equal a get item');
+        // value is now equal to "value"
+        //window.localStorage.removeItem("key");
+        window.localStorage.setItem("key2", "value2");
+        console.log('Local Storage Initialized.');
+        console.log('Name is:');
+        console.log(window.localStorage.getItem("key"));
+        console.log(value);
+        console.log('Dump localstorage contents:');
+        console.log(window.localStorage);
+    }
+
+    function openDb(){
+        console.log('Dump localstorage contents:');
+        console.log(window.localStorage);
+    }
+
+    function clearDb(){
+    	// localStorage is now empty
+    	console.log('clearing local storage');
+    	window.localStorage.clear();
+    }
+
+
+	//use the barcode scanner
+	function scan(){
+		//
+		console.log("Barcode Scanner initiated");
+		
+
+		// See below for all available options. 
+            cordova.plugins.barcodeScanner.scan(
+		      function (result) {
+		          alert("We got a barcode\n" +
+		                "Result: " + result.text + "\n" +
+		                "Format: " + result.format + "\n" +
+		                "Cancelled: " + result.cancelled);
+		          console.log(result.text);
+		      }, 
+		      function (error) {
+		          alert("Scanning failed: " + error);
+		      }
+		)
+	}
+
+	</script>
+	
+</body>
+</html>
