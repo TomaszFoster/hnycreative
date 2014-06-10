@@ -569,3 +569,45 @@ p.new-user {
 	box-shadow: inset 0px -2px 2px #aa3435;
 	max-width: 80%;
 }
+/*
+* Reward Detail Page
+*/
+img.bRewardImage {
+	padding:20px;
+}
+h2.bReward {
+	font-family: 'Kreon-Regular' !important;
+	color: #e94949;
+	font-size: 3em;
+	line-height: 1.1em;
+}
+.menu-left-arrow {
+	padding-left: 15px;
+}
+p.bRewardDetail {
+	color: #515151;
+	text-align: justify;
+	font-size: 1.2em;
+	font-family: 'Helvetica';
+}
+h4.bName {
+	text-align: right;
+	padding-right: 20px;
+	color: #515151;
+	margin-top: 4px;
+}
+h4#storeHourDisplay {
+	text-transform: uppercase;
+	font-size: 1.8em;
+	margin-top: 15px;
+	font-family: 'Kreon-Regular';
+	color: #3d3a36;
+	text-align: left;
+}
+.reward-info {
+	padding-top:10px;
+	padding-bottom: 20px;
+}
+.reward-divider {
+	opacity: 0.6;
+}
