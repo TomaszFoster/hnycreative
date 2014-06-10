@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('Kreon-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+    </style>
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body class="login-page">
@@ -21,7 +31,7 @@
       <div class="row">
         <div class="small-12 columns">
           
-          <img src="/img/loginLogo.png" />
+          <img src="img/loginLogo.png" />
         </div>
       </div>
     </div>
@@ -34,14 +44,14 @@
           
         </div>
         <div class="small-2 columns">
-          <img class="down-arrow-align" src="/img/downArrowForLogin.png" />
+          <img class="down-arrow-align" src="img/downArrowForLogin.png" />
         </div>
       </div>
 
-      <div class="row">
+      <div class="row login-input-fields">
         <div class="small-12 columns">
-          <input type="text" name="emailInput" placeholder="email"/>
-          <input type="password" name="passInput" placeholder="password"/>
+          <input type="text" name="emailInput" placeholder="Email"/>
+          <input type="password" name="passInput" placeholder="Password"/>
         </div>
       </div>
     </form>
@@ -54,7 +64,8 @@
 
     <div class="row">
       <div class="small-12 columns text-center">
-        <p>New User? <a href="screen8.html">Register Now</a></p>
+        <p class="new-user">New User?</p>
+        <a href="screen8.html">Register Here</a>
       </div>
     </div>
 

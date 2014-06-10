@@ -523,7 +523,6 @@ table {
 .admin-listing-page .row {
 	max-width: 900px;
 }
-
 /*
 * Login Page Styles 
 */
@@ -537,5 +536,36 @@ table {
 	color: #207a69;
 }
 .down-arrow-align {
-	
+	top: -49px;
+	position: absolute;
+	left: -20px;
+}
+.login-input-fields {
+	margin-top: 30px;
+}
+.login-page p {
+	color: #3d3a36;
+	font-family: 'Helvetica';
+}
+.login-page input, .login-page button {
+	border-radius: 5px;
+	font-family: 'Helvetica';
+}
+p.new-user {
+	margin-bottom: 5px;
+	font-size: 0.8em;
+}
+.login-page a {
+	color: #429787;
+	font-family: 'Helvetica';
+	font-size: 1.2em;
+	padding-bottom: 10px;
+}
+.login-page button {
+	font-family: 'Kreon-Regular';
+	font-size: 1.6em !important;
+	padding-top: 12px !important;
+	padding-bottom: 14px !important;
+	box-shadow: inset 0px -2px 2px #aa3435;
+	max-width: 80%;
 }
