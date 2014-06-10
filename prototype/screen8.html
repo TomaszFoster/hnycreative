@@ -22,7 +22,7 @@
     <!-- Blurb under registration -->
     <div class="row">
       <div class="small-12 columns">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p id="text1"></p>
       </div>
     </div>
 
@@ -60,7 +60,7 @@
       </div>
       <div class="small-9 columns password-field">
         <input type="password" name="passName" id="passName" required pattern="[a-zA-Z]+">
-        <small class="error">Your password must match the requirements</small>
+        <small class="error" ></small>
       </div>
     </div>
 
@@ -70,7 +70,7 @@
       </div>
       <div class="small-9 columns password-confirmation-field">
         <input type="password" name="confirmName" required pattern="[a-zA-Z]+" data-equalto="passName"/>
-        <small class="error">The password did not match</small>
+        <small class="error" id="passwordMustMatch"></small>
       </div>
     </div>
 
@@ -152,8 +152,13 @@
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/foundation/foundation.abide.js"></script>
+    <script src="js/textContent.js"></script>
     <script>
       $(document).foundation();
+       function staticText(content){
+		 $('#text1').html(content.screen8.text1);
+		 $('#passwordMustMatch').html(content.screen8.passwordMustMatch);
+	   }
     </script>
   </body>
 </html>

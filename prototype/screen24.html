@@ -39,7 +39,7 @@
           </section>
 
           <section class="middle tab-bar-section text-center">
-            <p class="navbar-headline">Your Badges</p>
+            <p class="navbar-headline" id="title"></p>
           </section>
           
         </nav>
@@ -150,9 +150,12 @@
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/textContent.js"></script>
     <script>
       $(document).foundation();
-
+		function staticText(content){
+		 $('#title').html(content.screen24.title);
+	   }
       $.ajax({
           url: "getUserInfo.php",
           type: "GET",

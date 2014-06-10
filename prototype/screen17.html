@@ -41,7 +41,7 @@
         <nav id="mp-menu" class="mp-menu">
           <div class="mp-level">
             <div class="small-12 columns text-centered mp-menu-custom">
-                <h2 class="right-nav-header">Filter Your Results</h2>
+                <h2 class="right-nav-header" id="filterYourResults"></h2>
                 <div class="search-box-container">
                   <input class="search-box" type="text" placeholder="search" />
                 </div>
@@ -190,8 +190,12 @@
     <script src="js/foundation.min.js"></script>
     <script src="js/classie.js"></script>
     <script src="js/mlpushmenu.js"></script>
+    <script src="js/textContent.js"></script>
     <script>
       $(document).foundation();
+		function staticText(content){
+		 $('#filterYourResults').html(content.screen17.filterYourResults);
+	   }
       $.ajax({
           url: "getCategories.php",
           type: "GET",
