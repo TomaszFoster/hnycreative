@@ -26,7 +26,10 @@
       			<td>-The search isn't working yet.
       				<br>
       				-styles for the buttons haven't been added<br />
-      				-The pagination isn't working. I'm not convinced it's necessary or even useful.
+      				-The pagination isn't working. I'm not convinced it's necessary or even useful.<BR>
+      				-add a modal popup if there is a message from the server
+      					for example... the first time they create an account they will miss profile information
+      					we give them a free heart if they complete their profile information 
       			</td>
       		</tr>
       		<tr>
@@ -65,7 +68,9 @@
       				| <a target="_blank"href="./screen8.html">Working</a></td>
       			<td>Have not incorporated the styles yet
       				<BR>
-      					Did these fields get changed?</td>
+      					Did these fields get changed?
+      					ANSWER: YES. WE'RE GOING TO PARTIALLY FILL IN THEIR PROFILE. GIVE THEM A HEART
+      					IF THEY COMPLETE THEIR PROFILE</td>
       		</tr>
       		<tr>
       			<td>screen 8b - Login
@@ -73,20 +78,27 @@
       					<a target="_blank"href="./PNGs/login.png">Prototype</a>
       					| <a target="_blank"href="./screen8b.html">Working</a></td>
       			<td>check foundation for forgot password popup
+      				<br>
+      				- scale the arrow the same as the logo. Probably just a width/height percentage
+      				<BR>- add a block of text between "confirm" and "address" that only shows up if
+      				they haven't filled out all of their profile information.
       				</td>
       		</tr>
       		<tr>
       			<td>screen 9 - Splash Screen<BR>
       				<a target="_blank"href="./PNGs/">Prototype (missing png)</a>
       				| <a target="_blank"href="./screen9.html">Working</a></td>
-      			<td>done</td>
+      			<td>make the wrapping paper a background image make the logo overlay it so it scales properly based on the dimensions
+      				of the phone.
+      				- add a dynamic progress bar, maybe just a sliver of red to show it's doing something.
+      				</td>
       		</tr>
       		<tr>
       			<td>screen 10 - App Dashboard
       				<BR>
       					<a target="_blank"href="./PNGs/home_noReward.png">Prototype</a>
       					| <a target="_blank"href="./screen10.html">Working</a></td>
-      			<td>done</td>
+      			<td>heart 6 image is broken</td>
       		</tr>
       		<tr>
       			<td>screen 12 - Purchase scanned - get a heart
@@ -95,7 +107,11 @@
       				</td>
       			<td>still working on facebook/twitter api
       				<BR>
-      					-need the style for the popups for FB/Twitter</td>
+      					-need the style for the popups for FB/Twitter
+      					<br>
+      					-add back to home
+      					<br>
+      					</td>
       		</tr>
       		<tr>
       			<td>screen 13 - Purchase scanned w/ no internet
@@ -111,7 +127,10 @@
       				<BR><a target="_blank"href="./PNGs/earnedReward.png">Prototype</a>
       					| <a target="_blank"href="./screen15.html">Working</a>
       				</td>
-      			<td>still working on css to make left/right arrows look good</td>
+      			<td>still working on css to make left/right arrows look good
+      				<BR>
+      					-swap the placement of the reward slider and the fb/twitter buttons
+      				</td>
       		</tr>
       		<tr>
       			<td>screen 16 - Reward Detail
@@ -119,7 +138,7 @@
       					<a target="_blank"href="./PNGs/rewardDetail.png">Prototype</a>
       					| <a target="_blank"href="./screen16.html">Working</a>
 				</td>
-      			<td>haven't incorporated new styles yet</td>
+      			<td>done</td>
       		</tr>
       		<tr>
       			<td>screen 17 - Store Directory - Listing View
@@ -127,7 +146,20 @@
       					<a target="_blank"href="./PNGs/rewardListing.png">Prototype</a>
       					| <a target="_blank"href="./screen17.html">Working</a></td>
       			<td>The nested category is working, but once you select "all" in a category it needs to jump the user back to the
-      				top level, fill in the button with the selected sub category and filter the listings</td>
+      				top level, fill in the button with the selected sub category and filter the listings
+      				<BR>
+      					-add a slider for the cities. dynamically filter all of the cities in the business info packet and display
+      					a distinct list of the cities
+      					-add a slider for the distance. add: .3 mile, 1 mile, 5 miles, all
+      					<BR>-add a "clear filters"
+      						<br><BR>
+      							when you select the categories or distance or text, immediately jump
+      							over to the results. to add additional filters they will click on the search icon again.
+      						<br>remove the lowest category which is currently showing the businesses. it should jump to the
+      						results when you click the lowest category.
+      						<br>Change the UI of the "all" buttons. Move it below the back arrow so it's a highlighted
+      						version of the results.
+      				</td>
       		</tr>
       		<tr>
       			<td>screen 20 - Store Directory - Map View
@@ -241,7 +273,12 @@
       					| <a target="_blank"href="./screen28.html">Working</a></td>
       			<td>Missing styles</td>
       		</tr>
-      	
+      	<tr>
+      			<td><a href="index5.php">index5.php - Lorem ipsum JSON</a></td>
+      			<td>Make a json array of all the lorem ipsum content throughout the app so the static text content throughout
+      				the app can be edited on the server. 
+				</td>
+      		</tr>
       </table> 
 
       </div>

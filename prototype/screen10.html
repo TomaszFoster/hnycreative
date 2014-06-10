@@ -57,7 +57,7 @@
               <div class="small-6 push-3 columns text-center gift-icon">
                 <img class="progressBar" src="img/progressBar0.png" />
                 <img style="width:80%;margin-top:40px;" src="img/giftIcon.png" /><br>
-                <p class="heart-count-text">04 / 10</p>
+                <p class="heart-count-text">04 of 10</p>
               </div>
             </div>
 
@@ -141,7 +141,7 @@
       function populateInfo(incomingJson){
               console.log(incomingJson);
               $('.firstName').html(incomingJson['firstName'].toUpperCase());
-              $('.heart-count-text').html(incomingJson['numberOfHearts']+" / 10");
+              $('.heart-count-text').html(incomingJson['numberOfHearts']+" of 10");
               $('.progressBar').attr("src","img/progressBar"+incomingJson['numberOfHearts']+".png");
               $('.latestBadgeLocation').html("Latest Badge: <b>"+incomingJson['latestBadgeLocation']+"</b>");
               for(i=0;i<incomingJson['numberOfHearts'];i++){
