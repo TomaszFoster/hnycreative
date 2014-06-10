@@ -4,32 +4,153 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('Kreon-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'Kreon-Bold';
+        src: url('Kreon-Bold.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+      @font-face {
+        font-family: 'Kreon-Light';
+        src: url('Kreon-Light.ttf');
+      }
+      h2, .bReward {
+        font-family: 'Kreon' !important;
+      }
+    </style>
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
 
-    <!-- Back Button -->
-    <div class="row">
-      <div class="small-12 columns">
-        <a href="#" class="button">Back</a>
-      </div>
-    </div>
+  <!-- OffCanvas Menu / Navigation -->
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a href="/screen10.html"><img class="menu-left-arrow" src="img/leftButtonArrow.png" /></a>
+      </section>
 
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <img src="img/plant1.jpeg" />
-        <h2>FREE 6 inch Potted Plant</h2>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        <h3>Taylor Hardware - <a href="#" class="button">Now Open!</a></h3>
-        <a href="#" class="button large">Get Directions</a><br>
-        <a href="#" class="button large">Store Details</a>
+      <section class="middle tab-bar-section text-center">
+        <h1 class="title">Reward Detail</h1>
+      </section>
+      
+    </nav>
+
+    <section class="main-section reward-detail-page">
+
+      <!-- Actual Main Section -->
+
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <img class="bRewardImage" src="img/earnedGiftLogo.png" />
+          <h2 class="bReward"></h2>
+          <p class="bRewardDetail"></p>
+
+          <div class="row reward-info">
+            <div class="small-7 columns">
+              <h4 class="bName"></h4>
+            </div>
+            <div class="small-1 columns reward-divider">
+              <img src="img/rewardDivider.png" />
+            </div>
+            <div class="small-4 columns">
+              <h4 id="storeHourDisplay">Closed</h4>
+            </div>
+          </div>
+
+         <a href="screen27.html" class="button large">Redeem This Reward</a>
+        </div>
       </div>
-    </div>
+
+      <div class="row">
+        <div class="small-6 columns">
+          <a href="#" class="button large bDirections">Get Directions</a>
+        </div>
+        <div class="small-6 columns">
+           <a href="screen27.html" class="button large">Store Details</a>
+        </div>
+      </div>
+
+      <!-- Close Actual Main Section -->
+
+    <!-- close the off-canvas menu -->
+    </section>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+
+      $.ajax({
+          url: "getBusinessInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      function populateInfo(incomingJson){
+          //console.log(incomingJson);
+          jsonInfo = incomingJson['11782'];
+          $('.bName').html(jsonInfo['bName']);
+          $('.bReward').html(jsonInfo['bReward']);
+          $('.bRewardDetail').html(jsonInfo['bRewardDetail']);
+          //$('.bRewardImage').attr("src", jsonInfo['bRewardImage']);
+          //$('.latestBadgeLocation').html(jsonInfo['latestBadgeLocation']);
+          $('.bDirections').attr("href", jsonInfo['bDirections']);
+          compareDate(jsonInfo);
+      }
+
+      // here we compare todays date and time against store hours
+      function compareDate(jsonInfo){
+        var d = new Date();
+        var day = d.getDay();
+        var dayOfWeek;
+        switch (day){
+          case 0:
+              dayOfWeek = "Sunday";
+              break;
+          case 1:
+            dayOfWeek = "Monday";
+            break;
+          case 2:
+            dayOfWeek = "Tuesday";
+            break;
+          case 3:
+            dayOfWeek = "Wednesday";
+            break;
+          case 4:
+            dayOfWeek = "Thursday";
+            break;
+          case 5:
+            dayOfWeek = "Friday";
+            break;
+          case 6:
+            dayOfWeek = "Saturday";
+            break;
+        }
+
+        var hours = d.getHours();
+        var minutes = d.getMinutes();
+        var currentTime=(hours*100)+minutes;
+        if(currentTime>=jsonInfo[dayOfWeek+'1']&&currentTime<=jsonInfo[dayOfWeek+'2']){
+          $('#storeHourDisplay').html('Now Open');
+        }
+      }
+      
+      
     </script>
   </body>
 </html>

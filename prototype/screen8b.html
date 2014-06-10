@@ -4,47 +4,77 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('Kreon-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+    </style>
     <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body>
+  <body class="login-page">
 
     <!-- Login Title -->
-    <div class="row">
-      <div class="small-12 columns">
-        <span>Login</span>
+    <div class="green-container">
+      <div class="row">
+        <div class="small-12 columns">
+          <h2>Why, hello there,</h2>
+        </div>
       </div>
-    </div>
 
-    <!-- Blurb under login -->
-    <div class="row">
-      <div class="small-12 columns">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <!-- Blurb under login -->
+      <div class="row">
+        <div class="small-12 columns">
+          
+          <img src="img/loginLogo.png" />
+        </div>
       </div>
     </div>
 
     <!-- Login Information -->
-    <div class="row">
-      <div class="small-12 columns">
-        <input type="text" id="eMailInput" placeholder="email"/>
+    <form>
+      <div class="row">
+        <div class="small-10 columns">
+          <p>Lorem ipsum dolor sit amet consec tetur adipiscing elit curabitur enimut.</p>
+          
+        </div>
+        <div class="small-2 columns">
+          <img class="down-arrow-align" src="img/downArrowForLogin.png" />
+        </div>
       </div>
-    </div>
+
+      <div class="row login-input-fields">
+        <div class="small-12 columns">
+          <input type="text" name="emailInput" placeholder="Email"/>
+          <input type="password" name="passInput" placeholder="Password"/>
+        </div>
+      </div>
+    </form>
 
     <div class="row">
-      <div class="small-12 columns">
-        <input type="text" id="passInput" placeholder="password"/>
+      <div class="small-12 columns text-center">
+        <button class="button large" onclick="sendAllVariables()">LOGIN</button>
       </div>
     </div>
 
     <div class="row">
       <div class="small-12 columns text-center">
-        <button class="button large">LOGIN</button>
+        <p class="new-user">New User?</p>
+        <a href="screen8.html">Register Here</a>
       </div>
     </div>
 
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <p>New User? <a href="#">Register Now</a></p>
-      </div>
+    <!-- Here is the alert modal for when the password or email is incorrect -->
+    <div id="myModal" class="reveal-modal" data-reveal>
+      <h2>Woops!</h2>
+      <p class="lead">Your email or password are incorrect.</p>
+      <p>Don't give up!</p>
+      <a class="close-reveal-modal">&#215;</a>
     </div>
 
     
@@ -52,6 +82,47 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+      function sendAllVariables(){
+
+        $.fn.serializeObject = function()
+        {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+
+        var formData = $('form').serializeObject();
+
+        console.log(formData);
+
+        $.ajax({
+            url: "userAuthenticate.php",
+            type: "POST",
+            data: formData,
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+                if (response == "success"){
+                  window.location.href = 'screen10.html';
+                }else{
+                  $('#myModal').foundation('reveal', 'open');  
+                }
+            },
+            error: function(response) {
+                console.log(response);
+            }
+        });  
+    }
     </script>
   </body>
 </html>

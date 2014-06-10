@@ -10,8 +10,8 @@
 
     <div class="row">
       <div class="small-12 columns">
-        <h1>Name Last Name</h1>
-        <p>Here is some basic information<br>
+        <h1 class="full-name">Name Last Name</h1>
+        <p class="userDescription">Here is some basic information<br>
         about the person in general<br>
         and some more random facts</p>
       </div>
@@ -26,24 +26,24 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row bPendingGifts">
       <div class="small-12 columns">
         <h2>Pending Gifts:</h2>
         <hr>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row bPendingGifts">
       <div class="small-9 columns">
-        <p>To: kimglover@gmail.com<br>
-        Sent on 3/25/2014</p>
+        <p class="giftEmail">To: kimglover@gmail.com</p>
+        <p class="giftSent">Sent on 3/25/2014</p>
       </div>
       <div class="small-3 columns">
         <a href="#" class="button">cancel</a>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row bPendingGifts">
       <div class="small-12 columns">
         <hr>
       </div>
@@ -51,10 +51,10 @@
 
     <div class="row">
       <div class="small-6 columns text-center">
-        <a href="#" class="button">Terms of Use</a>
+        <a href="screen32.html" class="button">Terms of Use</a>
       </div>
       <div class="small-6 columns text-center">
-        <a href="#" class="button">Contact</a>
+        <a href="screen33.html" class="button">Contact</a>
       </div>
     </div>
 
@@ -106,6 +106,38 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+
+      $.ajax({
+          url: "getUserInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            //console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      function populateInfo(jsonInfo){
+          console.log(jsonInfo);
+          
+          $('.full-name').html(jsonInfo['firstName']+" "+jsonInfo['lastName']);
+          $('.giftEmail').html('To: '+jsonInfo['pendingGift']['giftEmail']);
+          $('.giftSent').html('Sent on '+jsonInfo['pendingGift']['dateSent']);
+          $('.userDescription').html(jsonInfo['userName']+'<br>'+
+            jsonInfo['userAddress']+'<br>'+jsonInfo['userCity']+', '+jsonInfo['userZip']+'<br>'+
+            jsonInfo['userEmail']);
+          if(jsonInfo['pendingGift'].length == 0){
+            $('.bPendingGifts').attr("style","display:none;");
+          }
+          //$('.latestBadgeLocation').html(jsonInfo['latestBadgeLocation']);
+          //$('.bDirections').attr("href", jsonInfo['bDirections']);
+          
+      }
+
     </script>
   </body>
 </html>

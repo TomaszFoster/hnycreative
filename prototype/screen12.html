@@ -4,27 +4,88 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('Kreon-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'Kreon-Bold';
+        src: url('Kreon-Bold.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+      @font-face {
+        font-family: 'Kreon-Light';
+        src: url('Kreon-Light.ttf');
+      }
+      body, label, a, button {
+        font-family: 'Kreon-Regular';
+      }
+      .firstName { font-family: 'Mathlete-Bulky'}
+    </style>
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
+
+  <!-- OffCanvas Menu / Navigation -->
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+
+          <section class="middle tab-bar-section text-center">
+            <h1 class="title">Be A Local LoveVA</h1>
+          </section>
+          
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li class="menu-loveva-logo"><img src="img/menuLogo.png"></li>
+            <li><a href="#"><img class="loveva-icon" src="img/heartIcon2.png"> Scan A Purchase</a></li>
+            <li><a href="screen24.html"><img class="loveva-icon" src="img/badgesIcon.png"> Your Badges</a></li>
+            <li><a href="screen17.html"><img class="loveva-icon" src="img/businessIcon.png"> Find A Business</a></li>
+            <li><a href="#"><img class="loveva-icon" src="img/nearbyIcon.png"> Find Nearby</a></li>
+            <li><a href="screen22.html"><img class="loveva-icon" src="img/browseRewardsIcon.png"> Browse Rewards</a></li>
+            <li><a href="screen25.html"><img class="loveva-icon" src="img/settingsIcon.png"> User Settings</a></li>
+          </ul>
+        </aside>
+
+        <section class="main-section earned-heart-page">
+
+            <!-- main content goes here -->
 
     <!-- You got a heart notification. top center image -->
     <div class="row">
 
       <div class="small-12 columns text-center">
-        <img src="img/gotHeart.png"/>
+        <img class="earned-reward-notification" src="img/earnedRewardNotification.png"/>
       </div>
-
+      <div class="small-12 columns text-center">
+        <h1 class="earned-headline">You've Earned a Heart!</h1>
+      </div>
+      <div class="small-12 columns text-center">
+        <p>We suspected you were a good person, but you've just confirmed it. Let's seal our friendship with a high five.</p>
+      </div>
     </div>
 
     <!-- Social Sharing Buttons -->
-    <div class="row">
+    <div class="row sharing-buttons">
 
-      <div class="small-6 columns text-center">
-        <button class="button large" data-reveal-id="fbModal">Share On<br>Facebook</button>
+      <div class="small-4 push-1 columns text-center">
+        <a data-reveal-id="fbModal"><img src="img/fbIcon.png" /><br>Share On<br>Facebook</a>
       </div>
-      <div class="small-6 columns text-center">
-        <button class="button large" data-reveal-id="twitterModal">Share On<br>Twitter</button>
+      <div class="small-4 columns text-center">
+        <img src="img/divider.png"/>
+      </div>
+      <div class="small-4 pull-1 columns text-center">
+        <a data-reveal-id="twitterModal"><img src="img/twitterIcon.png" /><br>Post To<br>Twitter</a>
       </div>
 
     </div>
@@ -132,12 +193,20 @@
     </div>
 
     <!-- Return to dashboard button -->
-    <div class="row">
+    <div class="row bottom-home-button">
 
       <div class="small-12 columns text-center">
-        <button class="button large">Return To Dashboard</button>
+        <a href="screen10.html" class="button radius return-home-button"><img class="buttonIcon" src="img/whiteHomeIcon.png"/><p>Back to<br>Home</p></a>
       </div>
 
+    </div>
+
+    <!-- close the off-canvas menu -->
+          </section>
+
+      <a class="exit-off-canvas"></a>
+
+      </div>
     </div>
 
     <script src="js/vendor/jquery.js"></script>

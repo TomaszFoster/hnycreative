@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+	<script src="phonegap.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css" media="screen"></link>
+	<script type="text/javascript">
+
+		//check to see if there is an internet connection and return the result
+		function checkConnection() {
+			console.log('checking connection type...');
+	        var networkState = navigator.connection.type;
+	        var states = {};
+	        states[Connection.UNKNOWN]  = 'Unknown connection';
+	        states[Connection.ETHERNET] = 'Ethernet connection';
+	        states[Connection.WIFI]     = 'WiFi connection';
+	        states[Connection.CELL_2G]  = 'Cell 2G connection';
+	        states[Connection.CELL_3G]  = 'Cell 3G connection';
+	        states[Connection.CELL_4G]  = 'Cell 4G connection';
+	        states[Connection.NONE]     = 'No network connection';
+	        return states[networkState];
+	    }
+
+	    // let's check local storage and dump the data
+	    function readStorage() {
+	    	console.log('Current contents of localStorage...');
+	        console.log(window.localStorage);
+	    }
+	    //clear localstorage
+	    function clearLocalStorage(){
+	    	console.log('clearing local storage');
+	    	window.localStorage.clear();
+	    	//localstorage is now empty
+	    }
+
+	    //this is loaded after the ondeviceready event is triggered
+	    //here we can get all the background stuff setup
+		function runChecks(){
+			var networkState = checkConnection();
+			console.log(networkState);
+			if (networkState!='No network connection'){
+				console.log('We have internet!');
+			} else {
+				console.log('Our interwebs are broke :(');
+			}
+			readStorage();
+		}
+
+		function checkConn(){
+			var connStatus = checkConnection();
+			console.log(connStatus);
+		}
+
+		function loopThrough(){
+			for (var i =0; i<window.localStorage.length;i++){
+				var keyName = window.localStorage.key(i)
+				console.log( "For key number: "+i+" the status is: "+JSON.parse(window.localStorage.getItem(keyName)).status );
+			}
+		}
+
+		// when device is ready, trigger the runChecks function with
+		// a 2 second delay. delay is needed for debugging with phonegap
+		document.addEventListener("deviceready", OnDeviceReady);
+		function OnDeviceReady(){
+			setTimeout(function(){
+				console.log('deviceready fired');
+				runChecks();
+			}, 2000)
+		}
+
+		function sendJSON(){
+
+			dataToSend = {'businessname':'Hardees'};
+			console.log(dataToSend);
+			$.ajax({
+		        type       : "POST",
+		        url        : "http://www.zenmanenergy.org/data.cfm",
+		        crossDomain: true,
+		        beforeSend : function() {console.log("starting to send... "+dataToSend)},
+		        complete   : function() {console.log("send complete")},
+		        data       : JSON.stringify(dataToSend),
+		        contentType: 'application/json',
+		        processData: false,
+		        success    : function(response) {
+		            //console.log(JSON.stringify(response));
+		            console.log('Works!');
+		        },
+		        error      : function(response) {
+		            console.log(response);
+		            console.log('Test failed!');                  
+		        }
+		    });  
+		}
+
+			function saveThis(){
+				var bName=document.getElementById("bName");
+				var localLength = window.localStorage.length;
+				console.log("Length of local storage is : "+localLength);
+
+				var testObject = {"bName" : bName.value, "status" : "pending"};
+				console.log("Dump test object : "+JSON.stringify(testObject));
+				window.localStorage.setItem(bName.value, JSON.stringify(testObject));
+				console.log("Dump test object from local storage: "+JSON.parse(window.localStorage.getItem(bName.value)).status);
+				console.log("Success!");
+			}
+
+			
+
+			function sendQR(){
+				var eName=document.getElementById("eName");
+				var wSite=document.getElementById("wSite");
+
+				$.ajax({
+			      url: 'sendqr.php',
+			      type: 'post',
+			      data: {'email': eName.value, 'website': wSite.value},
+			      success: function(data, status) {
+			        console.log("Data is : " + data + "\nStatus is: "+status);
+			      },
+			      error: function(xhr, desc, err) {
+			        console.log(xhr);
+			        console.log("Details: " + desc + "\nError:" + err);
+			      }
+			    }); // end ajax call
+			}
+		
+	</script>
+</head>
+<body>
+	<h1 style="text-align: center;">Test Functions</h1>
+	<!-- Input a business name and save it when you mouse away -->
+	<label for="bName">Please Enter A Business Name: </label>
+	<input type="text" id="bName" onblur='saveThis()'>
+	<input type="button" class="button" onclick="scan()" value="Scan QR Code"></input>
+	<input type="button" class="button" onclick="checkConn()" value="Check Network Connection"></input>
+	<input type="button" class="button" onclick="readStorage()" value="Read Storage"></input>
+	<input type="button" class="button" onclick="clearLocalStorage()" value="Clear Storage"></input>
+	<input type="button" class="button" onclick="loopThrough()" value="Check Saved Statuses"></input>
+
+	<input type="button" class="button" onclick="sendJSON()" value="Send JSON Test"></input>
+	<!-- Enter an email to send a qr code to -->
+	<label for="eName">Enter an Email Address: </label>
+	<input type="text" id="eName">
+	<label for="wSite">Enter a website for QR code</label>
+	<input type="text" id="wSite">
+	<input type="button" class="button" onclick="sendQR()" value="Send Me This QR Code"></input>
+
+	<script type="text/javascript">
+	</script>
+	
+</body>
+</html>

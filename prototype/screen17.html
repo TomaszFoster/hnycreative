@@ -1,154 +1,323 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js store-directory-page" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+     <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('Kreon-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'Kreon-Bold';
+        src: url('Kreon-Bold.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+      @font-face {
+        font-family: 'Kreon-Light';
+        src: url('Kreon-Light.ttf');
+      }
+      body, label, a, button {
+        font-family: 'Kreon-Regular';
+      }
+    </style>
     <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body>
+  <body >
 
-    <!-- OffCanvas Menu / Navigation -->
-    <div class="off-canvas-wrap" data-offcanvas>
-      <div class="inner-wrap">
-        <nav class="tab-bar">
-          <section class="left-small">
-            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-          </section>
+    <!-- Main container for all the multi level navigation. Use this to hide overflow nav menus -->
+    <div class="main-container">
 
-          <section class="middle tab-bar-section">
-            <a href="#">Listing</a>
-            <a href="#">Map</a>
-          </section>
+    <!-- multi level menu wrapper -->
+    <div class="mp-pusher" id="mp-pusher">
+    
+      <!-- mp-menu ( our multi level push menu that wraps AROUND foundations nav menu )-->
+        <nav id="mp-menu" class="mp-menu">
+          <div class="mp-level">
+            <div class="small-12 columns text-centered mp-menu-custom">
+                <h2 class="right-nav-header">Filter Your Results</h2>
+                <div class="search-box-container">
+                  <input class="search-box" type="text" placeholder="search" />
+                </div>
 
-          <!-- Right side navigation for search-->
-          <section class="right-small">
-            <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-          </section>
-          
+                <div class="search-filter-container">
+                
+                  <ul class="search-filter-list">
+                    <li>
+                      <a href="#"><img class="right-menu-icon" src="img/kindOfBusinessIcon.png" /><p>Kind of Business?</p></a>
+                      <div class="mp-level">
+                        <h2 class="right-menu-subheader">Kind of business?</h2>
+                        <a class="mp-back button radius" href="#"><img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>
+                        <button class="mp-back button radius">All Categories</button>
+                        <ul class="kind-of-business">
+
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="#"><img class="right-menu-icon" src="img/whatCityIcon.png" /><p>In What City?</p></a>
+                    </li>
+                    <li>
+                      <a href="#"><img class="right-menu-icon" src="img/howCloseIcon.png" /><p>How Close To You?</p></a>
+                    </li>
+                  </ul>
+                </div>
+              
+          </div>
         </nav>
 
-        <!-- Left side navigation -->
-        <aside class="left-off-canvas-menu">
-          <ul class="off-canvas-list">
-            <li><a href="#">Scan A Purchase</a></li>
-            <li><a href="#">Your Badges</a></li>
-            <li><a href="#">Find A Business</a></li>
-            <li><a href="#">Find Nearby</a></li>
-            <li><a href="#">Browse Rewards</a></li>
-            <li><a href="#">User Settings</a></li>
-          </ul>
-        </aside>
 
-        <!-- Right side navigation -->
-        <aside class="right-off-canvas-menu">
-          <div class="row">
-            <div class="small-12 columns text-centered">
-              <h2>Filter Results</h2>
-              <input type="text" placeholder="search" />
+      <!-- OffCanvas Menu / Navigation From Foundation (has no multilevel support) -->
+        <div class="off-canvas-wrap" data-offcanvas>
+          <div class="inner-wrap">
+            <nav class="tab-bar">
+              <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+              </section>
 
-              <select>
-                <option>categories</option>
-                <option value="selectTitle">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-              </select>
+              <section class="middle tab-bar-section text-center">
+                <img class="down-arrow-17" src="img/downArrow.png"/><a class="screen-17-link" href="screen17.html">Listing</a>
+            <a href="screen20.html">Map</a>
+              </section>
 
-              <select>
-                <option value="selectTitle">distance</option>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-              </select>
+              <!-- Right side navigation for search-->
+              <section class="right-small">
+                <!-- The following link activates our multi level nav menu -->
+                <a href="#" id="trigger"><span><img class="search-icon" src='img/searchLogoIcon.png'/></span></a>
+                  
+              </section>
+              
+            </nav>
 
-              <select>
-                <option value="selectTitle">city</option>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-              </select>
+            <!-- Left side navigation -->
+            <aside class="left-off-canvas-menu">
+              <ul class="off-canvas-list">
+                <li class="menu-loveva-logo"><img src="img/menuLogo.png"></li>
+                <li><a href="#"><img class="loveva-icon" src="img/heartIcon2.png"> Scan A Purchase</a></li>
+                <li><a href="screen24.html"><img class="loveva-icon" src="img/badgesIcon.png"> Your Badges</a></li>
+                <li><a href="screen17.html"><img class="loveva-icon" src="img/businessIcon.png"> Find A Business</a></li>
+                <li><a href="#"><img class="loveva-icon" src="img/nearbyIcon.png"> Find Nearby</a></li>
+                <li><a href="screen22.html"><img class="loveva-icon" src="img/browseRewardsIcon.png"> Browse Rewards</a></li>
+                <li><a href="screen25.html"><img class="loveva-icon" src="img/settingsIcon.png"> User Settings</a></li>
+              </ul>
+            </aside>
 
+
+            <section class="main-section">
+
+              <!-- main content goes here -->
+
+              
+              <div class="row item-listing">
+              <div class="small-5 columns text-centered">
+                <img class="bLogo" style="display:none;"/>
+              </div>
+              <div class="small-7 columns">
+                <h3 class="bName"></h3>
+                <h3 class="bLocation"></h3>
+                <h3 class="bReward"></h3>
+              </div>
             </div>
+            <hr class="hard-return" style="display:none;">
+
+            <div class="row item-listing">
+              <div class="small-5 columns text-centered">
+                <img class="bLogo" style="display:none;"/>
+              </div>
+              <div class="small-7 columns">
+                <h3 class="bName"></h3>
+                <h3 class="bLocation"></h3>
+                <h3 class="bReward"></h3>
+              </div>
+            </div>
+            <hr class="hard-return" style="display:none;">
+
+            <div class="row item-listing">
+              <div class="small-5 columns text-centered">
+                <img class="bLogo" style="display:none;"/>
+              </div>
+              <div class="small-7 columns">
+                <h3 class="bName"></h3>
+                <h3 class="bLocation"></h3>
+                <h3 class="bReward"></h3>
+              </div>
+            </div>
+            <hr class="hard-return" style="display:none;">
+
+            <div class="row item-listing">
+              <div class="small-5 columns text-centered">
+                <img class="bLogo" style="display:none;"/>
+              </div>
+              <div class="small-7 columns">
+                <h3 class="bName"></h3>
+                <h3 class="bLocation"></h3>
+                <h3 class="bReward"></h3>
+              </div>
+            </div>
+            <hr class="hard-return" style="display:none;">
+
+            <div class="row item-listing">
+              <div class="small-5 columns text-centered">
+                <img class="bLogo" style="display:none;"/>
+              </div>
+              <div class="small-7 columns">
+                <h3 class="bName"></h3>
+                <h3 class="bLocation"></h3>
+                <h3 class="bReward"></h3>
+              </div>
+            </div>
+
+            <hr class="hard-return" style="display:none;">
+
+            <!-- close the off-canvas menu -->
+            </section>
+
+          <a class="exit-off-canvas"></a>
+
           </div>
-        </aside>
-
-        <section class="main-section">
-
-            <!-- main content goes here -->
-            <div class="row">
-              <div class="small-3 columns text-centered">
-                <img src="img/logo.png"/>
-              </div>
-              <div class="small-9 columns">
-                <h3>Business Name</h3>
-                <h3>Norfolk, VA (2 miles)</h3>
-                <h3>Reward Headline Here</h3>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="small-3 columns text-centered">
-                <img src="img/logo.png"/>
-              </div>
-              <div class="small-9 columns">
-                <h3>Business Name</h3>
-                <h3>Norfolk, VA (2 miles)</h3>
-                <h3>Reward Headline Here</h3>
-              </div>
-            </div>
-
-            <hr>
-            <div class="row">
-              <div class="small-3 columns text-centered">
-                <img src="img/logo.png"/>
-              </div>
-              <div class="small-9 columns">
-                <h3>Business Name</h3>
-                <h3>Norfolk, VA (2 miles)</h3>
-                <h3>Reward Headline Here</h3>
-              </div>
-            </div>
-
-            <hr>
-            <div class="row">
-              <div class="small-3 columns text-centered">
-                <img src="img/logo.png"/>
-              </div>
-              <div class="small-9 columns">
-                <h3>Business Name</h3>
-                <h3>Norfolk, VA (2 miles)</h3>
-                <h3>Reward Headline Here</h3>
-              </div>
-            </div>
-
-            <hr>
-            <div class="row">
-              <div class="small-3 columns text-centered">
-                <img src="img/logo.png"/>
-              </div>
-              <div class="small-9 columns">
-                <h3>Business Name</h3>
-                <h3>Norfolk, VA (2 miles)</h3>
-                <h3>Reward Headline Here</h3>
-              </div>
-            </div>
-
-          <!-- close the off-canvas menu -->
-        </section>
-
-      <a class="exit-off-canvas"></a>
-
-      </div>
+        </div>
+    </div>
     </div>
 
-    
+
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/mlpushmenu.js"></script>
     <script>
       $(document).foundation();
+      $.ajax({
+          url: "getCategories.php",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            //console.log(response);
+            addCategories(response);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      $.ajax({
+          url: "getBusinessInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            //console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      function populateInfo(incomingJson){
+        //console.log(incomingJson);
+        var i = 0;
+        for(a in incomingJson){
+          jsonInfo = incomingJson[a];
+          console.log(jsonInfo);
+
+          $('.bName:eq('+i+')').html(jsonInfo['bName']);
+          $('.bLocation:eq('+i+')').html(jsonInfo['bCity']+', '+jsonInfo['bState']+" (2 Miles)");
+          $('.bLogo:eq('+i+')').attr("src",jsonInfo['bLogo']);
+          $('.bLogo:eq('+i+')').removeAttr("style");
+          $('.hard-return:eq('+i+')').removeAttr("style");
+          $('.bReward:eq('+i+')').html("<img class='gift-logo' src='img/smallGiftLogo.png' />"+jsonInfo['bReward']);
+
+          i++;
+        }
+      }
+
+      function addCategories(response){
+        //console.log(response);
+        
+        var arrayLength = Object.keys(response).length;
+
+        var counter = 1;
+
+        /*
+        * These nested for loops should have been done recursively to dynamically build up
+        * our multi level nav menu from the incoming JSON packet of categories/subcategories/businesses
+        */
+
+        for(a in response){
+
+          //open kind of business main list
+          $('.kind-of-business').append('<li class="class'+a+'"><a href="#">'+a+'</a></li>');
+          var className = String('.class'+a);
+          className = className.replace(/\s+\/+/g, '');
+          //console.log(className);
+
+          $(className).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+            'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+            '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+            '<button class="mp-back button radius">All '+a+'</button>'+
+            '<ul class="subClass'+a+'"></ul></div>');
+
+          for(b in response[a]){
+            var subClassName = String('subClass'+b);
+
+            subClassName = subClassName.replace(/\s+/g, '').replace(/\/+/g, '');
+            var addTo = String('.subClass'+a);
+            //console.log(subClassName);
+            $(addTo).append('<li class="'+subClassName+'"><a href="#">'+b+'</a></li>');
+
+            $( String('.'+subClassName) ).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+            'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+            '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+            '<button class="mp-back button radius">All '+b+'</button>'+
+            '<ul class="'+subClassName+'"></ul></div>');
+
+            for(c in response[a][b]){
+              var addTo2 = String('ul.'+subClassName);
+              var subClassName2 = String('subClass'+c);
+              subClassName2 = subClassName2.replace(/\s+/g, '').replace(/\/+/g, '');
+
+              $(addTo2).append('<li class="'+subClassName2+'"><a href="#">'+c+'</a></li>');
+
+              if(response[a][b][c].length !== 0){
+                $( String('.'+subClassName2) ).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+                'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+                '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+                '<button class="mp-back button radius">All '+c+'</button>'+
+                '<ul class="'+subClassName2+'"></ul></div>');
+
+                for(d in response[a][b][c]){
+                  if(d.length > 1){
+                    var addTo3 = String('ul.'+subClassName2);
+                    var subClassName3 = String('subClass'+d);
+                    subClassName3 = subClassName3.replace(/\s+/g, '').replace(/\/+/g, '');
+                    $(addTo3).append('<li class="'+subClassName3+'"><a href="#">'+d+'</a></li>');
+                  }
+                }
+              } 
+            }
+          }
+        }
+
+        /* 
+        * This is for the multi-level push menu. The location of this function is important.
+        * The function addCategories has to instantiate this, rather than have it done outside
+        * of this funtion, which will stop it from working. We MUST dynamically build our multi
+        * level menu before we call this.
+        */
+        new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ), {
+          type : 'cover'
+        } );
+
+      }
+
+      
     </script>
   </body>
 </html>

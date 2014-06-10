@@ -4,7 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="js/vendor/modernizr.js"></script>
+    <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('Kreon-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+      body, label, p, a, button {
+        font-family: 'Kreon-Regular';
+      }
+      .firstName { font-family: 'Mathlete-Bulky' !important;}
+    </style>
   </head>
   <body>
 
@@ -17,19 +32,20 @@
           </section>
 
           <section class="middle tab-bar-section text-center">
-            <h1 class="title">LoveVA</h1>
+            <h1 class="title">Be A Local LoveVA</h1>
           </section>
           
         </nav>
 
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
-            <li><a href="#">Scan A Purchase</a></li>
-            <li><a href="#">Your Badges</a></li>
-            <li><a href="#">Find A Business</a></li>
-            <li><a href="#">Find Nearby</a></li>
-            <li><a href="#">Browse Rewards</a></li>
-            <li><a href="#">User Settings</a></li>
+            <li class="menu-loveva-logo"><img src="img/menuLogo.png"></li>
+            <li><a href="#"><img class="loveva-icon" src="img/heartIcon2.png"> Scan A Purchase</a></li>
+            <li><a href="screen24.html"><img class="loveva-icon" src="img/badgesIcon.png"> Your Badges</a></li>
+            <li><a href="screen17.html"><img class="loveva-icon" src="img/businessIcon.png"> Find A Business</a></li>
+            <li><a href="#"><img class="loveva-icon" src="img/nearbyIcon.png"> Find Nearby</a></li>
+            <li><a href="screen22.html"><img class="loveva-icon" src="img/browseRewardsIcon.png"> Browse Rewards</a></li>
+            <li><a href="screen25.html"><img class="loveva-icon" src="img/settingsIcon.png"> User Settings</a></li>
           </ul>
         </aside>
 
@@ -38,60 +54,64 @@
             <!-- main content goes here -->
             <!-- Splashscreen Logo Placeholder -->
             <div class="row">
-              <div class="small-4 columns">
-                <p>Welcome,<br><big>Melissa!</big></p>
+              <div class="small-6 push-3 columns text-center gift-icon">
+                <img class="progressBar" src="img/progressBar0.png" />
+                <img style="width:80%;margin-top:40px;" src="img/giftIcon.png" /><br>
+                <p class="heart-count-text">04 / 10</p>
               </div>
-              <div class="small-3 columns text-center">
-                <img style="width:100%;" src="img/badgeLatest.png" />
-              </div>
-              <div class="small-5 columns">
-                <p>Latest Badge<br><big>Norfolk, VA</big></p>
-              </div>
-              <hr>
             </div>
 
             <!-- Gallery of full and empty hearts with placeholders -->
             <div class="row">
-              <div class="small-12 columns">
-                <ul class="small-block-grid-5 text-center">
-                  <li><img src="img/badgeEmpty.png"/></li>
-                  <li><img src="img/badgeEmpty.png"/></li>
-                  <li><img src="img/badgeFull.png"/></li>
-                  <li><img src="img/badgeFull.png"/></li>
-                  <li><img src="img/badgeFull.png"/></li>
-                  <li><img src="img/badgeFull.png"/></li>
-                  <li><img src="img/badgeFull.png"/></li>
-                  <li><img src="img/badgeFull.png"/></li>
-                  <li><img src="img/badgeFull.png"/></li>
-                  <li><img src="img/badgeFull.png"/></li>
+              <div class="small-12 columns heart-grid">
+                <ul class="small-block-grid-5 text-center userHearts">
+                  <li><img/></li>
+                  <li><img/></li>
+                  <li><img/></li>
+                  <li><img/></li>
+                  <li><img/></li>
+                  <li><img/></li>
+                  <li><img/></li>
+                  <li><img/></li>
+                  <li><img/></li>
+                  <li><img/></li>
                 </ul>
               </div>
             </div>
 
-            <!-- Buttons to show when 10 hearts received -->
-
-            <div class="row">
-              <div class="small-6 columns text-center">
-                <button class="button large">Redeem<br>Reward</button>
+            <div class="row welcome-text">
+              <div class="small-5 columns text-center">
+                <img src="img/userBadgeIcon.png"/>
               </div>
-              <div class="small-6 columns text-center">
-                <button class="button large">Gift A<br>Reward</button>
+              <div class="small-7 columns">
+                <p class="welcome-greeting">Hello there,</p>
+                <p class="firstName">Melissa!</p>
+                <p class="latestBadgeLocation">Latest Badge: Norfolk, VA</p>
               </div>
             </div>
-
-            <hr>
 
             <!-- Scan a Purchase and Find a business Buttons -->
-
-            <div class="row">
-              <div class="small-6 columns text-center">
-                <button class="button large">Scan A<br>Purchase</button>
+            <div class="button-container">
+              <div class="row bottom-buttons bottom-buttons-first">
+                <div class="small-6 columns">
+                  <button class="button large radius"><img class="buttonIcon" src="img/whiteHeart.png"/><p>Scan A<br>Purchase</p></button>
+                </div>
+                <div class="small-6 columns text-center">
+                  <a class="button large radius" href="screen17.html"><img class="buttonIcon" src="img/whiteBusiness.png"/><p>Find A<br>Business</p></a>
+                </div>
               </div>
-              <div class="small-6 columns text-center">
-                <button class="button large">Find A<br>Business</button>
+
+               <!-- Buttons to show when 10 hearts received -->
+
+              <div class="row bottom-buttons">
+                <div class="small-6 columns text-center">
+                  <button class="button large radius"><img class="buttonIcon2" src="img/whiteGiftIcon.png"/><p>Redeem<br>Reward</p></button>
+                </div>
+                <div class="small-6 columns text-center">
+                  <a href="screen23.html" class="button large radius"><img class="buttonIcon2" src="img/whiteShareIcon.png"/><p>Gift A<br>Reward</p></a>
+                </div>
               </div>
             </div>
-
           <!-- close the off-canvas menu -->
           </section>
 
@@ -105,6 +125,29 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+      $.ajax({
+          url: "./getUserInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            //console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+      function populateInfo(incomingJson){
+              console.log(incomingJson);
+              $('.firstName').html(incomingJson['firstName'].toUpperCase());
+              $('.heart-count-text').html(incomingJson['numberOfHearts']+" / 10");
+              $('.progressBar').attr("src","img/progressBar"+incomingJson['numberOfHearts']+".png");
+              $('.latestBadgeLocation').html("Latest Badge: <b>"+incomingJson['latestBadgeLocation']+"</b>");
+              for(i=0;i<incomingJson['numberOfHearts'];i++){
+                $('ul.userHearts li img:eq('+i+')').attr("src", 'img/heartBadge.png');   
+              }
+          }
     </script>
   </body>
 </html>

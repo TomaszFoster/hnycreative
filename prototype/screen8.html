@@ -9,13 +9,13 @@
   <body>
 
     <!-- Registration and Login -->
-    <form>
+    <form data-abide>
     <div class="row">
       <div class="small-9 columns">
         <span>Registration</span>
       </div>
       <div class="small-3 columns">
-        <button class="button small">Login</button>
+        <a href="screen8b.html" class="button small" >Login</a>
       </div>
     </div>
 
@@ -50,7 +50,7 @@
         <label for="eName" class="inline">Email:</span>
       </div>
       <div class="small-9 columns">
-        <input type="text" name="eName"/>
+        <input type="email" name="eName"/>
       </div>
     </div>
 
@@ -58,8 +58,9 @@
       <div class="small-3 columns">
         <label for="passName" class="inline">Password:</span>
       </div>
-      <div class="small-9 columns">
-        <input type="text" name="passName"/>
+      <div class="small-9 columns password-field">
+        <input type="password" name="passName" id="passName" required pattern="[a-zA-Z]+">
+        <small class="error">Your password must match the requirements</small>
       </div>
     </div>
 
@@ -67,8 +68,9 @@
       <div class="small-3 columns">
         <label for="confirmName" class="inline">Confirm:</span>
       </div>
-      <div class="small-9 columns">
-        <input type="text" name="confirmName"/>
+      <div class="small-9 columns password-confirmation-field">
+        <input type="password" name="confirmName" required pattern="[a-zA-Z]+" data-equalto="passName"/>
+        <small class="error">The password did not match</small>
       </div>
     </div>
 
@@ -131,12 +133,13 @@
         console.log(formData);
 
         $.ajax({
-            url: "http://localhost/index8.php",
+            url: "index8.php",
             type: "POST",
             data: formData,
             dataType: "json",
             success: function (jsonStr) {
                 console.log(jsonStr);
+                window.location.href = 'screen10.html';
             },
             error: function(response) {
                 console.log(response);
@@ -148,6 +151,7 @@
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/foundation/foundation.abide.js"></script>
     <script>
       $(document).foundation();
     </script>

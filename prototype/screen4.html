@@ -21,8 +21,10 @@
      
         <div class="small-12 columns">
          <div class="panel small-8 small-centered columns">
-          <img style="width:60%;"src="img/qrcode.png"/>
-          <p style="text-align:center;">A. Dodsons<br>Address line 1 </p>
+          <img class="bQRCode" style="width:60%;" />
+          <p class="bName" style="text-align:center;"></p>
+          <p class="bAddress" style="text-align:center;"></p>
+          <p class="bAddress2" style="text-align:center;"></p>
          </div>
         </div>
 
@@ -48,6 +50,29 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+      $.ajax({
+          url: "getBusinessInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      function populateInfo(incomingJson){
+            //console.log(incomingJson);
+              jsonInfo = incomingJson['11783'];
+              console.log(jsonInfo);
+              $('.bQRCode').attr("src", jsonInfo['bQRCode']);
+              $('.bName').html(jsonInfo['bName']);
+              $('.bAddress').html(jsonInfo['bAddress']);                
+              $('.bAddress2').html(jsonInfo['bAddress2']);   
+          }
     </script>
   </body>
 </html>

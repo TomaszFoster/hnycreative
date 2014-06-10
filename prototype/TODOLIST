@@ -1,0 +1,27 @@
+screen1
+- logo and image uploads
+
+screen2
+-play around with the making the header links sortable
+-if you get the header links sortable, scrap the sort drop down
+
+screen15
+- check if the slider is swipeable
+- make white button faded next/previous
+
+screen17b
+-make the filter work.
+
+screen 20
+- display markers on the map
+- filter the markers based on the popout filter
+
+screen 22
+- only show the get reward button if they have 10 hearts
+
+screen 24
+- make the badges an array from the server
+- dynamically populate the badges
+
+FACEBOOK/TWITTER for screens 12, 21, 24, 25
+//   http://coenraets.org/blog/2014/04/facebook-phonegap-cordova-without-plugin/

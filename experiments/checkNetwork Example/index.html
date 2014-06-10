@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<script src="phonegap.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css" media="screen"></link>
+	<script type="javascript">
+		function onLoad(){
+        	document.addEventListener("deviceready", onDeviceReady, false);
+        	console.log('Device is ready, launching onDeviceReady function.');
+    	}
+
+		function onDeviceReady(){
+			console.log('Device is ready...');
+		}
+	</script>
+</head>
+<body onload="onLoad()">
+	<h1 style="text-align: center;">Test App With Button</h1>
+	<!--<input type="button" class="button" onclick="scan()" value="Clicky"></input>-->
+	<input type="button" class="button" onclick="checkConnection()" value="Check Network Connection"></input>
+
+	<script type="text/javascript">
+
+	function checkConnection() {
+		console.log('checking connection type...');
+        var networkState = navigator.connection.type;
+        console.log('we got the network state');
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.NONE]     = 'No network connection';
+
+        console.log('Connection type: ' + states[networkState]);
+
+        alert('Connection type: ' + states[networkState]);
+    }
+
+	</script>
+	
+</body>
+</html>

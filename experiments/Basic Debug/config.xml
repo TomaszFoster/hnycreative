@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+    
+
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.phonegap.example"
+        versionCode = "10" 
+        version     = "0.0.151" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>App Test</name>
+
+    <description>
+        Testing out QR scanner functionality 
+    </description>
+
+    <author href="https://tomaszfoster.github.io" email="tomaszfoster@gmail.com">
+        Tomasz Foster 
+    </author>
+
+    <gap:platform name="android" />
+    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+    <gap:plugin name="org.apache.cordova.network-information" />
+
+</widget>

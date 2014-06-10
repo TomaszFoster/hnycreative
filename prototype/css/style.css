@@ -1,0 +1,613 @@
+@font-face {
+	font-family: 'Kreon-Regular';
+	src: url('Kreon-Regular.ttf');
+	font-family: 'Kreon-Bold';
+	src: url('Kreon-Bold.ttf');
+}
+body {
+	background-image: url('../img/menuBackground.png');
+}
+body, label, h1, h2, p {
+	font-family: 'Kreon-Regular';
+}
+.listing-page {
+	background-image: none;
+	background-color: #fff;
+}
+aside.left-off-canvas-menu {
+	background-image: url('../img/menuBackground.png');
+	width: 350px !important;
+}
+aside.right-off-canvas-menu {
+	width: 400px !important;
+	background-color: #fff;
+}
+/* move-left is for the right side menu and vise versa */
+.move-left {
+	padding-right:150px;
+}
+.move-right {
+	padding-left: 100px;
+}
+.menu-loveva-logo {
+	background-color: #fff;
+	padding: 10px;
+}
+.left-off-canvas-menu li a {
+	font-family: 'Kreon-Bold';
+	color: #389281 !important;
+	font-size: 30px;
+}
+.loveva-icon {
+	width: 62px;
+	padding-right: 10px;
+}
+.left-off-canvas-menu li {
+	box-shadow: 0px 3px 3px #888;
+}
+ul.off-canvas-list li a {
+	border-bottom: none !important;
+}
+.tab-bar {
+	background: #73c8b7;
+}
+h1.title {
+	font-size: 30px;
+}
+.left-small {
+	border-right: none;
+}
+.right-small {
+	border-left: none;
+}
+.gift-icon {
+	margin: 80px 0 10px -20px;
+}
+.heart-count-text {
+	font-family: 'Kreon-Bold';
+	color:#888;
+	font-size: 20px;
+	margin-left:30px;
+}
+.tab-bar {
+	box-shadow: 0px 5px 20px #888;
+}
+.heart-grid {
+	background: url('../img/heartGridBanner.png') no-repeat center;
+	height:215px;
+}
+.userHearts {
+	width:485px;
+	margin-top:30px;
+	margin-left:51px;
+}
+.welcome-text {
+	margin:40px auto;
+	max-width: 615px;
+}
+.firstName {
+	font-size: 140px;
+	line-height: 80px;
+	padding-left: 5px;
+	padding-bottom: 30px;
+}
+.welcome-text p {
+	margin:0;
+}
+.welcome-text div {
+	padding-right: 0;
+	padding-left: 0;
+}
+.row {
+	max-width:615px;
+}
+.button.large, button.large {
+	background-color: #e94949;
+	padding: .75em 1em .75em 1em;
+	width:100%;
+}
+/* Styling for button icons on screen 10  */
+.buttonIcon {
+	float: left;
+	margin-top:8px;
+}
+.buttonIcon2 {
+	float: left;
+	margin-top:4px;
+}
+button p, .button p {
+	font-size: 35px;
+	line-height: 35px;
+	text-align: left;
+	margin-bottom: 0;
+	margin-left: 75px;
+}
+.bottom-buttons {
+	background-color: #fff;
+	width: 100%;
+}
+.bottom-buttons-first { padding-top: 20px;}
+.button-container {
+	max-width: 100%;
+	background-color: #fff;
+	box-shadow: 0 -3px 40px #bbb;
+}
+.welcome-greeting {
+	color: #3d3a36;
+	font-size:30px;
+	line-height: 30px;
+}
+.latestBadgeLocation {
+	font-size: 25px;
+	color: #8c8883;
+	line-height: 20px;
+}
+.progressBar {
+	position: absolute;
+	width: 100%;
+	margin-left: -25px;
+	margin-top: -20px;
+}
+.earned-reward-notification {
+	margin: 40px auto;
+}
+.earned-heart-page h1 {
+	color: #e94949;
+	font-size: 3.2em;
+}
+.earned-heart-page p {
+	font-size:2.3em;
+	line-height:1.2em;
+	color:#3d3a36;
+	font-family: 'Kreon-Light';
+}
+.sharing-buttons {
+	margin: 30px auto;
+}
+.sharing-buttons a {
+	font-size: 30px;
+	color: #3d3a36;
+}
+.sharing-buttons img {
+	padding-bottom: 15px;
+}
+.sharing-buttons div {
+	margin-top:10px;
+}
+.column-divider {
+	margin-top: 0px !important;
+}
+.bottom-home-button {
+	width: 100%;
+	max-width: 100%;
+	padding-top:20px;
+	margin-top:40px;
+	box-shadow: 0 -3px 10px #888;
+	background-color: #fff;
+}
+.return-home-button {
+	background-color:#73c8b7;
+	box-shadow: inset 0px -5px 5px #389281;
+}
+.return-home-button p {
+	color: #fff;
+	font-size:35px;
+	line-height: 30px;
+}
+.return-home-button img {
+	margin-top: 3px;
+}
+.tab-bar-section a, .tab-bar-section p {
+	color: #fff;
+	font-size: 25px;
+	padding: 2px 20px;
+}
+h2.right-nav-header {
+	font-size: 26px !important;
+	color: #e94949;
+	padding: 10px 0 0 0;
+	text-transform: none !important;
+}
+
+.move-left .exit-off-canvas {
+	box-shadow: none;
+}
+.move-right .exit-off-canvas {
+	box-shadow: none;
+}
+
+input.search-box {
+	border-radius:5px;
+	height:50px;
+	background-color: #ddd;
+}
+.search-box-container {
+	width: 400px;
+	padding:10px;
+	margin-left:-15px;
+	margin-bottom:20px;
+	box-shadow: 0 3px 5px #888;
+}
+.search-filter-container {
+	background-image: url('../img/menuBackground.png');
+	margin-left: -15px;
+	padding: 0 15px 0 15px;
+	margin-right: -15px;
+	margin-top: -15px;
+}
+.search-filter-list {
+	list-style: none;
+}
+.search-filter-list > li {
+	box-shadow: 0 3px 10px #888;
+	margin-left: -15px;
+	width: 400px;
+	/*padding: 10px 10px 5px 10px;*/
+}
+
+.search-filter-list p {
+	font-size: 30px;
+	color: #389281;
+	padding-top:10px;
+}
+.right-menu-icon {
+	float: left;
+	padding-right:20px;
+	max-width: 90%;
+	padding-top:5px;
+}
+/* Grays out the main body when selecting left or right pull-out menu */
+.exit-off-canvas {
+	background: rgba(0, 0, 0, 0.7) !important;
+	height: 100%;
+}
+
+/* 
+* Listing Page Styles
+*/
+
+.item-listing {
+	margin-top: 20px;
+}
+.main-section {
+	margin-top: 40px;
+}
+.bLogo {
+	border-style: solid;
+	border-width: 2px;
+	border-color: #a3a3a5;
+	padding: 30px 20px;
+	width:100%;
+	height:auto;
+}
+.item-listing .bName {
+	color:#389281;
+	font-size: 26px;
+	line-height: 25px;
+	font-family: 'Kreon-Bold';
+}
+.item-listing .bLocation {
+	font-size: 15px;
+	color: #888;
+}
+.gift-logo {
+	padding-right:10px;
+	margin-top: -10px;
+}
+.item-listing .bReward {
+	font-size: 20px;
+	color: #444;
+}
+.search-icon {
+	height:60%;
+	width:60%;
+}
+
+/*
+* Screen 15 styles - You've Earned a Reward
+*/
+
+.earned-reward-page h1 {
+	font-size: 3.4em;
+	color: #e94949;
+}
+.earned-sub-header {
+	font-size: 2.2em;
+	line-height:1.2em;
+	color: #3d3a36;
+	font-family: 'Kreon-Light';
+}
+.orbit-container h2 {
+	color: #429787;
+}
+.orbit-container h3 {
+	font-size: 1.3em;
+}
+.social-sharing-icon img {
+	height:65px;
+	width: auto;
+}
+.orbit-slider li {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #a3a3a5;
+	background-color: #fff;
+}
+.orbit-bullets-container {
+	display: none;
+}
+.orbit-container {
+	width:60%;
+	margin-left: 20%;
+	margin-right: 20%;
+	box-shadow: 0 0 20px #888;
+}
+.orbit-container div {
+	width:50%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	height: 100%;
+}
+.display-rewards-link {
+	font-size:2em;
+	color: #429787;
+	font-family: 'Kreon-Light';
+}
+.last-div-section {
+	margin: 20px auto 30px auto;
+}
+.bDistance {
+	color: #888;
+}
+.orbit-slider {
+	margin-bottom: 20px !important;
+}
+
+/*
+* Badge Listing Page ( Screen 24 )
+*/
+.badge-listing-page {
+	background-color: #fff;
+	background-image: none;
+}
+.heart-display p {
+	font-family: 'Kreon-Light';
+	font-size: 1.0rem;
+	line-height: 1.0rem;
+	padding-top: 15px;
+}
+#heartModal {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url('../img/menuBackground.png');
+}
+.reveal-modal {
+	left: 10%;
+	top: 20%;
+}
+#heartModal h2 {
+	color: #e94949;
+	font-size: 1rem;
+}
+#heartModal p {
+	color: #3d3a36;
+	font-size: 0.8rem;
+	font-family: 'Kreon-Light';
+}
+
+/*
+*	Styling Specifically for Multi Level Navigation
+*/
+
+.mp-level, .mp-level-open li {
+	background-image: url('../img/menuBackground.png');
+}
+.mp-level-open {
+	background-color: #fff;
+	background-image: none;
+}
+.right-menu-subheader {
+	font-size: 26px !important;
+	color: none;
+	color: #e94949;
+	padding: 10px 0 0 0;
+	text-transform: none !important;
+}
+.mp-back {
+	font-size: 1.3em;
+	font-family: 'Kreon-Regular';
+	background-color: #73c8b7;
+	box-shadow: inset 0 -3px 0 #389281;
+	margin-left: 0.5em;
+	padding: 0.5rem 1rem 0.8rem 1rem;
+}
+.button-arrow {
+	width: 20%;
+	height: auto;
+}
+.mp-level-open > ul > li > a {
+	color: #389281
+}
+.mp-menu-custom {
+	height:100%;
+}
+html, body {
+	height:inherit;
+}
+.main-container {
+    height:100%;
+    min-height:100%;
+    overflow-x:hidden;
+    overflow-y:auto; /* for IE8 */
+}
+/* This makes the grayed out section a bit darker than the provided style */
+.mp-pusher::after, .mp-level::after {
+	background: rgba(0,0,0,0.7);
+}
+
+/* 
+* Store Directory Page - Screen 17
+*/
+.store-directory-page {
+	background: #fff;
+	height: 100vw;
+}
+.store-directory-page body {
+	background-image: none;
+}
+.inner-wrap {
+	height: 100vw;
+}
+.screen-17-link {
+	background: linear-gradient(#73c8b7,#389281);
+	padding: 7px 20px !important;
+}
+.screen-20-link {
+	background: linear-gradient(#73c8b7,#389281);
+	padding: 7px 20px !important;
+}
+.down-arrow-17 {
+	position: absolute;
+	top: 45px;
+	padding-left: 42px;
+	height: 14px;
+}
+
+/*
+* Browser Confirmation Screen
+*/
+.browser-confirmation div.row {
+	margin-top: 20px;
+}
+.browser-confirmation, .admin-listing-page {
+	background-image: none;
+}
+.browser-confirmation h2 {
+	font-family: 'Kreon-Regular';
+	color: #e94949;
+	padding-top:20px;
+}
+.browser-confirmation p {
+	font-family: 'Kreon-Light';
+	font-size: 1.2em;
+}
+.download-app-button {
+	background-color: #73c8b7 !important;
+	box-shadow: inset 0 -3px 0 #389281;
+	font-family: 'Kreon-Regular';
+	font-size: 1.4em !important;
+	padding:10px !important;
+	max-width: 300px;
+}
+.download-app-button img {
+	height:30px;
+	margin-right: 10px;
+}
+.header-links a {
+	color:#fff;
+	font-size: 12px;
+	font-family: 'OpenSans Extra-Bold';
+}
+th {
+	background-color: #cdccc6;
+}
+table {
+	border:none;
+	border-spacing: 0;
+	margin-top: 30px;
+}
+.admin-listing-page .row {
+	max-width: 900px;
+}
+/*
+* Login Page Styles 
+*/
+.green-container {
+	background-color: #73c8b7;
+	padding-bottom: 40px;
+	margin-bottom: 30px;
+	border-bottom: solid 2px #207a69;
+}
+.green-container h2 {
+	color: #207a69;
+}
+.down-arrow-align {
+	top: -49px;
+	position: absolute;
+	left: -20px;
+}
+.login-input-fields {
+	margin-top: 30px;
+}
+.login-page p {
+	color: #3d3a36;
+	font-family: 'Helvetica';
+}
+.login-page input, .login-page button {
+	border-radius: 5px;
+	font-family: 'Helvetica';
+}
+p.new-user {
+	margin-bottom: 5px;
+	font-size: 0.8em;
+}
+.login-page a {
+	color: #429787;
+	font-family: 'Helvetica';
+	font-size: 1.2em;
+	padding-bottom: 10px;
+}
+.login-page button {
+	font-family: 'Kreon-Regular';
+	font-size: 1.6em !important;
+	padding-top: 12px !important;
+	padding-bottom: 14px !important;
+	box-shadow: inset 0px -2px 2px #aa3435;
+	max-width: 80%;
+}
+/*
+* Reward Detail Page
+*/
+img.bRewardImage {
+	padding:20px;
+}
+h2.bReward {
+	font-family: 'Kreon-Regular' !important;
+	color: #e94949;
+	font-size: 3em;
+	line-height: 1.1em;
+}
+.menu-left-arrow {
+	padding-left: 15px;
+}
+p.bRewardDetail {
+	color: #515151;
+	text-align: justify;
+	font-size: 1.2em;
+	font-family: 'Helvetica';
+}
+h4.bName {
+	text-align: right;
+	padding-right: 20px;
+	color: #515151;
+	margin-top: 4px;
+}
+h4#storeHourDisplay {
+	text-transform: uppercase;
+	font-size: 1.8em;
+	margin-top: 15px;
+	font-family: 'Kreon-Regular';
+	color: #3d3a36;
+	text-align: left;
+}
+.reward-info {
+	padding-top:10px;
+	padding-bottom: 20px;
+}
+.reward-divider {
+	opacity: 0.6;
+}

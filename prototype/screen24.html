@@ -4,79 +4,182 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+     <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('Kreon-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'Kreon-Bold';
+        src: url('Kreon-Bold.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+      @font-face {
+        font-family: 'Kreon-Light';
+        src: url('Kreon-Light.ttf');
+      }
+      body, label, a, button {
+        font-family: 'Kreon-Regular';
+      }
+    </style>
     <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body>
+  <body class="badge-listing-page">
 
-    <!-- Back Button -->
-    <div class="row">
-      <div class="small-12 columns">
-        <a href="#" class="button">Back</a>
+    <!-- OffCanvas Menu / Navigation -->
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+
+          <section class="middle tab-bar-section text-center">
+            <p class="navbar-headline">Your Badges</p>
+          </section>
+          
+        </nav>
+
+        <!-- Left side navigation -->
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li class="menu-loveva-logo"><img src="img/menuLogo.png"></li>
+            <li><a href="#"><img class="loveva-icon" src="img/heartIcon2.png"> Scan A Purchase</a></li>
+            <li><a href="screen24.html"><img class="loveva-icon" src="img/badgesIcon.png"> Your Badges</a></li>
+            <li><a href="screen17.html"><img class="loveva-icon" src="img/businessIcon.png"> Find A Business</a></li>
+            <li><a href="#"><img class="loveva-icon" src="img/nearbyIcon.png"> Find Nearby</a></li>
+            <li><a href="screen22.html"><img class="loveva-icon" src="img/browseRewardsIcon.png"> Browse Rewards</a></li>
+            <li><a href="screen25.html"><img class="loveva-icon" src="img/settingsIcon.png"> User Settings</a></li>
+          </ul>
+        </aside>
+
+
+        <section class="main-section earned-reward-page">
+
+          <!-- main content goes here -->
+
+          <!-- Back Button (As shown in original mockups) -->
+          <!-- 
+          <div class="row">
+            <div class="small-12 columns">
+              <a href="#" class="button">Back</a>
+            </div>
+          </div> -->
+
+          <div class="heart-display">
+            <div class="row">
+              <div class="small-12 columns text-center">
+                <ul class="small-block-grid-3">
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-12 columns text-center">
+                <ul class="small-block-grid-3">
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-12 columns text-center">
+                <ul class="small-block-grid-3">
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>One Line</p></li>
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-12 columns text-center">
+                <ul class="small-block-grid-3">
+                 <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
+                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
+                </ul>
+              </div>
+            </div>
+
+
+          </div>
+
+          <!-- data-reveal-id="heartModal" data-reveal -->
+
+          <!-- Modal window for detail view -->
+          <div id="heartModal" class="reveal-modal" data-reveal>
+            <div class="row">
+              <div class="small-12 columns text-center">
+                <img src="img/displayBadge.png"/>
+                <h2>Long Badge Name Here Just In Case</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat et neque sed feugiat. Phasellus vitae risus at sapien laoreet sagittis ac ac nibh.</p>
+              </div>
+            </div>
+
+            <!--  Social Media sharing from the original mockups
+            <div class="row">
+              <div class="small-6 columns text-center">
+                <a href="#" class="button">Facebook</a>
+              </div>
+              <div class="small-6 columns text-center">
+                <a href="#" class="button">Twitter</a>
+              </div>
+            </div>
+            -->
+
+            <a class="close-reveal-modal">&#215;</a>
+          </div>
+
+            <!-- close the off-canvas menu -->
+        </section>
+
+      <a class="exit-off-canvas"></a>
+
       </div>
-    </div>
-
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <ul class="small-block-grid-3">
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <ul class="small-block-grid-3">
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <ul class="small-block-grid-3">
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <ul class="small-block-grid-3">
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-          <li><a href="#" data-reveal-id="heartModal" data-reveal><img src="img/heart.png"/></a></li>
-      </div>
-    </div>
-
-
-
-    <!-- Modal window for detail view -->
-    <div id="heartModal" class="reveal-modal" data-reveal>
-      <div class="row">
-        <div class="small-12 columns text-center">
-          <img src="img/heart.png"/>
-          <h2>Norfolk LoveVA</h2>
-          <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-6 columns text-center">
-          <a href="#" class="button">Facebook</a>
-        </div>
-        <div class="small-6 columns text-center">
-          <a href="#" class="button">Twitter</a>
-        </div>
-      </div>
-      <a class="close-reveal-modal">&#215;</a>
     </div>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+
+      $.ajax({
+          url: "getUserInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            //console.log(incomingJson);
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+
+      function populateInfo(incomingJson){
+        console.log(incomingJson);
+        
+        var badgeCount = incomingJson['numberOfHearts'];
+
+        for(i=0;i<badgeCount;i++){
+          //console.log(jsonInfo);
+          $('.heart-display img:eq('+i+')').attr( "src", "img/displayBadge.png");
+          $('.heart-display a:eq('+i+')').attr('data-reveal-id', 'heartModal');
+          $('.heart-display a:eq('+i+')').removeAttr("disabled").removeAttr("style");
+          
+        }
+      }
     </script>
   </body>
 </html>

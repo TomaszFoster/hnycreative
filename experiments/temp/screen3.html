@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+
+	<!-- Business Name-->
+	<label for="bName">Business Name</label>
+	<input type="text" id="bName"/><br>
+
+	<!-- Business Description-->
+	<label for="bDescription">Description</label>
+	<textarea rows="3" id="bDescription"></textarea><br>
+
+	<!-- Address Line 1 and 2 -->
+	<label for="bAddress">Address</label><br>
+	<input type="text" id="bAddress"/><br>
+	<input type="text" id="bAddress2"/><br>
+
+	<!-- City, State and Zip-->
+	<input type="text" id="bCity"/><input type="text" id="bState"/><input type="text" id="bZip"/><br>
+
+	<!-- Phone -->
+	<label for="bPhone">Phone</label>
+	<input type="text" id="bPhone"/><br>
+
+	<!-- Reward Title and Description-->
+	<label for="bReward">Reward Title</label>
+	<input type="text" id="bName"/><br>
+	<label for="bRewardDetail">Reward Detail</label>
+	<textarea rows="3" id="bRewardDetail"></textarea><br>
+
+	<!-- Logo w/ Browse & Upload -->
+	<label for="bLogo">Logo</label>
+	<input type="text" id="bLogo"/><button>Browse</button><button>Upload</button><br>
+
+	<!-- Image w/ Browse & Upload -->
+	<label for="bImage">Image</label>
+	<input type="text" id="bImage"/><button>Browse</button><button>Upload</button><br>
+
+	<!-- SOCIAL MEDIA -->
+	<!-- Facebook -->
+	<label for="bFacebook">Facebook</label>
+	<input type="text" id="bFacebook"/><br>
+
+	<!-- Twitter -->
+	<label for="bTwitter">Twitter</label>
+	<input type="text" id="bTwitter"/><br>
+
+	<!-- Google+ -->
+	<label for="bG+">Google+</label>
+	<input type="text" id="bG+"/><br>
+
+	<!-- Yelp! -->
+	<label for="bYelp">Yelp</label>
+	<input type="text" id="bYelp"/><br>
+
+	<!-- Pinterest -->
+	<label for="bPinterest">Pinterest</label>
+	<input type="text" id="bPinterest"/><br>
+
+	<!-- Instagram -->
+	<label for="bInstagram">Instagram</label>
+	<input type="text" id="bInstagram"/><br>
+
+
+	<!-- Category - Dropdown -->
+	<label for="bCategory">Category</label>
+	<select id="bCategory">
+	  <option></option>
+	  <option value="opt1">Option1</option>
+	  <option value="opt2">Option2</option>
+	  <option value="opt3">Option3</option>
+	  <option value="opt4">Option4</option>
+	</select><br>
+	<!-- Sub Cat 1 -->
+	<label for="bSubCat1">Sub Cat 1</label>
+	<select id="bSubCat1">
+	  <option></option>
+	  <option value="opt1">Option1</option>
+	  <option value="opt2">Option2</option>
+	  <option value="opt3">Option3</option>
+	  <option value="opt4">Option4</option>
+	</select><br>
+	<!-- Sub Cat 2 -->
+	<label for="bSubCat2">Sub Cat 2</label>
+	<select id="bSubCat2">
+	  <option></option>
+	  <option value="opt1">Option1</option>
+	  <option value="opt2">Option2</option>
+	  <option value="opt3">Option3</option>
+	  <option value="opt4">Option4</option>
+	</select><br>
+	<!-- Sub Cat 3 -->
+	<label for="bSubCat3">Sub Cat 3</label>
+	<select id="bSubCat3">
+	  <option></option>
+	  <option value="opt1">Option1</option>
+	  <option value="opt2">Option2</option>
+	  <option value="opt3">Option3</option>
+	  <option value="opt4">Option4</option>
+	</select><br>
+
+	<!-- Profile Categories - 3 Dropdowns -->
+	<label for="bProfile1">Profile1</label>
+	<select id="bProfile1">
+	  <option></option>
+	  <option value="opt1">Option1</option>
+	  <option value="opt2">Option2</option>
+	  <option value="opt3">Option3</option>
+	  <option value="opt4">Option4</option>
+	</select><br>
+
+	<label for="bProfile2">Profile2</label>
+	<select id="bProfile2">
+	  <option></option>
+	  <option value="opt1">Option1</option>
+	  <option value="opt2">Option2</option>
+	  <option value="opt3">Option3</option>
+	  <option value="opt4">Option4</option>
+	</select><br>
+
+	<label for="bProfile3">Profile3</label>
+	<select id="bProfile3">
+	  <option></option>
+	  <option value="opt1">Option1</option>
+	  <option value="opt2">Option2</option>
+	  <option value="opt3">Option3</option>
+	  <option value="opt4">Option4</option>
+	</select><br>
+
+	<!-- Hours of Operation - 7 Double Dropdowns with :30 min increments -->
+
+	<!-- Dynamically generate all lists of hours, will make it much easier to change later -->
+	<script type="text/javascript">
+		var dayOfWeek;
+		for (var j=0; j<7;j++){
+			switch (j)
+			{
+			case 0:
+			  	dayOfWeek = "Sunday";
+			  	break;
+			case 1:
+				dayOfWeek = "Monday";
+				break;
+			case 2:
+				dayOfWeek = "Tuesday";
+			  break;
+			case 3:
+				dayOfWeek = "Wednesday";
+			  break;
+			case 4:
+				dayOfWeek = "Thursday";
+			  break;
+			case 5:
+				dayOfWeek = "Friday";
+			  break;
+			case 6:
+				dayOfWeek = "Saturday";
+			  break;
+			}
+			document.write("<label for="+ dayOfWeek+">"+dayOfWeek+"</label>");
+
+			for (var k=1; k<3;k++){
+				var openTime = 4;
+				var increment = 30;
+				document.write("<select name='openTime"+ dayOfWeek+k +"'>");
+				if (k==1){
+					document.write("<option>closed</option>");
+				}else{
+					document.write("<option></option>");
+				}
+				for (var i=1; i <=8; i++)
+				{
+					openTime+=1;
+					document.write("<option>" + openTime + ":00 AM</option>");
+					document.write("<option>" + openTime + ":" + increment + " AM</option>");
+				}
+				var openTime = 1;
+				for (var i=1; i <=10; i++)
+				{
+					document.write("<option>" + openTime + ":00 PM</option>");
+					document.write("<option>" + openTime + ":" + increment + " PM</option>");
+					openTime+=1;
+				}
+				document.write("</select>");
+			}
+			document.write("<br>");
+		}
+	</script>
+
+	<!-- HERE IS WHERE THE DIFFERENCES ARE FOR THE ADMIN PAGE -->
+	<br><br>
+	<!-- Note: We could add a jQuery date selector for the two visit fields here.
+	some ideas:
+	http://blog.teamtreehouse.com/best-jquery-date-picker-plugins-for-input-fields
+	 -->
+	<!-- Last Visit -->
+	<label for="bLastVisit">Last Visit</label>
+	<input type="text" id="bLastvisit"/><br>
+	
+	<!-- Next Visit -->
+	<label for="bNextVisit">Next Visit</label>
+	<input type="text" id="bNextVisit"/><br>
+	
+	<!-- QR Count -->
+	<label for="bQRCount"># of QR's</label>
+	<input type="text" id="bQRCount"/><br>
+	
+	<!-- Admin Notes -->
+	<label for="bAdminNotes">Notes</label>
+	<input type="text" id="bAdminNotes"/><br>
+	
+	<!-- Save Button -->
+	<button value="save">Save</button>
+
+
+</body>
+</html>

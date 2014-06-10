@@ -4,9 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('css/Kreon-Regular.ttf');
+      }
+      body, label {
+        font-family: 'Kreon-Regular';
+      }
+    </style>
     <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body>
+  <body onload="getUserInfo()">
 
     <form>  
     <div class="row">
@@ -203,7 +212,7 @@
             <label for="bCategory" class="right inline">Category</label>
           </div>
           <div class="small-9 columns">
-            <select name="bCategory">
+            <select name="bCategory" id="bCategory" onchange="populateSubCat1()">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -218,7 +227,7 @@
             <label for="bSubCat1" class="right inline">Sub Cat 1</label>
           </div>
           <div class="small-9 columns">
-            <select name="bSubCat1">
+            <select name="bSubCat1" id="bSubCat1" onchange="populateSubCat2()">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -233,7 +242,7 @@
             <label for="bSubCat2" class="right inline">Sub Cat 2</label>
           </div>
           <div class="small-9 columns">
-            <select name="bSubCat2">
+            <select name="bSubCat2" id="bSubCat2" onchange="populateSubCat3()">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -248,7 +257,7 @@
             <label for="bSubCat3" class="right inline">Sub Cat 3</label>
           </div>
           <div class="small-9 columns">
-            <select name="bSubCat3">
+            <select name="bSubCat3" id="bSubCat3">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -264,7 +273,7 @@
             <label for="bProfile1" class="right inline">Profile 1</label>
           </div>
           <div class="small-9 columns">
-            <select name="bProfile1">
+            <select name="bProfile1" id="bProfile1">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -279,7 +288,7 @@
             <label for="bProfile2" class="right inline">Profile 2</label>
           </div>
           <div class="small-9 columns">
-            <select name="bProfile2">
+            <select name="bProfile2" id="bProfile2">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -294,7 +303,7 @@
             <label for="bProfile3" class="right inline">Profile 3</label>
           </div>
           <div class="small-9 columns">
-            <select name="bProfile3">
+            <select name="bProfile3" id="bProfile3">
               <option></option>
               <option value="opt1">Option1</option>
               <option value="opt2">Option2</option>
@@ -347,22 +356,23 @@
               document.write("<div class='small-6 columns'>");
               if (k==1){
                 document.write("<select class='openTime' name='"+ dayOfWeek+k+"'>");
-                document.write("<option>closed</option>");
+                document.write("<option value='closed'>closed</option>");
               }else{
                 document.write("<select class='closeTime' name='"+ dayOfWeek+k+"'>");
-                document.write("<option></option>");
+                document.write("<option value=''></option>");
               }
               for (var i=1; i <=8; i++)
               {
                 openTime+=1;
-                document.write("<option>" + openTime + ":00 AM</option>");
-                document.write("<option>" + openTime + ":" + increment + " AM</option>");
+                document.write("<option value='"+openTime+"00'>" + openTime + ":00 AM</option>");
+                document.write("<option value='"+openTime+increment+"'>" + openTime + ":" + increment + " AM</option>");
               }
               var openTime = 1;
               for (var i=1; i <=10; i++)
               {
-                document.write("<option>" + openTime + ":00 PM</option>");
-                document.write("<option>" + openTime + ":" + increment + " PM</option>");
+                var displayTime = openTime + 12;
+                document.write("<option value='"+displayTime+"00'>" + openTime + ":00 PM</option>");
+                document.write("<option value='"+displayTime+""+increment+"'>" + openTime + ":" + increment + " PM</option>");
                 openTime+=1;
               }
               document.write("</select>");
@@ -377,14 +387,14 @@
 
 
         <!-- HERE IS WHERE THE DIFFERENCES ARE FOR THE ADMIN PAGE -->
-        <div class="panel">
+        <div class="panel admin-panel">
           <!-- Last Visit -->
           	<div class="row">
 	        	<div class="small-3 columns">
         			<label for="bLastVisit" class="right inline">Last Visit</label>
         		</div>
         		<div class="small-9 columns">
-          			<input type="text" name="bLastvisit"/>
+          			<input type="text" name="bLastVisit"/>
           		</div>
         	</div>
 
@@ -427,9 +437,235 @@
     </div>
     </form>
 
+    <!-- Save Button -->
+    <button class="button" onclick="sendAllVariables()">Save</button>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
     <script>
-      function sendAllVariables(){
+      $(document).foundation();
 
+      /* 
+      * Here is the code to save the last updated date to localstorage
+      * We save the date in YYYYMMDD format as it's the easiest to compare to
+      */
+      $('.admin-panel').hide();
+      //instantiate a new date object
+      var d = new Date();
+      // get date in YYYYMMDD format
+      var fullDate = (d.getFullYear()*10000)+((d.getMonth()+1)*100)+d.getDate();
+      //save to localstorage as lastUpdated
+      window.localStorage.setItem( 'lastUpdated', JSON.stringify(fullDate));
+      //output localstorage contents to console
+      //console.log(window.localStorage);
+		var categoryTree;
+	if (!window.localStorage.categories){ 
+     	console.log('categories refreshed')
+	$.ajax({
+          url: "getCategories.php",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            //console.log(response);
+            window.localStorage.setItem( 'categories', JSON.stringify(response));
+            categoryTree=response;
+            populateCategories();
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+         
+      });
+    }else{
+     	console.log('categories cached')
+        categoryTree=JSON.parse(window.localStorage.getItem( 'categories'));
+		populateCategories();
+    }
+     if (!window.localStorage.profiles){ 
+     	console.log('profiles refreshed')
+		$.ajax({
+	          url: "getProfiles.php",
+	          type: "GET",
+	          dataType: "json",
+	          success: function (response) {
+	            //console.log(response);
+	            window.localStorage.setItem( 'profiles', JSON.stringify(response));
+	            populateProfiles(JSON.parse(window.localStorage.getItem( 'profiles')))
+	          },
+	          error: function(response) {
+	              console.log(response);
+	              console.log('Test failed!');                  
+	          }
+	         
+	      });
+	 }else{
+	 	console.log('profile cached')
+	    populateProfiles(JSON.parse(window.localStorage.getItem( 'profiles')))
+	 }
+	 
+	function populateCategories(){
+		var categoryOptions='<option value=""></option>';
+		$('#bCategory').html("");
+		for (key0 in categoryTree){
+			categoryOptions+='<option value="'+key0+'">'+key0+'</option>';
+		}
+		$('#bCategory').html(categoryOptions);
+		$('#bSubCat1').html("");
+		$('#bSubCat2').html("");
+		$('#bSubCat3').html("");
+			
+        $('#bSubCat1').attr("disabled",true);
+        $('#bSubCat2').attr("disabled",true);
+        $('#bSubCat3').attr("disabled",true);
+		
+	}
+	function populateSubCat1(){
+		if ($('#bCategory').val()){
+			var categoryOptions='<option value=""></option>';
+			for (key0 in categoryTree[$('#bCategory').val()]){
+				categoryOptions+='<option value="'+key0+'">'+key0+'</option>';
+			}
+			$('#bSubCat1').html(categoryOptions);
+		} else{
+			$('#bSubCat1').html("");
+		}
+		
+		$('#bSubCat2').html("");
+		$('#bSubCat3').html("");
+		
+        $('#bSubCat1').removeAttr("disabled");
+        $('#bSubCat2').attr("disabled",true);
+        $('#bSubCat3').attr("disabled",true);
+	}
+	function populateSubCat2(){
+		if ($('#bSubCat1').val()){
+			var categoryOptions='<option value=""></option>';
+			for (key0 in categoryTree[$('#bCategory').val()][$('#bSubCat1').val()]){
+				categoryOptions+='<option value="'+key0+'">'+key0+'</option>';
+			}
+			$('#bSubCat2').html(categoryOptions);
+		} else{
+			$('#bSubCat2').html("");
+		}
+		$('#bSubCat3').html("");
+		
+        $('#bSubCat1').removeAttr("disabled");
+        $('#bSubCat2').removeAttr("disabled");
+        $('#bSubCat3').attr("disabled",true);
+		
+	}
+	function populateSubCat3(){
+		if ($('#bSubCat2').val()){
+			var categoryOptions='<option value=""></option>';
+			for (key0 in categoryTree[$('#bCategory').val()][$('#bSubCat1').val()][$('#bSubCat2').val()]){
+				categoryOptions+='<option value="'+key0+'">'+key0+'</option>';
+			}
+			$('#bSubCat3').html(categoryOptions);
+		} else{
+			$('#bSubCat3').html("");
+		}
+        $('#bSubCat3').removeAttr("disabled");
+	}
+	function populateProfiles(profiles){
+		
+		var profileOptions='<option value=""></option>';
+		for (key in profiles){
+			profileOptions+='<option value="'+key+'">'+key+'</option>';
+		}
+		$('#bProfile1').html(profileOptions);
+		$('#bProfile2').html(profileOptions);
+		$('#bProfile3').html(profileOptions);
+	}
+	function addCategories(response){
+        //console.log(response);
+        
+        var arrayLength = Object.keys(response).length;
+
+        var counter = 1;
+
+        /*
+        * These nested for loops should have been done recursively to dynamically build up
+        * our multi level nav menu from the incoming JSON packet of categories/subcategories/businesses
+        */
+
+        for(a in response){
+
+          //open kind of business main list
+          $('.kind-of-business').append('<li class="class'+a+'"><a href="#">'+a+'</a></li>');
+          var className = String('.class'+a);
+          className = className.replace(/\s+\/+/g, '');
+          //console.log(className);
+
+          $(className).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+            'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+            '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+            '<button class="mp-back button radius">All '+a+'</button>'+
+            '<ul class="subClass'+a+'"></ul></div>');
+
+          for(b in response[a]){
+            var subClassName = String('subClass'+b);
+
+            subClassName = subClassName.replace(/\s+/g, '').replace(/\/+/g, '');
+            var addTo = String('.subClass'+a);
+            //console.log(subClassName);
+            $(addTo).append('<li class="'+subClassName+'"><a href="#">'+b+'</a></li>');
+
+            $( String('.'+subClassName) ).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+            'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+            '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+            '<button class="mp-back button radius">All '+b+'</button>'+
+            '<ul class="'+subClassName+'"></ul></div>');
+
+            for(c in response[a][b]){
+              var addTo2 = String('ul.'+subClassName);
+              var subClassName2 = String('subClass'+c);
+              subClassName2 = subClassName2.replace(/\s+/g, '').replace(/\/+/g, '');
+
+              $(addTo2).append('<li class="'+subClassName2+'"><a href="#">'+c+'</a></li>');
+
+              if(response[a][b][c].length !== 0){
+                $( String('.'+subClassName2) ).append('<div class="mp-level"><h2 class="right-menu-subheader">'+
+                'Kind of business?</h2><a class="mp-back button radius" href="#">'+
+                '<img class="button-arrow" src="img/leftButtonArrow.png"/> Back</a>'+
+                '<button class="mp-back button radius">All '+c+'</button>'+
+                '<ul class="'+subClassName2+'"></ul></div>');
+
+                for(d in response[a][b][c]){
+                  if(d.length > 1){
+                    var addTo3 = String('ul.'+subClassName2);
+                    var subClassName3 = String('subClass'+d);
+                    subClassName3 = subClassName3.replace(/\s+/g, '').replace(/\/+/g, '');
+                    $(addTo3).append('<li class="'+subClassName3+'"><a href="#">'+d+'</a></li>');
+                  }
+                }
+              } 
+            }
+          }
+        }
+
+        /* 
+        * This is for the multi-level push menu. The location of this function is important.
+        * The function addCategories has to instantiate this, rather than have it done outside
+        * of this funtion, which will stop it from working. We MUST dynamically build our multi
+        * level menu before we call this.
+        */
+        
+
+      }
+
+      /*
+      * End of code to save last updated date
+      */
+
+      /*
+      * Function to send all the variables on the form once button is clicked
+      */
+      function sendAllVariables(){
+        /* 
+        * this array is needed to get the values of all the form inputs given an
+        * identifier input
+        */
         $.fn.serializeObject = function()
         {
             var o = {};
@@ -447,12 +683,13 @@
             return o;
         };
 
+        // use previous function to read all form elements
         var formData = $('form').serializeObject();
-
-        console.log(formData);
-
+        /* now we send the form data as an ajax packet
+        * to a php server which processes the data on the back end
+        */
         $.ajax({
-            url: "http://localhost/index3.php",
+            url: "index3.php",
             type: "POST",
             data: formData,
             dataType: "json",
@@ -465,15 +702,79 @@
             }
         });  
       }
-    </script>
 
-    <!-- Save Button -->
-    <button class="button" onclick="sendAllVariables()">Save</button>
-    
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
+      /*
+      * Get all the information about the business to populate the form
+      * send last updated timestamp from localstorage to compare and see
+      * which business information we need to get back
+      */
+      function getUserInfo(){
+        $.ajax({
+            url: "getBusinessInfo.php",
+            type: "GET",
+            data: {'lastUpdated':window.localStorage['lastUpdated']},
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+                populateInfo(response);
+            },
+            error: function(response) {
+                console.log(response);
+                console.log('Test failed!');                  
+            }
+        }); 
+      }
+
+      //get variables from url string
+      function getUrlVars(){
+          var vars = [], hash;
+          var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+
+          for(var i = 0; i < hashes.length; i++)
+              {
+               hash = hashes[i].split('=');
+               vars.push(hash[0]);
+               vars[hash[0]] = hash[1];
+               }
+
+           return vars;
+      }
+
+      var get = getUrlVars();
+
+      /* 
+      * populate the form with business information for a particular business
+      * in this case being one with storeID 11782
+      */
+      function populateInfo(incomingJson){
+        //jsonInfo = incomingJson['11782'];
+              //if we have a store ID passed through the URL
+        //we will hide the storeID input field and populate it with our information
+        if (get[0] == 'storeID'){
+          jsonInfo = incomingJson[get['storeID']];
+          //console.log(get['storeID']); 
+          for(a in jsonInfo){
+            $("input[name='"+a+"']").val(jsonInfo[a]);
+            $("textarea[name='bDescription']").val(jsonInfo['bDescription']);
+            $("textarea[name='bRewardDetail']").val(jsonInfo['bRewardDetail']);
+            $('select[name="'+a+'"] option[value="'+jsonInfo[a]+'"]').prop('selected', true);
+          
+          	if (a =='bCategory'){
+	          	populateSubCat1();
+	        }
+   			if (a =='bSubCat1'){
+	          	populateSubCat2();
+	        }
+	        if (a =='bSubCat2'){
+	          	populateSubCat3();
+	        }
+          }
+          
+          //console.log("success!");
+          $('.admin-panel').show();  
+        }
+        
+      }
     </script>
   </body>
 </html>
