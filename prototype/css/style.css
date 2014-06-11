@@ -578,8 +578,8 @@ img.bRewardImage {
 h2.bReward {
 	font-family: 'Kreon-Regular' !important;
 	color: #e94949;
-	font-size: 3em;
-	line-height: 1.1em;
+	font-size: 3.1em;
+	line-height: 1.0em;
 }
 .menu-left-arrow {
 	padding-left: 15px;
@@ -595,11 +595,12 @@ h4.bName {
 	padding-right: 20px;
 	color: #515151;
 	margin-top: 4px;
+	line-height: 1.2em;
 }
 h4#storeHourDisplay {
 	text-transform: uppercase;
 	font-size: 1.8em;
-	margin-top: 15px;
+	margin-top: 10px;
 	font-family: 'Kreon-Regular';
 	color: #3d3a36;
 	text-align: left;
@@ -610,4 +611,16 @@ h4#storeHourDisplay {
 }
 .reward-divider {
 	opacity: 0.6;
+	margin-top: -5px;
+}
+.reward-detail-page a.button {
+	font-family: "Kreon-Regular";
+	font-size: 2em;
+}
+.redeem-button {
+	max-width: 80%;
+	padding:10px !important;
+}
+.redeem-button img {
+	padding-right: 20px;
 }
