@@ -4,107 +4,69 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('Kreon-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'Kreon-Bold';
+        src: url('Kreon-Bold.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+      @font-face {
+        font-family: 'Kreon-Light';
+        src: url('Kreon-Light.ttf');
+      }
+      body, label, a, button {
+        font-family: 'Kreon-Regular';
+      }
+    </style>
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
 
-    <!-- Registration and Login -->
-    <form data-abide>
-    <div class="row">
-      <div class="small-9 columns">
-        <span>Registration</span>
-      </div>
-      <div class="small-3 columns">
-        <a href="screen8b.html" class="button small" >Login</a>
-      </div>
-    </div>
+    <nav class="tab-bar">
+
+      <section class="middle tab-bar-section text-center">
+        <p class="navbar-headline">Sign Up For LoveVA</p>
+      </section>
+      
+    </nav>
 
     <!-- Blurb under registration -->
-    <div class="row">
+    <div class="row registration-page">
       <div class="small-12 columns">
-        <p id="text1"></p>
+        <p id="text1" class="registration-blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in tortor dolor. Nunc tempus molestie odio sit amet  id risus velit.</p>
+
+        <!-- Registration Information -->
+        <!-- Registration and Login -->
+        <form autocomplete="off">
+            <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+          <input style="display:none" type="text" name="eName"/>
+          <input style="display:none" type="password" name="passName"/>
+
+            <input type="text" name="fName" placeholder="First Name"/>
+
+            <input type="email" name="eName" placeholder="Email Address" autocomplete="off"/>
+            
+            <input type="password" name="passName" id="passName" autocomplete="off" placeholder="Password">
+          
+            <input type="text" name="addZip" placeholder="ZIP Code"/>
+        </form>
       </div>
     </div>
 
-    <!-- Registration Information -->
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="fName" class="inline">First Name:</span>
-      </div>
-      <div class="small-9 columns">
-        <input type="text" name="fName"/>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="lName" class="inline">Last Name:</span>
-      </div>
-      <div class="small-9 columns">
-        <input type="text" name="lName"/>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="eName" class="inline">Email:</span>
-      </div>
-      <div class="small-9 columns">
-        <input type="email" name="eName"/>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="passName" class="inline">Password:</span>
-      </div>
-      <div class="small-9 columns password-field">
-        <input type="password" name="passName" id="passName" required pattern="[a-zA-Z]+">
-        <small class="error" ></small>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="confirmName" class="inline">Confirm:</span>
-      </div>
-      <div class="small-9 columns password-confirmation-field">
-        <input type="password" name="confirmName" required pattern="[a-zA-Z]+" data-equalto="passName"/>
-        <small class="error" id="passwordMustMatch"></small>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="add1" class="inline">Address:</span>
-      </div>
-      <div class="small-9 columns">
-        <input type="text" name="address1"/>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="addCity" class="inline">City:</span>
-      </div>
-      <div class="small-9 columns">
-        <input type="text" name="addCity"/>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="addZip" class="inline">Zip:</span>
-      </div>
-      <div class="small-9 columns">
-        <input type="text" name="addZip"/>
-      </div>
-    </div>
-    </form>
-
-    <div class="row">
-      <div class="small-12 columns">
-        <button class="button right" onclick="sendAllVariables()">Save</button>
+    <div class="row registration-page">
+      <div class="small-12 columns text-center">
+        <p class="signup-confirmation">By clicking the big red button, you agree to our <a href="screen32.html">Privacy Policy</a> and <a href="screen32.html">Terms of Service</a>.</p>
+        <a class="button large create-account-button" onclick="sendAllVariables()">Create Account</a>
+        <p class="have-an-account">Already have an account?</p>
+        <a class="login-here-link" href="screen8b.html">Login Here</a>
       </div>
     </div>
 
@@ -151,14 +113,12 @@
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
-    <script src="js/foundation/foundation.abide.js"></script>
-    <script src="js/textContent.js"></script>
     <script>
       $(document).foundation();
-       function staticText(content){
-		 $('#text1').html(content.screen8.text1);
-		 $('#passwordMustMatch').html(content.screen8.passwordMustMatch);
-	   }
+       /*function staticText(content){
+		    $('#text1').html(content.screen8.text1);
+		    $('#passwordMustMatch').html(content.screen8.passwordMustMatch);
+	     }*/
     </script>
   </body>
 </html>

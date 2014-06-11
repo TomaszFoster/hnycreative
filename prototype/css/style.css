@@ -671,8 +671,9 @@ h4#storeHourDisplay {
 	border-radius:5px;
 	height:50px;
 	box-shadow: inset 0px 3px 3px #ccc;
+	font-size:20px;
 }
-.give-reward-button {
+.give-reward-button, .create-account-button {
 	box-shadow: inset 0px -3px 3px #aa3435;
 	font-family: 'Kreon-Regular';
 	font-size: 1.8em !important;
@@ -680,4 +681,39 @@ h4#storeHourDisplay {
 	border-radius: 5px;
 	padding: 10px !important;
 	margin-top: 20px;
+}
+/*
+* Registration page
+*/
+.registration-page p {
+	font-family: 'Helvetica';
+	text-align: center;
+	font-size: 1.0em;
+	font-weight: 200;
+}
+.create-account-button {
+	width:240px !important;
+	margin-bottom: 60px;
+}
+.have-an-account {
+	margin-bottom: 0;
+	font-size: 0.8em;
+}
+.login-here-link {
+	font-size: 1.2em;
+	font-family: 'Helvetica';
+	font-weight: 200;
+	color: #429787;
+}
+.signup-confirmation, .signup-confirmation a {
+	font-size: 0.8em !important;
+	color: #888;
+}
+.signup-confirmation a {
+	font-family: 'Helvetica';
+	font-weight: 600;
+	font-size: 1.0em !important;
+}
+.registration-blurb {
+	margin-top: 30px;
 }
