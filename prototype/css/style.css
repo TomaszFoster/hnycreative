@@ -130,7 +130,7 @@ button p, .button p {
 .button-container {
 	max-width: 100%;
 	background-color: #fff;
-	box-shadow: 0 -3px 40px #bbb;
+	box-shadow: 0 -5px 10px #999;
 }
 .welcome-greeting {
 	color: #3d3a36;
@@ -594,7 +594,7 @@ h4.bName {
 	text-align: right;
 	padding-right: 20px;
 	color: #515151;
-	margin-top: 4px;
+	margin-top: 10px;
 	line-height: 1.2em;
 }
 h4#storeHourDisplay {
@@ -615,12 +615,26 @@ h4#storeHourDisplay {
 }
 .reward-detail-page a.button {
 	font-family: "Kreon-Regular";
-	font-size: 2em;
+	font-size: 1.8em;
 }
 .redeem-button {
 	max-width: 80%;
-	padding:10px !important;
+	padding: 10px 10px 13px 10px !important;
+	border-radius:5px;
+	box-shadow: inset 0px -3px 3px #aa3435;
+	margin-bottom: 50px;
+	margin-top: 20px;
 }
 .redeem-button img {
 	padding-right: 20px;
+}
+.bDirections, .bStoreDetails {
+	border-radius:5px;
+	margin-top:20px;
+	padding-top:10px !important;
+	padding-bottom: 13px !important;
+	background-color: #73c8b7 !important;
+	box-shadow: inset 0px -3px 3px #389281;
+	text-align: left;
+	max-width: 300px;
 }
