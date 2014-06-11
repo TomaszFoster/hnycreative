@@ -461,22 +461,22 @@
 		var categoryTree;
 	if (!window.localStorage.categories){ 
      	console.log('categories refreshed')
-	$.ajax({
-          url: "getCategories.php",
-          type: "GET",
-          dataType: "json",
-          success: function (response) {
-            //console.log(response);
-            window.localStorage.setItem( 'categories', JSON.stringify(response));
-            categoryTree=response;
-            populateCategories();
-          },
-          error: function(response) {
-              console.log(response);
-              console.log('Test failed!');                  
-          }
-         
-      });
+		$.ajax({
+	          url: "getCategories.php",
+	          type: "GET",
+	          dataType: "json",
+	          success: function (response) {
+	            //console.log(response);
+	            window.localStorage.setItem( 'categories', JSON.stringify(response));
+	            categoryTree=response;
+	            populateCategories();
+	          },
+	          error: function(response) {
+	              console.log(response);
+	              console.log('Test failed!');                  
+	          }
+	         
+	      });
     }else{
      	console.log('categories cached')
         categoryTree=JSON.parse(window.localStorage.getItem( 'categories'));

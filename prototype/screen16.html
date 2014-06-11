@@ -37,7 +37,7 @@
       </section>
 
       <section class="middle tab-bar-section text-center">
-        <h1 class="title">Reward Detail</h1>
+        <h1 class="title" id="title"></h1>
       </section>
       
     </nav>
@@ -84,9 +84,12 @@
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/textContent.js"></script>
     <script>
       $(document).foundation();
-
+ 		function staticText(content){
+		 $('#title').html(content.screen16.title);
+	   }
       $.ajax({
           url: "getBusinessInfo.php",
           type: "GET",

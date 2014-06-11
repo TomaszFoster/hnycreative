@@ -68,10 +68,10 @@
         <img class="earned-reward-notification" src="img/earnedRewardNotification.png"/>
       </div>
       <div class="small-12 columns text-center">
-        <h1 class="earned-headline">You've Earned a Heart!</h1>
+        <h1 class="earned-headline" id="headline1"></h1>
       </div>
       <div class="small-12 columns text-center">
-        <p>We suspected you were a good person, but you've just confirmed it. Let's seal our friendship with a high five.</p>
+        <p id="text1">We suspected you were a good person, but you've just confirmed it. Let's seal our friendship with a high five.</p>
       </div>
     </div>
 
@@ -211,9 +211,13 @@
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/textContent.js"></script>
     <script>
       $(document).foundation();
-
+		function staticText(content){
+		 $('#headline1').html(content.screen13.headline1);
+		 $('#text1').html(content.screen13.text1);
+	   }
         $('.sharing-buttons').hide();
     </script>
   </body>

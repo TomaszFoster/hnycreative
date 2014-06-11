@@ -117,8 +117,8 @@
 
                 <div class="small-12 columns text-center">
                   <img src="img/earnedGiftLogo.png"/>
-                  <h1>You've Earned a Reward!</h1>
-                  <p class="earned-sub-header">Congratulations on making it to the<br>"let's buy each other gifts" phase<br>of this relationship.</p>
+                  <h1 id="headline1"></h1>
+                  <p class="earned-sub-header" id="text1"></p>
                 </div>
 
               </div>
@@ -298,8 +298,13 @@
     <script src="js/foundation.min.js"></script>
     <script src="js/classie.js"></script>
     <script src="js/mlpushmenu.js"></script>
+    <script src="js/textContent.js"></script>
     <script>
       $(document).foundation();
+		function staticText(content){
+		 $('#headline1').html(content.screen15.headline1);
+		 $('#text1').html(content.screen15.text1);
+	   }
       $.ajax({
           url: "getCategories.php",
           type: "GET",
