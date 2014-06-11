@@ -70,46 +70,8 @@
             </div>
           </div> -->
 
-          <div class="heart-display">
-            <div class="row">
-              <div class="small-12 columns text-center">
-                <ul class="small-block-grid-3">
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="small-12 columns text-center">
-                <ul class="small-block-grid-3">
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="small-12 columns text-center">
-                <ul class="small-block-grid-3">
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>One Line</p></li>
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="small-12 columns text-center">
-                <ul class="small-block-grid-3">
-                 <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
-                  <li><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>Badge Name Goes Here With 3 Lines</p></li>
-                </ul>
-              </div>
-            </div>
+          <div class="heart-display" id="badgeList">
+            
 
 
           </div>
@@ -155,6 +117,59 @@
       $(document).foundation();
 		function staticText(content){
 		 $('#title').html(content.screen24.title);
+	   }
+	   var allBadges;
+	   var refreshCache=false;
+	   if (!window.localStorage.badges || refreshCache){ 
+	     	console.log('badges refreshed')
+			$.ajax({
+		          url: "getBadges.php",
+		          type: "GET",
+		          dataType: "json",
+		          success: function (response) {
+		            //console.log(response);
+		            window.localStorage.setItem( 'badges', JSON.stringify(response));
+		            allBadges=response;
+		            populateAllBadges();
+		          },
+		          error: function(response) {
+		              console.log(response);
+		              console.log('Test failed!');                  
+		          }
+		         
+		      });
+	    }else{
+	     	console.log('badges cached')
+	        allBadges=JSON.parse(window.localStorage.getItem( 'badges'));
+			populateAllBadges();
+	    }
+	    
+	   function populateAllBadges(){
+	   		console.log(allBadges)
+	   		var badgeHTML='';
+	   		for (var i in allBadges){
+	   			if (i % 3 == 1){
+					badgeHTML+='<div class="row">';
+					badgeHTML+='<div class="small-12 columns text-center">';
+					badgeHTML+='<ul class="small-block-grid-3">';
+					badgeHTML+='<li id="'+i+'"><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>One Line</p></li>';
+                  
+                  
+	   			} else if (i % 3 == 2){
+	   				badgeHTML+='<li id="'+i+'"><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>';
+	   			} else if (i % 3 == 0){
+	   				badgeHTML+='<li id="'+i+'"><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>';
+                	badgeHTML+='</ul>';
+              		badgeHTML+='</div>';
+            		badgeHTML+='</div>';
+	   			}
+	   		}
+	   		if (i < 3){
+				badgeHTML+='</ul>';
+              		badgeHTML+='</div>';
+            		badgeHTML+='</div>';
+			}
+	   		$('#badgeList').html(badgeHTML);
 	   }
       $.ajax({
           url: "getUserInfo.php",
