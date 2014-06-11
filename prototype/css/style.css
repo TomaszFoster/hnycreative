@@ -474,7 +474,7 @@ html, body {
 	background-image: none;
 }
 .inner-wrap {
-	height: 100vw;
+	height: 100%;
 }
 .screen-17-link {
 	background: linear-gradient(#73c8b7,#389281);
@@ -652,4 +652,32 @@ h4#storeHourDisplay {
 	text-align: left;
 	max-width: 300px;
 }
-
+/*
+* Give reward page
+*/
+.give-reward-page h1 {
+	font-size: 3.4em;
+	color: #e94949;
+}
+.give-reward-page h4 {
+	font-size: 2.0em;
+	line-height: 1.2em;
+	color: #3d3a36;
+	font-family: 'Helvetica';
+	font-weight: 200;
+}
+.give-reward-page input {
+	margin-top: 40px;
+	border-radius:5px;
+	height:50px;
+	box-shadow: inset 0px 3px 3px #ccc;
+}
+.give-reward-button {
+	box-shadow: inset 0px -3px 3px #aa3435;
+	font-family: 'Kreon-Regular';
+	font-size: 1.8em !important;
+	width: 200px !important;
+	border-radius: 5px;
+	padding: 10px !important;
+	margin-top: 20px;
+}
