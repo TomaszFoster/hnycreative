@@ -762,3 +762,80 @@ h4#storeHourDisplay {
 	width: 100%;
 	height: 40vh;
 }
+.business-detail-page .columns {
+	padding: 0;
+}
+.business-detail-page .row {
+	margin: 0;
+	max-width: 3000px;
+}
+.business-logo {
+	background-image: url('../img/bakersCrust.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 100%;
+	height: 35vh;
+}
+.business-logo-icon {
+	margin-top:-60px;
+	margin-left:30px;
+	background-color: #fff;
+	width:200px;
+	max-width: 70vw;
+	height: 180px;
+	border: solid;
+	border-width: 1px;
+	border-color: #888;
+}
+.business-logo-icon img {
+	max-height:180px;
+	height: 100%;
+	width: auto !important;
+	border: none;
+	padding:10px;
+}
+.business-detail-page .bName {
+	margin-left: 250px;
+	margin-top: -105px;
+	font-family: 'Helvetica' !important;
+	font-weight: 400;
+	color: #429787;
+}
+.business-detail-page .reward-first {
+	background-color: #fff;
+	padding-bottom: 80px;
+	box-shadow: 0px 3px 10px #AAA;
+}
+.business-detail-page .reward-details {
+	padding: 10px 30px;
+}
+.business-detail-page .reward-details h4 {
+	font-family: 'Kreon-Bold';
+	color: #e94949;
+	font-size: 1.4em;
+}
+.business-detail-page .mini-heart {
+	margin-top: -8px;
+	height:20px;
+}
+.business-detail-page h3.bReward {
+	color: #389281;
+	font-family: 'Kreon-Bold' !important;
+	font-size: 1.6em;
+}
+.business-detail-page p.bRewardDetail {
+	font-size: 0.7em;
+	font-family: 'Helvetica';
+	line-height: 1.3em;
+	margin-bottom: 0;
+}
+.business-detail-page .redeem-button {
+	margin-top: 0;
+	font-family: 'Kreon-Regular';
+	font-size: 1.8em;
+	margin-bottom: 30px;
+}
+.redeem-button-container {
+	box-shadow: 0px 3px 10px #AAA;
+}

@@ -24,7 +24,7 @@
 	    	'bReward' => 'Reward Headline Goes Here & Should be Pretty Short',
 	    	'bRewardDetail' => 'Reward detail text goes here orbi semper in velit vitae rutrum. Sed imperdiet, quam eu lobortis facilisis, velit fe lis tincidunt metus, vel dignissim nibh arcu id purus. Sed imperdiet, quam eu lobortis facilisis, velit felis tincidunt metus, vel dignissim nibh arcu id purus',
 	    	'bRewardImage' => 'img/plant1.jpeg',
-	    	'bLogo' => 'img/adodsons.png',
+	    	'bLogo' => 'img/bakersCrustLogo.png',
 	    	'bGetReward' => 'urlPathToReward',
 			'bFacebook' => 'http://www.facebook.com/greenlifeadventuresports',
 			'bTwitter' => 'http://www.twitter.com/gselevator',
