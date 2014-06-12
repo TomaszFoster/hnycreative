@@ -723,3 +723,42 @@ h4#storeHourDisplay {
 	margin-left: auto;
 	margin-right: auto;
 }
+/*
+* Splash screen styling
+*/
+.splash-container {
+	width: 100%;
+	max-height: 100%;
+}
+.splash-logo {
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+	max-height: 35vh;
+}
+.splash-logo-container {
+	background-color: #fff;
+	width: 100%;
+	margin: auto auto;
+	height: 35vh;
+	background-image: url('../img/splashLogo.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.splash-1 {
+	background-image: url('../img/splash1.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 100%;
+	height: 25vh;
+}
+.splash-2 {
+	background-position: 50% 50%;
+	background-image: url('../img/splash2.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 40vh;
+}
