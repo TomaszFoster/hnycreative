@@ -839,3 +839,12 @@ h4#storeHourDisplay {
 .redeem-button-container {
 	box-shadow: 0px 3px 10px #AAA;
 }
+.business-map {
+	height: 260px;
+	box-shadow: 0px 3px 10px #AAA;
+	width: 100%;
+}
+.business-map-container {
+	width:100%;
+	height: 100%;
+}

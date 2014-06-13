@@ -26,9 +26,25 @@
         font-family: 'Kreon' !important;
       }
     </style>
+
+    <script src="js/OpenLayers.js"></script>
+    <script>
+      function init() {
+        map = new OpenLayers.Map("basicMap");
+        var mapnik         = new OpenLayers.Layer.OSM();
+        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+        var position       = new OpenLayers.LonLat(-76.2944327,36.8700092).transform( fromProjection, toProjection);
+        var zoom           = 15; 
+ 
+        map.addLayer(mapnik);
+        map.setCenter(position, zoom );
+      }
+    </script>
     <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body>
+
+  <body onload="init();">
 
   <!-- OffCanvas Menu / Navigation -->
     <nav class="tab-bar">
@@ -71,13 +87,28 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="small-4 columns">
-          <h2>Address</h2>
+      <!-- Dynamic Map Section -->
+
+      <div class="row business-map">
+        <div class="small-12 columns business-map-container">
+          <div id="basicMap" style="width:100%;height:100%;"></div>
         </div>
-        <div class="small-8 columns">
-          <p class="bFullAddress"></p>
-          <a class="button right bDirections">Open in Maps</a>
+      </div>
+
+      <!-- -->
+
+      <div class="row business-detail-list">
+        <div class="small-12 columns">
+          <h2><img src="img/directionIcon.png"/>Directions</h2>
+          <p class="bFullAddress">313 West 21st Street</p>
+        </div>
+        <div class="small-12 columns">
+          <h2><img src="img/callIcon.png"/>Call Now</h2>
+        </div>
+        <div class="small-12 columns">
+          <h2><img src="img/learnMoreIcon.png"/>Learn More</h2>
+          
+          <a class="right bDirections">Open in Maps</a>
         </div>
       </div>
 
@@ -144,7 +175,7 @@
         $('.bRewardDetail').html(jsonInfo['bRewardDetail']);
         $('.bPhoneCall').attr("href", "tel:"+jsonInfo['bPhone']);
         $('.bDirections').attr("href", jsonInfo['bDirections']);
-        $('.bFullAddress').html(jsonInfo['bAddress']+"<br>"+jsonInfo['bCity']+", "+jsonInfo['bState']+
+        $('.bFullAddress').html(jsonInfo['bAddress']+", "+jsonInfo['bCity']+", "+jsonInfo['bState']+
           " "+jsonInfo['bZip']);
         $('.bCategories').html(jsonInfo['bCategory']+" | "+jsonInfo['bSubCat1']+
           " | "+jsonInfo['bSubCat2']+" | "+jsonInfo['bSubCat3']);
