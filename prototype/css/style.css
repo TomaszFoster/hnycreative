@@ -524,7 +524,7 @@ html, body {
 .header-links a {
 	color:#fff;
 	font-size: 12px;
-	font-family: 'OpenSans Extra-Bold';
+	font-family: 'OpenSans Semi-Bold';
 }
 th {
 	background-color: #cdccc6;
@@ -536,6 +536,14 @@ table {
 }
 .admin-listing-page .row {
 	max-width: 900px;
+}
+.admin-listing-page tbody p {
+	font-family: 'OpenSans Regular';
+	margin-bottom: 5px;
+}
+.admin-listing-page tbody td {
+	padding-top:3px;
+	padding-bottom: 3px;
 }
 /*
 * Login Page Styles 
