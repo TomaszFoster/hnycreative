@@ -42,11 +42,11 @@
 			'bProfile3' => 'Fresh From the Farm',
 
 			//hours of operation
-			'Saturday1' => '500',
-			'Saturday2' => '600',
-			'Sunday1' => '900',
+			'Saturday1' => 'Closed',
+			'Saturday2' => '',
+			'Sunday1' => '930',
 			'Sunday2' => '1700',
-			'Monday1' => '900',
+			'Monday1' => '930',
 			'Monday2' => '1700',
 			'Tuesday1' => '0800',
 			'Tuesday2' => '1700',

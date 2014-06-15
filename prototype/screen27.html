@@ -22,9 +22,6 @@
         font-family: 'Kreon-Light';
         src: url('Kreon-Light.ttf');
       }
-      h2, .bReward {
-        font-family: 'Kreon' !important;
-      }
     </style>
 
     <script src="js/OpenLayers.js"></script>
@@ -44,7 +41,7 @@
     <script src="js/vendor/modernizr.js"></script>
   </head>
 
-  <body onload="init();">
+  <body onload="init();" class="business-detail-page-body">
 
   <!-- OffCanvas Menu / Navigation -->
     <nav class="tab-bar">
@@ -99,46 +96,52 @@
 
       <div class="row business-detail-list">
         <div class="small-12 columns">
-          <h2><img src="img/directionIcon.png"/>Directions</h2>
+          <img src="img/directionIcon.png"/><h2>Directions</h2>
           <p class="bFullAddress">313 West 21st Street</p>
+          <img src="img/rightArrowIcon.png" class="business-right-arrow" />
         </div>
         <div class="small-12 columns">
-          <h2><img src="img/callIcon.png"/>Call Now</h2>
+          <img src="img/callIcon.png"/><h2>Call Now</h2>
+          <p class="bPhone">313-888-2012</p>
+          <img src="img/rightArrowIcon.png" class="business-right-arrow" />
         </div>
         <div class="small-12 columns">
-          <h2><img src="img/learnMoreIcon.png"/>Learn More</h2>
-          
-          <a class="right bDirections">Open in Maps</a>
+          <img src="img/learnMoreIcon.png"/><h2>Learn More</h2>
+          <p class="bWebsiteVisit">Visit Website</p>
+          <img src="img/rightArrowIcon.png" class="business-right-arrow" />
         </div>
       </div>
 
-      <div class="row">
-        <div class="small-4 columns">
-          <h2>Phone:</h2>
-        </div>
-        <div class="small-8 columns">
-          <p class="bPhone"></p>
-          <a href="#" class="button right bPhoneCall">Call Now</a>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="small-4 columns">
-          <h2>Website:</h2>
-        </div>
-        <div class="small-8 columns">
-          <a class="bWebsite"></a>
-        </div>
-      </div>
-
-      <div class="row">
+      <div class="row about-this-business">
         <div class="small-12 columns">
-          <ul class="small-block-grid-4">
+          <h2>About this Business</h2>
+          <p class="bDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis, dolor non luctus vulputate, quam justo aliquet nulla, at faucibus sapien velit ac felis. Nulla adipiscing dignissim urna, at consectetur augue elementum in. Integer nisl leo, accumsan in dolor ut, fringilla luctus leo. Sed porttitor, leo condimentum vehicula tempor, tortor justo commodo nibh, et aliquam lectus ipsum non sem. Ut est magna, laoreet a lectus eu, pellentesque tempus ante. Maecenas convallis at ipsum vitae pharetra. Duis turpis ipsum, sodales id neque eu, dapibus molestie urna. Proin hendrerit nunc et felis facilisis, vitae pellentesque nibh mollis. In porttitor est a magna adipiscing hendrerit. Vestibulum tellus felis, iaculis vitae arcu id, rutrum molestie augue. Etiam faucibus nisi vitae libero rhoncus, eget lacinia nunc dictum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce neque purus, mattis interdum magna quis, malesuada pulvinar leo. Proin hendrerit nunc et felis facilisis, vitae pellentesque nibh mollis. In porttitor est a magna adipiscing hendrerit.</p>
+          <h2>Hours of Operation: </h2>
+          <h4>Monday:</h4><p class="hour-list hours-1">10:00 am - 10:30pm</p>
+          <h4>Tuesday:</h4><p class="hour-list hours-2">10:00 am - 10:30pm</p>
+          <h4>Wednesday:</h4><p class="hour-list hours-3">10:00 am - 10:30pm</p>
+          <h4>Thursday:</h4><p class="hour-list hours-4">10:00 am - 10:30pm</p>
+          <h4>Friday:</h4><p class="hour-list hours-5">10:00 am - 10:30pm</p>
+          <h4>Saturday:</h4><p class="hour-list hours-6">10:00 am - 10:30pm</p>
+          <h4>Sunday:</h4><p class="hour-list hours-7">Closed</p>
+          <h2 class="local-impact-profile">Local Impact Profile:</h2>
+          <img class="impact-profile" src="img/multipleLocations.png"/>
+          <h4 class="impact-profile-headline">Multiple Locations</h4>
+          <p class="impact-profile-detail">Proin hendrerit nunc et felis facilisis, vitae pellentesque nibh mollis. In porttitor est a magna adipiscing hendrerit.</p>
+          <img class="impact-profile" src="img/familyOwned.png"/>
+          <h4 class="impact-profile-headline">Family Owned</h4>
+          <p class="impact-profile-detail">Proin hendrerit nunc et felis facilisis, vitae pellentesque nibh mollis. In porttitor est a magna adipiscing hendrerit.</p>
+          <img class="impact-profile" src="img/freshFromTheFarm.png"/>
+          <h4 class="impact-profile-headline">Fresh From the Farm</h4>
+          <p class="impact-profile-detail">Proin hendrerit nunc et felis facilisis, vitae pellentesque nibh mollis. In porttitor est a magna adipiscing hendrerit.</p>
+          <ul class="small-block-grid-6 social-media-bottom-buttons">
             <!-- Placeholders for the social media icons on the bottom -->
-            <li><a href="#"><img src=""/></a></li>
-            <li><a href="#"><img src=""/></a></li>
-            <li><a href="#"><img src=""/></a></li>
-            <li><a href="#"><img src=""/></a></li>
+            <li><a class="fb-link" href="#"><img src="img/facebookIcon.png"/></a></li>
+            <li><a class="google-link" href="#"><img src="img/googlePlusIcon.png"/></a></li>
+            <li><a class="twitter-link" href="#"><img src="img/twitterIconSmall.png"/></a></li>
+            <li><a class="yelp-link" href="#"><img src="img/yelpIcon.png"/></a></li>
+            <li><a class="ig-link" href="#"><img src="img/instagramIcon.png"/></a></li>
+            <li><a class="pinterest-link" href="#"><img src="img/pinterestIcon.png"/></a></li>
           </ul>
         </div>
       </div>
@@ -179,6 +182,33 @@
           " "+jsonInfo['bZip']);
         $('.bCategories').html(jsonInfo['bCategory']+" | "+jsonInfo['bSubCat1']+
           " | "+jsonInfo['bSubCat2']+" | "+jsonInfo['bSubCat3']);
+
+        /* dynamically populate the hours */
+        var daysAvailable = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+        
+        for(i=0;i<daysAvailable.length;i++){
+          var m1 = (jsonInfo[daysAvailable[i]+'1']%100);
+          var h1 = (jsonInfo[daysAvailable[i]+'1'] - m1)/100;
+          var m2 = (jsonInfo[daysAvailable[i]+'2']%100);
+          var h2 = (jsonInfo[daysAvailable[i]+'2'] - m2)/100;
+          if (m1==0){m1 = "00";}
+          if (m2==0){m2 = "00";}
+          if (h1 <12){m1 = m1 + " am";}else{m1 = m1 + " pm";if (h1>12){h1 = h1 - 12;}}
+          if (h2 <12){ m2 = m2 + " am";}else{m2 = m2 + " pm";if (h2>12){h2 = h2 - 12;}}
+          if(jsonInfo[daysAvailable[i]+'1'] == "Closed"){
+            $('.hours-'+(i+1)).html("Closed");
+          }else{
+            $('.hours-'+(i+1)).html(h1+":"+m1+" - "+h2+":"+m2);
+          }
+        }
+
+        $('.fb-link').attr('href',jsonInfo['bFacebook']);
+        $('.pinterest-link').attr('href',jsonInfo['bPinterest']);
+        $('.yelp-link').attr('href',jsonInfo['bYelp']);
+        $('.twitter-link').attr('href',jsonInfo['bTwitter']);
+        $('.google-link').attr('href',jsonInfo['bG+']);
+        $('.ig-link').attr('href',jsonInfo['bInstagram']);
+
       }
     </script>
   </body>
