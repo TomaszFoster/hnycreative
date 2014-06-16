@@ -528,6 +528,7 @@ html, body {
 }
 th {
 	background-color: #cdccc6;
+	padding: 12px 5px !important;
 }
 table {
 	border:none;
@@ -540,10 +541,78 @@ table {
 .admin-listing-page tbody p {
 	font-family: 'OpenSans Regular';
 	margin-bottom: 5px;
+	font-size: 14px;
 }
 .admin-listing-page tbody td {
-	padding-top:3px;
-	padding-bottom: 3px;
+	padding-top:10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+.admin-listing-page table {
+	margin-top: 0;
+}
+.admin-buttons {
+	-webkit-filter: grayscale(100%);
+	transition-duration: 0.5s;
+}
+a p.bName {
+	color: #222;
+	transition-duration: 0.5s;
+}
+a p.bName:hover {
+	color: #379e8b;
+	text-decoration: underline;
+	transition-duration: 0.5s;
+}
+.delete-button {
+	opacity: 0.5;
+	transition-duration: 0.5s;
+}
+.search-business-container input {
+	font-family: 'OpenSans Regular';
+}
+.admin-buttons:hover {
+	-webkit-filter:grayscale(0%);
+	opacity: 1;
+	transition-duration: 0.5s;
+}
+.logout-link {
+	border-left: 2px solid #ccc;
+	padding-left:10px;
+	margin-left: 5px;
+	color: #2d9281;
+}
+.login-header {
+	text-align: right;
+}
+p.login-identify, .login-header a {
+	font-family: 'OpenSans Regular';
+	font-size: 14px;
+}
+.search-button img {
+	background-color: #6dc8b7;
+	padding:9px 9px 9px 9px;
+	border-radius: 5px;
+	border-bottom: solid 3px #207a69;
+}
+a.new-business-button {
+	font-size: 25px !important;
+	width: 100%;
+	padding: 5px 2px !important;
+	border-radius: 5px;
+	background-color: #e4484d;
+	border-bottom: solid 3px #a63337;
+	font-family: 'Kreon-Regular';
+}
+.search-button-div {
+	width:41px;
+	padding: 0;
+}
+.new-business-div {
+	padding: 0 10px 0 0;
+}
+div.search-business-container {
+	margin-top: 90px !important;
 }
 /*
 * Login Page Styles 

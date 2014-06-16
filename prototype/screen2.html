@@ -46,12 +46,18 @@
 
       <div class="small-6 columns">
         <!-- New Business / QR / Sort Button -->
-        <div class="row">
-          <div class="small-6 columns">
-            <input type="text" placeholder="search"></input>
+        <div class="login-header">
+          <p class="login-identify">Welcome, Admin <a class="logout-link" href="#">Logout</a></p>
+        </div>
+        <div class="row search-business-container">
+          <div class="small-5 columns">
+            <input type="text" placeholder="Find a Business"></input>
           </div>
-          <div class="small-6 columns">
-            <a href="screen3.html" class="button tiny" id="newBusiness">+New Business</a>
+          <div class="small-2 columns search-button-div">
+            <a href="#" class="search-button"><img src="img/searchLogoIcon.png"/></a>
+          </div>
+          <div class="small-5 columns new-business-div">
+            <a href="screen3.html" class="button tiny new-business-button" id="newBusiness">+ New Business</a>
           </div>
         </div>
         <!-- <button href="#" class="button small" id="printQR" onclick="sendQR()">Print QR</button> -->
@@ -66,17 +72,18 @@
                   <th width="300" colspan="2"><a onclick="repopulate('bName')">BUSINESS NAME</a></th>
                   <th width="150"><a onclick="repopulate('bCity')">CITY</a></th>
                   <th width="100"><a onclick="repopulate('bStatus')">STATUS</a></th>
-                  <th width="150"><a onclick="repopulate('bLastVisit')">LAST VISIT</a></th>
-                  <th width="150"><a onclick="repopulate('bNextVisit')">NEXT VISIT</a></th>
+                  <th width="200"><a onclick="repopulate('bLastVisit')">LAST VISIT</a></th>
+                  <th width="200"><a onclick="repopulate('bNextVisit')">NEXT VISIT</a></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td width="90%">
-                    <p class="bName"></p>
+                  <td width="80%">
+                    <a href="#"><p class="bName"></p></a>
                   </td>
-                  <td width="10%">
-                    <img src="img/editButton.png"/><img src="img/deleteButton.png"/>
+                  <td width="20%">
+                    <img class="edit-button admin-buttons" src="img/editButton.png"/>
+                    <img class="delete-button admin-buttons" src="img/deleteButton.png"/>
                   </td>
                   <td>
                     <p class="bCity"></p>
@@ -93,9 +100,11 @@
                 </tr>
                 <tr>
                   <td width="80%">
-                    <p class="bName"></p>
+                    <a href="#"><p class="bName"></p></a>
                   </td>
                   <td width="20%">
+                    <img class="edit-button admin-buttons" src="img/editButton.png"/>
+                    <img class="delete-button admin-buttons" src="img/deleteButton.png"/>
                   </td>
                   <td>
                     <p class="bCity"></p>
@@ -109,12 +118,13 @@
                   <td>
                     <p class="bNextVisit"></p>
                   </td>
-                </tr>
-                <tr>
+                </tr><tr>
                   <td width="80%">
-                    <p class="bName"></p>
+                    <a href="#"><p class="bName"></p></a>
                   </td>
                   <td width="20%">
+                    <img class="edit-button admin-buttons" src="img/editButton.png"/>
+                    <img class="delete-button admin-buttons" src="img/deleteButton.png"/>
                   </td>
                   <td>
                     <p class="bCity"></p>
@@ -128,50 +138,13 @@
                   <td>
                     <p class="bNextVisit"></p>
                   </td>
-                </tr>
-                <tr>
+                </tr><tr>
                   <td width="80%">
-                    <p class="bName"></p>
+                    <a href="#"><p class="bName"></p></a>
                   </td>
                   <td width="20%">
-                  </td>
-                  <td>
-                    <p class="bCity"></p>
-                  </td>
-                  <td>
-                    <p class="bStatus"></p>
-                  </td>
-                  <td>
-                    <p class="bLastVisit"></p>
-                  </td>
-                  <td>
-                    <p class="bNextVisit"></p>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="80%">
-                    <p class="bName"></p>
-                  </td>
-                  <td width="20%">
-                  </td>
-                  <td>
-                    <p class="bCity"></p>
-                  </td>
-                  <td>
-                    <p class="bStatus"></p>
-                  </td>
-                  <td>
-                    <p class="bLastVisit"></p>
-                  </td>
-                  <td>
-                    <p class="bNextVisit"></p>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="80%">
-                    <p class="bName"></p>
-                  </td>
-                  <td width="20%">
+                    <img class="edit-button admin-buttons" src="img/editButton.png"/>
+                    <img class="delete-button admin-buttons" src="img/deleteButton.png"/>
                   </td>
                   <td>
                     <p class="bCity"></p>
