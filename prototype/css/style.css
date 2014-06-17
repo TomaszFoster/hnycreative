@@ -554,6 +554,8 @@ table {
 .admin-buttons {
 	-webkit-filter: grayscale(100%);
 	transition-duration: 0.5s;
+	padding:2px;
+	border-radius: 3px;
 }
 a p.bName {
 	color: #222;
@@ -1006,3 +1008,13 @@ h2.local-impact-profile {
 .social-media-bottom-buttons {
 	margin-top: 40px;
 }
+.menu-logo {
+	padding-top:10px;
+}
+/*
+.orbit-container .orbit-prev > span,
+.orbit-container .orbit-next > span {
+      border-left-color: white; }
+.orbit-container .orbit-prev,
+.orbit-container .orbit-next {
+      background-color: rgba(0, 0, 0, 0.3); }*/
