@@ -9,14 +9,15 @@
 
     // here is an array of all the information that we send as JSON to the app
     $userInfo = array(
+        'collectedHeartForDataCompletion' => true,
     	'lastUpdated' => '20131220',
 	    'userName' => 'Jason1411',
 	    'firstName' => 'Melissa',
 	    'lastName' => 'Yutani',
 		'userEmail' => 'Jason@Weyland-Yutani-Corp.org',
-    	'userAddress' => '123 21st Street',
-    	'userCity' => 'Norfolk',
-    	'userZip' => '23509',
+    	'userAddress' => '',
+    	'userCity' => '',
+    	'userZip' => '',
     	'badges' => array( 
     		"hardees" => array (
 				"address" => "123 Colley Ave",

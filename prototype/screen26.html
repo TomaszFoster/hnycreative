@@ -50,13 +50,16 @@
           <input style="display:none" type="text" name="eName"/>
           <input style="display:none" type="password" name="passName"/>
 
-            <input type="text" name="fName" placeholder="First Name"/>
-
-            <input type="email" name="eName" placeholder="Email Address" autocomplete="off"/>
-            
-            <input type="password" name="passName" id="passName" autocomplete="off" placeholder="Password">
-          
-            <input type="text" name="addZip" placeholder="ZIP Code"/>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name"/>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name"/>
+			<input type="email" id="userEmail" name="userEmail" placeholder="Email Address" autocomplete="off"/>
+            <div class="freeheart-panel panel callout radius" style="display:none;">
+			  <h5>Earn a free heart!</h5>
+			  <p>Tell us a little more about yourself and get a free heart instantly.</p>
+			</div>
+            <input type="text" id="address1" name="address1" placeholder="Address"/>
+            <input type="text" id="addCity" name="addCity" placeholder="City"/>
+            <input type="text" id="addZip" name="addZip" placeholder="ZIP Code"/>
         </form>
       </div>
     </div>
@@ -115,6 +118,69 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+       $.ajax({
+          url: "./getUserInfo.php",
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            populateInfo(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
+      function populateInfo(incomingJson){
+     		$('#firstName').val(incomingJson['firstName'].toUpperCase());
+              $('#lastName').val(incomingJson['lastName'].toUpperCase());
+              $('#userEmail').val(incomingJson['userEmail']);
+              $('#address1').val(incomingJson['userAddress']);
+              $('#addCity').val(incomingJson['userCity']);
+              $('#addZip').val(incomingJson['userZip']);
+              if (incomingJson['collectedHeartForDataCompletion']){
+              	$('.freeheart-panel').hide();
+              }else{
+              	$('.freeheart-panel').show();
+              }
+
+          }
+       function sendAllVariables(){
+
+        $.fn.serializeObject = function()
+        {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+
+        var formData = $('form').serializeObject();
+
+        console.log(formData);
+
+        $.ajax({
+            url: "index8.php",
+            type: "POST",
+            data: formData,
+            dataType: "json",
+            success: function (jsonStr) {
+                console.log(jsonStr);
+            },
+            error: function(response) {
+                console.log(response);
+                console.log('Test failed!');                  
+            }
+        });  
+      }
        /*function staticText(content){
 		    $('#text1').html(content.screen8.text1);
 		    $('#passwordMustMatch').html(content.screen8.passwordMustMatch);

@@ -7,14 +7,17 @@
     header('Content-type: application/json');
 
 
-	$userFirstName = $_POST['fName'];
-	$userLastName = $_POST['lName'];
-	$userEmail = $_POST['eName'];
-	$userPassword = $_POST['passName'];
+	$userFirstName = $_POST['firstName'];
+	$userLastName = $_POST['lastName'];
+	$userEmail = $_POST['userEmail'];
+	$userPassword = $_POST['$userPassword'];
 	$userPassConfirm = $_POST['confirmName'];
-	$userAddress = $_POST['address1'];
-	$userCity = $_POST['addCity'];
-	$userZip = $_POST['addZip'];
+	$userAddress = $_POST['userAddress'];
+	$userCity = $_POST['userCity'];
+	$userZip = $_POST['userZip'];
+	
+	
+	//save collectedHeartForDataCompletion=true/false in the database when the userAddress/userCity/userZip for the first time.
 
 	//for testing purposes
 	echo '{"user first name":"'.$userFirstName.'"}';
