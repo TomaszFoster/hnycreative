@@ -71,7 +71,6 @@
       					| <a target="_blank"href="./screen8b.html">Working</a></td>
       			<td>check foundation for forgot password popup
       				<br>
-      				- scale the arrow the same as the logo. Probably just a width/height percentage
       				<BR>- add a block of text between "confirm" and "address" that only shows up if
       				they haven't filled out all of their profile information.
       				<BR>-missing text content
@@ -81,7 +80,22 @@
       			<td>screen 9 - Splash Screen<BR>
       				<a target="_blank"href="./PNGs/splashPage.png">Prototype</a>
       				| <a target="_blank"href="./screen9.html">Working</a></td>
-      			<td>- add a dynamic progress bar, maybe just a sliver of red to show it's doing something.
+      			<td>
+      				-Possibly make the background expandable like this:
+					http://css-tricks.com/perfect-full-page-background-image/
+					<br>
+					-cached GET requests:
+					<li>userinfo</li>
+					<li>businessinfo</li>
+					<li>profiles</li> 
+					<li>badges</li>
+					<li>textcontent</li>
+					<li>categories</li>
+					<br>-initiate all of the get requests above in a loop.
+					<br>-display the splashscreen overlay
+					<br>-make a timer that checks that each of those packets is cached in localstorage, when all packets are cached, clear the timer, hide the splashscreen
+					
+
       				</td>
       		</tr>
       		<tr>
@@ -184,8 +198,7 @@
       			<td>screen 24 - View Badges<BR>
       					<a target="_blank"href="./PNGs/badgeListing.png">Prototype</a>
       					| <a target="_blank"href="./screen24.html">Working</a></td>
-      			<td>working, but there is a bug in it. We need to have a json packet of all the badges and add an
-      				array of the badges a user has in the userinfo packet</td>
+      			<td></td>
       		</tr>
       		<tr>
       			<td>screen 25 - User Profile / app settings<BR>
@@ -210,7 +223,7 @@
       					<a target="_blank"href="./PNGs/businessDetail.png">Prototype</a>
       					| <a target="_blank"href="./screen27.html">Working</a></td>
       			<td>
-      				-the profiles need to be dynamic
+
       			</td>
       		</tr>
       		<tr>

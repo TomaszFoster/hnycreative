@@ -124,16 +124,21 @@
           <h4>Friday:</h4><p class="hour-list hours-5">10:00 am - 10:30pm</p>
           <h4>Saturday:</h4><p class="hour-list hours-6">10:00 am - 10:30pm</p>
           <h4>Sunday:</h4><p class="hour-list hours-7">Closed</p>
+          
           <h2 class="local-impact-profile">Local Impact Profile:</h2>
+          <div class="local-impact-profiles">
           <img class="impact-profile" src="img/multipleLocations.png"/>
           <h4 class="impact-profile-headline">Multiple Locations</h4>
           <p class="impact-profile-detail">Proin hendrerit nunc et felis facilisis, vitae pellentesque nibh mollis. In porttitor est a magna adipiscing hendrerit.</p>
+          
           <img class="impact-profile" src="img/familyOwned.png"/>
           <h4 class="impact-profile-headline">Family Owned</h4>
           <p class="impact-profile-detail">Proin hendrerit nunc et felis facilisis, vitae pellentesque nibh mollis. In porttitor est a magna adipiscing hendrerit.</p>
           <img class="impact-profile" src="img/freshFromTheFarm.png"/>
           <h4 class="impact-profile-headline">Fresh From the Farm</h4>
           <p class="impact-profile-detail">Proin hendrerit nunc et felis facilisis, vitae pellentesque nibh mollis. In porttitor est a magna adipiscing hendrerit.</p>
+          
+          </div>
           <ul class="small-block-grid-6 social-media-bottom-buttons">
             <!-- Placeholders for the social media icons on the bottom -->
             <li><a class="fb-link" href="#"><img src="img/facebookIcon.png"/></a></li>
@@ -153,7 +158,30 @@
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
+      var profiles;
+	if (!window.localStorage.profiles || true){ 
+     	console.log('profiles refreshed')
+		$.ajax({
+	          url: "getProfiles.php",
+	          type: "GET",
+	          dataType: "json",
+	          success: function (response) {
+	            //console.log(response);
+	            window.localStorage.setItem( 'profiles', JSON.stringify(response));
+	            profiles=JSON.parse(window.localStorage.getItem( 'profiles'))
+	          },
+	          error: function(response) {
+	              console.log(response);
+	              console.log('Test failed!');                  
+	          }
+	         
+	      });
+	 }else{
+	 	console.log('profile cached')
+		profiles=JSON.parse(window.localStorage.getItem( 'profiles'))
 
+	    //populateProfiles(JSON.parse(window.localStorage.getItem( 'profiles')))
+	 }
       $.ajax({
           url: "getBusinessInfo.php",
           type: "GET",
@@ -182,7 +210,18 @@
           " "+jsonInfo['bZip']);
         $('.bCategories').html(jsonInfo['bCategory']+" | "+jsonInfo['bSubCat1']+
           " | "+jsonInfo['bSubCat2']+" | "+jsonInfo['bSubCat3']);
-
+          
+        var profileHTML="";
+        for( var i=1;i< 4;i++){
+	        profileHTML+=' <img class="impact-profile" src="'+profiles[jsonInfo['bProfile'+i]].Icon+'"/>';
+    	    profileHTML+='<h4 class="impact-profile-headline">'+jsonInfo['bProfile'+i]+'</h4>';
+        	profileHTML+='<p class="impact-profile-detail">'+profiles[jsonInfo['bProfile'+i]].Description+'</p>';
+        }
+        
+          console.log(profileHTML)
+        
+		$('.local-impact-profiles').html(profileHTML);
+		
         /* dynamically populate the hours */
         var daysAvailable = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
         

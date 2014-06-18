@@ -19,28 +19,11 @@
     	'userCity' => '',
     	'userZip' => '',
     	'badges' => array( 
-    		"hardees" => array (
-				"address" => "123 Colley Ave",
-				"hours" => array (
-					"Saturday1" => "0900",
-					"Saturday2" => "1700"
-					)
-				),
-    		"A Dodson's" => array (
-    			"address" => "456 Colley Ave",
-    			"hours" => array (
-    				"Saturday1" => "0800",
-    				"Saturday2" => "1500"
-    				)
-    			),
-    		"The Dirty Buffalo" => array (
-    			"address" => "789 Colley Ave",
-    			"hours" => array (
-    				"Saturday1" => "1100",
-    				"Saturday2" => "2200"
-    				)
-    			)
-			 ),
+    		"badge1" => array(dateReceived => 20131220) 
+			 ,
+			 "badge6" => array(dateReceived => 20131220) 
+			 
+			),
     	'numberOfHearts' => '6',
     	'latestBadge' => 'img/badgeLatest.png',
     	'latestBadgeLocation' => 'Norfolk, VA',

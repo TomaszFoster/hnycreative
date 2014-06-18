@@ -10,15 +10,15 @@
     // here is an array of all the information that we send as JSON to the app
     $profileInfo = array(
     	'Multiple Locations' => array( 
-    		'Description' => 'Lorem ipsum',
-    		'Icon' =>'img/multipleLocation.png'
+    		'Description' => 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
+    		'Icon' =>'img/multipleLocations.png'
 			),
 	   	'Family Owned' => array( 
-    		'Description' => 'Lorem ipsum',
+    		'Description' => 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
     		'Icon' =>'img/familyOwned.png'
 			),
 		'Fresh From the Farm' => array( 
-    		'Description' => 'Lorem ipsum',
+    		'Description' => 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
     		'Icon' =>'img/freshFromTheFarm.png'
 			)
 		);

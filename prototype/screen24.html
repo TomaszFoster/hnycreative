@@ -118,10 +118,11 @@
 		function staticText(content){
 		 $('#title').html(content.screen24.title);
 	   }
-	   var allBadges;
+	   var badges, userInfo;
+	    
 	   var refreshCache=false;
 	   if (!window.localStorage.badges || refreshCache){ 
-	     	console.log('badges refreshed')
+	     	console.log('badges refreshed');
 			$.ajax({
 		          url: "getBadges.php",
 		          type: "GET",
@@ -129,8 +130,8 @@
 		          success: function (response) {
 		            //console.log(response);
 		            window.localStorage.setItem( 'badges', JSON.stringify(response));
-		            allBadges=response;
-		            populateAllBadges();
+		            badges=response;
+		            allLoaded();
 		          },
 		          error: function(response) {
 		              console.log(response);
@@ -140,61 +141,88 @@
 		      });
 	    }else{
 	     	console.log('badges cached')
-	        allBadges=JSON.parse(window.localStorage.getItem( 'badges'));
-			populateAllBadges();
+	        badges=JSON.parse(window.localStorage.getItem( 'badges'));
+	        allLoaded();
+			
+	    }
+	    if (!window.localStorage.userInfo || refreshCache){ 
+	     	console.log('userinfo refreshed')
+			 $.ajax({
+		          url: "getUserInfo.php",
+		          type: "GET",
+		          dataType: "json",
+		          success: function (incomingJson) {
+		            //console.log(incomingJson);
+		            window.localStorage.setItem( 'userInfo', JSON.stringify(incomingJson));
+		            userInfo=incomingJson;
+		            allLoaded();
+		          },
+		          error: function(response) {
+		              console.log(response);
+		              console.log('Test failed!');                  
+		          }
+		      });
+	    }else{
+	     	console.log('userInfo cached');
+	        userInfo=JSON.parse(window.localStorage.getItem( 'userInfo'));
+			allLoaded();
+	    }
+	    function allLoaded(){
+	    	if (userInfo && badges){
+	    		console.log('yes!!');
+	    		populatebadges();
+	    	}else{
+	    		console.log('no');
+	    	}
 	    }
 	    
-	   function populateAllBadges(){
-	   		console.log(allBadges)
+	    
+	   function populatebadges(){
 	   		var badgeHTML='';
-	   		for (var i in allBadges){
-	   			if (i % 3 == 1){
+	   		var i=0;
+	   		for (var key in badges){
+	   			if (userInfo.badges[key]){
+					imageHTML='<img src="'+badges[key].imageURL+'">';
+				}else{
+					imageHTML='<img src="img/hiddenBadge.png"/>';
+				}
+	   			if (i % 3 == 0){
 					badgeHTML+='<div class="row">';
 					badgeHTML+='<div class="small-12 columns text-center">';
 					badgeHTML+='<ul class="small-block-grid-3">';
-					badgeHTML+='<li id="'+i+'"><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>One Line</p></li>';
+					badgeHTML+='<li id="'+key+'"><a href="#" data-reveal disabled="disabled" style="pointer-events: none;">'+imageHTML+'</a><p>'+badges[key].title+'</p></li>';
                   
                   
+	   			} else if (i % 3 == 1){
+	   				badgeHTML+='<li id="'+key+'"><a href="#" data-reveal disabled="disabled" style="pointer-events: none;">'+imageHTML+'</a><p>'+badges[key].title+'</p></li>';
 	   			} else if (i % 3 == 2){
-	   				badgeHTML+='<li id="'+i+'"><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>';
-	   			} else if (i % 3 == 0){
-	   				badgeHTML+='<li id="'+i+'"><a href="#" data-reveal disabled="disabled" style="pointer-events: none;"><img src="img/hiddenBadge.png"/></a><p>2 Line Badge Name</p></li>';
+	   				badgeHTML+='<li id="'+key+'"><a href="#" data-reveal disabled="disabled" style="pointer-events: none;">'+imageHTML+'</a><p>'+badges[key].title+'</p></li>';
                 	badgeHTML+='</ul>';
               		badgeHTML+='</div>';
             		badgeHTML+='</div>';
 	   			}
+	   			
+	   			i++;
 	   		}
 	   		if (i < 3){
 				badgeHTML+='</ul>';
               		badgeHTML+='</div>';
             		badgeHTML+='</div>';
 			}
-	   		$('#badgeList').html(badgeHTML);
+			$('#badgeList').html(badgeHTML);
 	   }
-      $.ajax({
-          url: "getUserInfo.php",
-          type: "GET",
-          dataType: "json",
-          success: function (incomingJson) {
-            //console.log(incomingJson);
-            populateInfo(incomingJson);
-          },
-          error: function(response) {
-              console.log(response);
-              console.log('Test failed!');                  
-          }
-      }); 
+      
 
       function populateInfo(incomingJson){
         console.log(incomingJson);
         
-        var badgeCount = incomingJson['numberOfHearts'];
 
-        for(i=0;i<badgeCount;i++){
-          //console.log(jsonInfo);
-          $('.heart-display img:eq('+i+')').attr( "src", "img/displayBadge.png");
-          $('.heart-display a:eq('+i+')').attr('data-reveal-id', 'heartModal');
-          $('.heart-display a:eq('+i+')').removeAttr("disabled").removeAttr("style");
+        for(var key in incomingJson['badges']){
+        	
+          console.log(badges[key].imageURL);
+          $('#'+key).attr( "src", badges[key].imageURL);
+          $('#'+key).attr('data-reveal-id', 'heartModal');
+          $('#'+key).removeAttr("disabled").removeAttr("style");
           
         }
       }
