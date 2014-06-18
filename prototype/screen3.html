@@ -4,20 +4,81 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/vendor/modernizr.js"></script>
     <style>
       @font-face {
         font-family: 'Kreon-Regular';
-        src: url('css/Kreon-Regular.ttf');
+        src: url('Kreon-Regular.ttf');
       }
-      body, label {
+      @font-face {
+        font-family: 'Kreon-Bold';
+        src: url('Kreon-Bold.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+      @font-face {
+        font-family: 'OpenSans Regular';
+        src: url('OpenSans-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'OpenSans Semi-Bold';
+        src: url('OpenSans-SemiBold.ttf');
+      }
+      @font-face {
+        font-family: 'Kreon-Light';
+        src: url('Kreon-Light.ttf');
+      }
+      body, label, a, button {
         font-family: 'Kreon-Regular';
       }
     </style>
-    <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body onload="getUserInfo()">
+  <body onload="getUserInfo()" class="admin-form-page">
 
-    <form>  
+    <div class="row">
+
+      <div class="small-4 columns text-center">
+        <img class="menu-logo" src="img/menuLogo.png"/>
+      </div>
+
+      <div class="small-6 columns">
+        <!-- New Business / QR / Sort Button -->
+        <div class="login-header">
+          <p class="login-identify">Welcome, Admin <a class="logout-link" href="#">Logout</a></p>
+        </div>
+        <div class="row search-business-container">
+          <div class="small-5 columns">
+            <input type="text" placeholder="Find a Business"></input>
+          </div>
+          <div class="small-2 columns search-button-div">
+            <a href="#" class="search-button"><img src="img/searchLogoIcon.png"/></a>
+          </div>
+          <div class="small-5 columns new-business-div">
+            <a href="screen3.html" class="button tiny new-business-button" id="newBusiness">+ New Business</a>
+          </div>
+        </div>
+        <!-- <button href="#" class="button small" id="printQR" onclick="sendQR()">Print QR</button> -->
+      </div>
+    </div>
+
+    <form> 
+
+    <!-- Save | Delete Business | Send QR Code --> 
+    <div class="row admin-header-footer">
+      <div class="small-4 columns text-center">
+        <button>Save</button>
+      </div>
+      <div class="small-4 columns text-center">
+        <button>Print QR Code</button>
+      </div>
+      <div class="small-4 columns text-center">
+        <button>Delete Business</button>
+      </div>
+    </div>
+
     <div class="row">
       <div class="small-7 columns">
         <!-- Business Name-->
@@ -775,6 +836,34 @@
         }
         
       }
+
+      /*  original send qr function taken from screen 2
+
+      function sendQR(){
+        var checkArray = [];
+        for (i=0;i<objectCount;i++){ 
+          if( $('.bCheckbox:eq('+i+'):checked').val()?true:false ){
+            checkArray.push( $('.bCheckbox:eq('+i+')').val() );
+          }
+        }
+
+        console.log(checkArray);
+
+        $.ajax({
+            url: "printQR.php",
+            type: "POST",
+            data:  { 'QRToPrint': checkArray },
+            dataType: "json",
+            success: function (jsonStr) {
+                console.log(jsonStr);
+            },
+            error: function(response) {
+                console.log(response);
+                console.log('Test failed!');                  
+            }
+        }); 
+      }*/
+
     </script>
   </body>
 </html>
