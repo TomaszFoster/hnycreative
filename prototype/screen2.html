@@ -51,10 +51,10 @@
         </div>
         <div class="row search-business-container">
           <div class="small-5 columns">
-            <input type="text" placeholder="Find a Business"></input>
+            <input type="text" id="businessName" placeholder="Find a Business"></input>
           </div>
           <div class="small-2 columns search-button-div">
-            <a href="#" class="search-button"><img src="img/searchLogoIcon.png"/></a>
+            <a href="#" class="search-button" onclick="searchBusiness()"><img src="img/searchLogoIcon.png"/></a>
           </div>
           <div class="small-5 columns new-business-div">
             <a href="screen3.html" class="button tiny new-business-button" id="newBusiness">+ New Business</a>
@@ -124,10 +124,23 @@
               console.log('Test failed!');                  
           }
       });       
+		function searchBusiness(){
+			var q=$('#businessName').val();
+			var incomingJson=JSON.parse(window.localStorage.getItem('businessInfo'));
 
+			if (q.length){
+				for(a in incomingJson){
+					if(incomingJson[a]['bName'].search(eval("/"+q+"/i"))==-1){
+						delete incomingJson[a]
+					}
+				}
+			}
+			populateInfo(incomingJson);
+		}
       function populateInfo(incomingJson){
         //console.log(incomingJson);
         var i = 0;
+        $('.business-listing-table tbody').html("");
         for(a in incomingJson){
           objectCount++;
           jsonInfo = incomingJson[a];
