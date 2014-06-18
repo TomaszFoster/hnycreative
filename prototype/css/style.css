@@ -1024,6 +1024,46 @@ h2.local-impact-profile {
 	background-color: #ccc;
 	margin: 15px auto;
 }
+.earned-heart-first-time {
+	background-image: none;
+}
+.earned-heart-first-time h1 {
+	color: #e94949;
+}
+.earned-heart-first-time p {
+	font-family: 'OpenSans Regular';
+	font-size: 18px;
+	color: #666;
+}
+.save-all-variables {
+	background-color:#73c8b7;
+	box-shadow: inset 0px -5px 5px #389281;
+}
+.save-all-variables p {
+	color: #fff;
+	font-size:30px;
+	line-height: 30px;
+}
+.save-all-variables p {
+	margin-left: 0;
+	font-family: 'Kreon-Regular';
+}
+.save-all-variables {
+	border-radius: 3px;
+}
+.screen-5-form {
+	font-family: 'OpenSans Regular';
+	font-color: #666;
+}
+.screen-5-form input {
+	border: none;
+	box-shadow: none;
+	border-radius: 3px;
+	background-color: #e8e8e8;
+}
+.earned-heart-image {
+	margin:20px;
+}
 
 /*
 .orbit-container .orbit-prev > span,

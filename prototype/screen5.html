@@ -4,27 +4,60 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      @font-face {
+        font-family: 'Kreon-Regular';
+        src: url('Kreon-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'Kreon-Bold';
+        src: url('Kreon-Bold.ttf');
+      }
+      @font-face {
+        font-family: 'Mathlete-Bulky';
+        src: url('Mathlete-Bulky.otf') format('opentype');
+      }
+      @font-face {
+        font-family: 'Kreon-Light';
+        src: url('Kreon-Light.ttf');
+      }
+      @font-face {
+        font-family: 'OpenSans Regular';
+        src: url('OpenSans-Regular.ttf');
+      }
+      @font-face {
+        font-family: 'OpenSans Semi-Bold';
+        src: url('OpenSans-SemiBold.ttf');
+      }
+      body, label, a, button {
+        font-family: 'Kreon-Regular';
+      }
+      .firstName { font-family: 'Mathlete-Bulky'}
+    </style>
     <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body>
+  <body class="earned-heart-first-time">
 
     
       <!-- Image placeholder for "You received a heart!" -->
       <div class="row">
         <div class="small-12 columns text-center">
-          <img src="img/heartRec.png"/>
+          <img class="earned-heart-image" src="img/earnedHeartQR.png"/>
+          <h1>You've Earned a Heart!</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in tortor dolor. Nunc tempus molestie odio sit amet  id risus velit.</p>
         </div>
       </div>
 
       <!-- Form for email, store id, and save button -->
       <div class="row">
         <div class="small-12 columns text-center">
-          <form>
-            <input type="text" name="inputEmail" placeholder="E-Mail"/>
+          <form class="screen-5-form">
+            <input type="text" name="inputEmail" placeholder="Email Address"/>
             <input type="text" id="inputStoreID" name="inputStoreID" placeholder="Store ID"/>
           </form>
 
-          <button class="button" onclick="sendAllVariables()">Save</button>
+          <button class="button save-all-variables" onclick="sendAllVariables()"><p>Submit</p></button>
         </div>
       </div>
 
