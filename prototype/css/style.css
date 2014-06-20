@@ -1038,18 +1038,14 @@ h2.local-impact-profile {
 .save-all-variables {
 	background-color:#73c8b7;
 	box-shadow: inset 0px -5px 5px #389281;
+	border-radius: 3px;
 }
 .save-all-variables p {
 	color: #fff;
 	font-size:30px;
 	line-height: 30px;
-}
-.save-all-variables p {
 	margin-left: 0;
 	font-family: 'Kreon-Regular';
-}
-.save-all-variables {
-	border-radius: 3px;
 }
 .screen-5-form {
 	font-family: 'OpenSans Regular';
@@ -1069,6 +1065,37 @@ h2.local-impact-profile {
 	max-width:600px;
 	margin:30px;
 	padding:0px;
+}
+/*
+* screen 3 styles
+*/
+.header-footer-button {
+	background-color:#73c8b7;
+	box-shadow: 0px 3px 0px #389281;
+	border-radius: 3px;
+	color: #fff;
+	font-size:15px !important;
+	line-height: 15px;
+	font-family: 'Kreon-Regular';
+	margin: 7px 0 9px 0;
+	padding: 7px 10px 7px 10px;
+}
+.hfb-left {
+	margin-right:-50px;
+}
+.hfb-right {
+	margin-left:-50px;
+}
+.admin-form-page label {
+	font-family: 'OpenSans Regular';
+}
+#newBusiness { width: 185px;}
+.business-admin-title {
+	font-family: 'Kreon-Regular';
+	color: #319280;
+	font-size: 25px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
 }
 
 /*

@@ -100,7 +100,7 @@
 
 			//hours of operation
 			'Saturday1' => '500',
-			'Saturday2' => '600',
+			'Saturday2' => '605',
 			'Sunday1' => '900',
 			'Sunday2' => '1700',
 			'Monday1' => '900',
