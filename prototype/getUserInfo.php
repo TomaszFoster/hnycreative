@@ -32,10 +32,17 @@
 		'fbURL' => 'http://www.facebook.com/someuser',
 		'twitterAuth' => '1234567890ABCDEF',
 		'twitterID' => 'FEDCBA987654321',
-		'pendingGift' => array( 
+		'pendingGift' => array(
+		"gift1" =>array( 
+			"item" => "plant",
+			"giftEmail" => "snelson@gmail.com",
+			"dateSent" => "3/25/2014"
+			  ),
+			  "gift2" =>array( 
 			"item" => "plant",
 			"giftEmail" => "kimglover@gmail.com",
 			"dateSent" => "3/25/2014"
+			  )
 			  ),
 		'storeInfo' => array (
 			"hardees" => array (

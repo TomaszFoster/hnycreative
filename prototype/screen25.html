@@ -31,23 +31,12 @@
         <h2>Pending Gifts:</h2>
         <hr>
       </div>
+    	<div class="row PendingGifts">
+      
+    </div>  
     </div>
 
-    <div class="row bPendingGifts">
-      <div class="small-9 columns">
-        <p class="giftEmail">To: kimglover@gmail.com</p>
-        <p class="giftSent">Sent on 3/25/2014</p>
-      </div>
-      <div class="small-3 columns">
-        <a href="#" class="button">cancel</a>
-      </div>
-    </div>
-
-    <div class="row bPendingGifts">
-      <div class="small-12 columns">
-        <hr>
-      </div>
-    </div>
+    
 
     <div class="row">
       <div class="small-6 columns text-center">
@@ -125,17 +114,54 @@
           console.log(jsonInfo);
           
           $('.full-name').html(jsonInfo['firstName']+" "+jsonInfo['lastName']);
-          $('.giftEmail').html('To: '+jsonInfo['pendingGift']['giftEmail']);
-          $('.giftSent').html('Sent on '+jsonInfo['pendingGift']['dateSent']);
+          
+          if(jsonInfo['pendingGift']){
+          	console.log('gift');
+          	
+          		console.log(jsonInfo['pendingGift'][i])
+          	var giftHTML="";
+          	for (var i in jsonInfo['pendingGift']){
+          		 giftHTML+='<div class="small-9 columns">';
+          		 giftHTML+='<p class="giftEmail">'+jsonInfo['pendingGift'][i]['giftEmail']+'</p>';
+          		 giftHTML+='<p class="giftSent">Sent on '+jsonInfo['pendingGift'][i]['dateSent']+'</p>';
+          		 giftHTML+='</div>';
+          		 giftHTML+='<div class="small-3 columns">';
+          		 giftHTML+='<a href="#" onclick="cancelPendingGift(\''+i+'\')" class="button">cancel</a>';
+          		 giftHTML+='</div>';
+          	}
+		     $('.PendingGifts').html(giftHTML);
+		        
+		      
+		      
+          }else{
+          	$('.bPendingGifts').attr("style","display:none;");
+          }
+          
+          
+          
           $('.userDescription').html(jsonInfo['userName']+'<br>'+
             jsonInfo['userAddress']+'<br>'+jsonInfo['userCity']+', '+jsonInfo['userZip']+'<br>'+
             jsonInfo['userEmail']);
           if(jsonInfo['pendingGift'].length == 0){
-            $('.bPendingGifts').attr("style","display:none;");
-          }
+            
+          }	
           //$('.latestBadgeLocation').html(jsonInfo['latestBadgeLocation']);
           //$('.bDirections').attr("href", jsonInfo['bDirections']);
           
+      }
+      function cancelPendingGift(giftId){
+      	$.ajax({
+          url: "index25.php?giftId="+giftId,
+          type: "GET",
+          dataType: "json",
+          success: function (incomingJson) {
+            console.log(incomingJson);
+          },
+          error: function(response) {
+              console.log(response);
+              console.log('Test failed!');                  
+          }
+      }); 
       }
 
     </script>
