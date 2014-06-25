@@ -5,8 +5,7 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.example"
-        versionCode = "10" 
-        version     = "0.0.151" >
+        version     = "0.0.194" >
 
     <!-- versionCode is optional and Android only -->
 
@@ -23,5 +22,10 @@
     <gap:platform name="android" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
     <gap:plugin name="org.apache.cordova.network-information" />
+
+    <gap:plugin name="com.phonegap.plugins.facebookconnect"  version="0.4.0">
+        <param name="APP_ID" value="315419268616460" />
+        <param name="APP_NAME" value="786319b8e99a5cd3b325d9ce614f0b24" />
+    </gap:plugin>
 
 </widget>

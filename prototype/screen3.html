@@ -49,14 +49,8 @@
         <div class="login-header">
           <p class="login-identify">Welcome, Admin <a class="logout-link" href="#">Logout</a></p>
         </div>
-        <div class="row search-business-container">
-          <div class="small-5 columns">
-            <input type="text" placeholder="Find a Business"></input>
-          </div>
-          <div class="small-2 columns search-button-div">
-            <a href="#" class="search-button"><img src="img/searchLogoIcon.png"/></a>
-          </div>
-          <div class="small-5 columns new-business-div">
+        <div class="row search-business-container text-right">
+          <div class="small-12 columns new-business-div">
             <a href="screen3.html" class="button tiny new-business-button" id="newBusiness">+ New Business</a>
           </div>
         </div>
@@ -68,14 +62,20 @@
 
     <!-- Save | Delete Business | Send QR Code --> 
     <div class="row admin-header-footer">
-      <div class="small-4 columns text-center">
-        <button>Save</button>
+      <div class="small-4 columns text-right">
+        <a class="button header-footer-button hfb-left" onclick="sendAllVariables()">SAVE</a>
       </div>
       <div class="small-4 columns text-center">
-        <button>Print QR Code</button>
+        <a class="button header-footer-button">Export QR Code</a>
       </div>
-      <div class="small-4 columns text-center">
-        <button>Delete Business</button>
+      <div class="small-4 columns text-left">
+        <a class="button header-footer-button hfb-right">Delete Business</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <h3 class="business-admin-title">Business Details</h3>
       </div>
     </div>
 
@@ -173,10 +173,10 @@
                 <input type="text" name="bLogo" placeholder="Logo"/>
               </div>
               <div class="small-3 columns">
-                <button class="button tiny">Browse</button>
+                <button class="button tiny header-footer-button">Browse</button>
               </div>
               <div class="small-3 columns">
-                <button class="button tiny">Upload</button>
+                <button class="button tiny header-footer-button">Upload</button>
               </div>
             </div>
         </div>
@@ -193,16 +193,21 @@
                 <input type="text" name="bImage" placeholder="Image"/>
               </div>
               <div class="small-3 columns">
-                <button class="button tiny">Browse</button>
+                <button class="button tiny header-footer-button">Browse</button>
               </div>
               <div class="small-3 columns">
-                <button class="button tiny">Upload</button>
+                <button class="button tiny header-footer-button">Upload</button>
               </div>
             </div>
         </div>
     </div>
 
         <!-- SOCIAL MEDIA -->
+        <div class="row">
+          <div class="small-12 columns">
+            <h3 class="business-admin-title">Social Media</h3>
+          </div>
+        </div>
         <!-- Facebook -->
         <div class="row">
           <div class="small-3 columns">
@@ -266,7 +271,15 @@
         </div>
       </div>
 
+      
+
       <div class="small-5 columns">
+      
+      <div class="row">
+        <div class="small-12 columns">
+          <h3 class="business-admin-title">Categories</h3>
+        </div>
+      </div>
         <!-- Category - Dropdown -->
         <div class="row">
           <div class="small-3 columns">
@@ -375,7 +388,11 @@
     </div>
 
         <!-- Hours of Operation - 7 Double Dropdowns with :30 min increments -->
-
+        <!--<div class="row">
+          <div class="small-12 columns">
+            <h3 class="business-admin-title">Hours of Operation</h3>
+          </div>
+        </div> -->
         <!-- Dynamically generate all lists of hours, will make it much easier to change later -->
         <script type="text/javascript">
           var dayOfWeek;
@@ -498,8 +515,18 @@
     </div>
     </form>
 
-    <!-- Save Button -->
-    <button class="button" onclick="sendAllVariables()">Save</button>
+     <!-- Save | Delete Business | Send QR Code --> 
+    <div class="row admin-header-footer">
+      <div class="small-4 columns text-right">
+        <a class="button header-footer-button hfb-left" onclick="sendAllVariables()">SAVE</a>
+      </div>
+      <div class="small-4 columns text-center">
+        <a class="button header-footer-button">Export QR Code</a>
+      </div>
+      <div class="small-4 columns text-left">
+        <a class="button header-footer-button hfb-right">Delete Business</a>
+      </div>
+    </div>
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
