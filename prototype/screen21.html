@@ -79,118 +79,52 @@
     <div class="row sharing-buttons">
 
       <div class="small-4 push-1 columns text-center">
-        <a data-reveal-id="fbModal"><img src="img/fbIcon.png" /><br>Share On<br>Facebook</a>
+        <a onclick="facebookWallPost()"><img src="img/fbIcon.png" /><br>Share On<br>Facebook</a>
       </div>
       <div class="small-4 columns text-center">
         <img src="img/divider.png"/>
       </div>
       <div class="small-4 pull-1 columns text-center">
-        <a data-reveal-id="twitterModal"><img src="img/twitterIcon.png" /><br>Post To<br>Twitter</a>
+        <a onclick="#"><img src="img/twitterIcon.png" /><br>Post To<br>Twitter</a>
       </div>
 
     </div>
 
-    <!-- Modal Windows For Social Media -->
-
-    <!-- Facebook modal window -->
-
-    <div id="fbModal" class="reveal-modal" data-reveal>
-
-      <div class="row">
-        <div class="small-12 columns">
-          <h2>Sign into Facebook</h2>
-          <input type="text" placeholder="username"/>
-          <input type="text" placeholder="password"/>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="small-6 columns">
-          <!-- link to close modal window -->
-          <!-- Foundations close-reveal-modal class has strange styling for buttons -->
-          <button class="close-reveal-modal">Cancel</button>
-        </div>
-        <div class="small-6 columns">
-          <!-- link to connect to facebook -->
-          <button class="button" data-reveal-id="fbShare">Connect</button>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Secondary Facebook Modal -->
-    
-    <div id="fbShare" class="reveal-modal" data-reveal>
-
-      <div class="row">
-        <div class="small-12 columns">
-          <h2>Share on Facebook</h2>
-          <p>Some random text that will be shared on Facebook</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="small-6 columns">
-          <!-- link to close modal window -->
-          <button class="button close-reveal-modal">Cancel</button>
-        </div>
-        <div class="small-6 columns">
-          <!-- link to share to facebook -->
-          <button class="button">Share</button>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Twitter Modal Window -->
-
-    <div id="twitterModal" class="reveal-modal" data-reveal>
-
-      <div class="row">
-        <div class="small-12 columns">
-          <h2>Sign into Twitter</h2>
-          <input type="text" placeholder="username"/>
-          <input type="text" placeholder="password"/>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="small-6 columns">
-          <!-- link to close modal window -->
-          <!-- Foundations close-reveal-modal class has strange styling for buttons -->
-          <button class="button close-reveal-modal">Cancel</button>
-        </div>
-        <div class="small-6 columns">
-          <!-- link to connect to twitter -->
-          <button class="button" data-reveal-id="twitterShare">Connect</button>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Secondary Twitter Modal -->
-
-    <div id="twitterShare" class="reveal-modal" data-reveal>
-
-      <div class="row">
-        <div class="small-12 columns">
-          <h2>Share on Twitter</h2>
-          <p>Some random text that will be shared on Twitter</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="small-6 columns">
-          <!-- link to close modal window -->
-          <button class="button close-reveal-modal">Cancel</button>
-        </div>
-        <div class="small-6 columns">
-          <!-- link to share to facebook -->
-          <button class="button">Share</button>
-        </div>
-      </div>
-
-    </div>
+    <!-- cdv-facebook-connect -->
+    <script src="cdv-plugin-fb-connect.js"></script>
+      <!-- facebook js sdk -->
+    <script src="facebook-js-sdk.js"></script>
+    <script>
+    /*
+    * Here is the facebook wall post function.
+    */
+      function facebookWallPost() {
+            console.log('Trying to post to wall');
+          var params = {
+              method: 'feed',
+              name: 'Hacker News',
+              link: 'http://news.ycombinator.com/',
+              picture: 'http://i.imgur.com/tM2E2kI.png?1',
+              caption: 'But Seriously',
+              description: "Here is a description."
+            };
+          console.log(params);
+            FB.ui(params, function(obj) { console.log(obj);});
+        }
+            
+        /*
+        * NOTE THE appId will need to be changed for whatever facebook app is officially registered
+        */
+        document.addEventListener('deviceready', function() {
+                                  try {
+                                  /*alert('Device is ready! Make sure you set your app_id below this alert.');*/
+                                  FB.init({ appId: "315419268616460", nativeInterface: CDV.FB, useCachedDialogs: false });
+                                  document.getElementById('data').innerHTML = "";
+                                  } catch (e) {
+                                  console.log(e);
+                                  }
+                                  }, false);
+    </script>
 
     <!-- Return to dashboard button -->
     <div class="row bottom-home-button">
