@@ -135,7 +135,8 @@
 <body>
 
 		<button onclick="facebookWallPost()">Share To Wall</button>
-		
+		<button onclick="window.plugins.socialsharing.shareViaTwitter('Message via Twitter')">message via Twitter</button>
+		<button onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null, null, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via Facebook (with errcallback)</button>
         
         <div id="data">loading ...</div>
         <div id="fb-root"></div>
