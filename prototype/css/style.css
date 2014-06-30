@@ -490,6 +490,12 @@ html, body {
 	padding-left: 42px;
 	height: 14px;
 }
+.down-arrow-20 {
+	position: absolute;
+	top:45px;
+	padding-left:137px;
+	z-index:1000;
+}
 
 /*
 * Browser Confirmation Screen
