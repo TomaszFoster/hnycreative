@@ -180,73 +180,147 @@
           }
       }); 
 
-      var lat;
-      var lon;
-
-      function reMap(lon,lat) {
-        /* code for pure Open Street Map
-  
-        map = new OpenLayers.Map("basicMap");
-        var mapnik         = new OpenLayers.Layer.OSM();
-        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
-        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
-        var position       = new OpenLayers.LonLat(lon,lat).transform( fromProjection, toProjection);
-        var zoom           = 15; 
-        map.addLayer(mapnik);
-        map.setCenter(position, zoom );
-        */
-
-
-        // code for MapBox
-        var map = L.mapbox.map('map', 'loveva.ilaofc3g')
-                  .setView([lat, lon], 16);
-
-        //sample code to add a marker
-        L.marker([36.86853188670296, -76.29215240478516], {
-            icon: L.mapbox.marker.icon({
-                'marker-size': 'large',
-                'marker-symbol': 'heart',
-                'marker-color': '#f86767'
-            })
-        }).addTo(map);
-      }
-
-      navigator.geolocation.getCurrentPosition(onMapSuccess, onMapError);
-
-      function onMapSuccess(position) {
-        lat = position.coords.latitude;
-        lon = position.coords.longitude;
-        window.localStorage.setItem('latitude',lat);
-        window.localStorage.setItem('longitude',lon);
-        //console.log(lon + " " + lat);
-        reMap(lon,lat);
-      }
-      function onMapError(position){
-        //set lat and lon to last known location if there is an error getting current location
-        lat = window.localStorage.getItem('latitude');
-        lon = window.localStorage.getItem('longitude');
-        console.log('longitude is '+window.localStorage.getItem('latitude'));
-        reMap(lon,lat);
-      }
+      
 
       function populateInfo(incomingJson){
         //console.log(incomingJson);
-        var i = 0;
-        for(a in incomingJson){
-          jsonInfo = incomingJson[a];
-          console.log(jsonInfo);
+        /* Initialize user location, if none, use last known */
+        navigator.geolocation.getCurrentPosition(onMapSuccess, onMapError);
 
-
-
-          /*$('.bName:eq('+i+')').html(jsonInfo['bName']);
-          $('.bLocation:eq('+i+')').html(jsonInfo['bCity']+', '+jsonInfo['bState']+" (2 Miles)");
-          $('.bLogo:eq('+i+')').attr("src",jsonInfo['bLogo']);
-          $('.bLogo:eq('+i+')').removeAttr("style");
-          $('.hard-return:eq('+i+')').removeAttr("style");
-          $('.bReward:eq('+i+')').html("<img class='gift-logo' src='img/smallGiftLogo.png' />"+jsonInfo['bReward']);
-
-          i++;*/
+        function onMapSuccess(position) {
+          lat = position.coords.latitude;
+          lon = position.coords.longitude;
+          window.localStorage.setItem('latitude',lat);
+          window.localStorage.setItem('longitude',lon);
+          //console.log(lon + " " + lat);
+          reMap(lon,lat);
         }
+        function onMapError(position){
+          //set lat and lon to last known location if there is an error getting current location
+          lat = window.localStorage.getItem('latitude');
+          lon = window.localStorage.getItem('longitude');
+          //console.log('longitude is '+window.localStorage.getItem('latitude'));
+          reMap(lon,lat);
+        }
+
+        var lat1 = window.localStorage.getItem('latitude');
+        var lon1 = window.localStorage.getItem('longitude');
+
+        function reMap(lon,lat) {
+          // code for MapBox
+          var map = L.mapbox.map('map', 'loveva.ilaofc3g')
+                    .setView([lat, lon], 16);
+
+          var myLayer = L.mapbox.featureLayer().addTo(map);
+
+          //var geoJson = [];
+
+          var currentLocIcon = L.icon({
+            'iconUrl': 'img/largePin.png',
+            'iconSize': [40,60]
+          });
+
+          L.marker([ lat1, lon1 ], {
+              icon: currentLocIcon
+            }).addTo(map);
+          
+          for(a in incomingJson){
+            jsonInfo = incomingJson[a];
+            //console.log(jsonInfo['bAddress2']);
+            //var tempAddress = jsonInfo['bAddress'].split(' ').join('+');
+            //console.log("http://nominatim.openstreetmap.org/search?q="+tempAddress+",+"+jsonInfo['bCity']+"&format=json");
+
+            var smallIcon = L.icon({
+              'iconUrl': 'img/smallPin.png',
+              'iconSize': [40,40]
+            });
+
+            L.marker([jsonInfo['lat'], jsonInfo['lon']], {
+              icon: smallIcon
+            }).addTo(map);
+
+            /*geoJson= {
+              "type": "Feature",
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [jsonInfo['lon'], jsonInfo['lat']]
+              },
+              "properties": {
+                  "title": jsonInfo['bName'],
+                  "icon": {
+                      "iconUrl": "/img/smallPin.png",
+                      "iconSize": [50, 50], // size of the icon
+                      "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
+                      "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
+                      "className": "dot"
+                  }
+              }
+            };/*, {
+              "type": "Feature",
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [-74.00, 40]
+              },
+              "properties": {
+                  "title": "Big astronaut",
+                  "icon": {
+                      "iconUrl": "/img/largePin.png",
+                      "iconSize": [100, 100],
+                      "iconAnchor": [50, 50],
+                      "popupAnchor": [0, -55],
+                      "className": "dot"
+                  }
+              }
+          }];*/
+
+          //console.log(tempMarker);
+  
+          /*myLayer.on('layeradd', function(e) {
+              var marker = e.layer,
+                  feature = marker.feature;
+              marker.setIcon(L.icon(feature.properties.icon));
+          });*/
+
+          // Add features to the map.
+          
+
+
+          }
+            //myLayer.setGeoJSON(tempMarker[a]);
+            //geoJson[0].push(tempMarker[a]);
+            //console.log(geoJson);
+
+            /*var geoJson2 = new Array();
+            geoJson2 = {
+              "type": "Feature",
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [jsonInfo['lon'], jsonInfo['lat']]
+              },
+              "properties": {
+                  "title": jsonInfo['bName'],
+                  "icon": {
+                      "iconUrl": "/img/smallPin.png",
+                      "iconSize": [50, 50], // size of the icon
+                      "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
+                      "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
+                      "className": "dot"
+                  }
+              }
+            };
+            console.log(geoJson2);
+            geoJson2.push({
+              "type": "Feature",
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [jsonInfo['lon'], jsonInfo['lat']]
+              }
+            });
+            console.log(geoJson2);*/
+        }
+
+        
+
       }
 
       function addCategories(response){

@@ -63,6 +63,9 @@
 			'bNotes' => 'Random Text',
 
 			'bStatus' => 'Active',
+			//latitude and longitude
+			'lat' => '36.86853188670296',
+			'lon' => '-76.29215240478516',
 			//qr code url
 			'bQRCode' => 'img/qrcode.png',
 			'bDirections' => 'https://www.google.com/maps/place/2001+Manteo+St/@36.86936,-76.294072,17z/data=!3m1!4b1!4m2!3m1!1s0x89ba98389dd2afc5:0xafdf4ccfcb995aee'
@@ -120,7 +123,8 @@
 			'bNotes' => 'Random Text',
 
 			'bStatus' => 'Pending',
-
+			'lat' => '36.8680253469388',
+			'lon' => '-76.2868616530612',
 			//qr code url
 			'bQRCode' => 'img/qrcode.png',
 			'bDirections' => 'https://www.google.com/maps/place/2001+Manteo+St/@36.86936,-76.294072,17z/data=!3m1!4b1!4m2!3m1!1s0x89ba98389dd2afc5:0xafdf4ccfcb995aee'

@@ -179,7 +179,7 @@ button p, .button p {
 	margin: 30px auto;
 }
 .sharing-buttons a {
-	font-size: 30px;
+	font-size: 18px;
 	color: #3d3a36;
 }
 .sharing-buttons img {
@@ -322,20 +322,21 @@ input.search-box {
 */
 
 .earned-reward-page h1 {
-	font-size: 3.4em;
+	font-size: 2.2em;
 	color: #e94949;
 }
 .earned-sub-header {
-	font-size: 2.2em;
+	font-size: 1.5em;
 	line-height:1.2em;
 	color: #3d3a36;
 	font-family: 'Kreon-Light';
 }
 .orbit-container h2 {
 	color: #429787;
+	font-size:1.3em;
 }
 .orbit-container h3 {
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 .social-sharing-icon img {
 	height:65px;
@@ -492,9 +493,9 @@ html, body {
 }
 .down-arrow-20 {
 	position: absolute;
-	top:45px;
-	padding-left:137px;
-	z-index:1000;
+	top: 45px;
+	padding-left: 137px;
+	z-index: 1000;
 }
 
 /*
@@ -1102,6 +1103,16 @@ h2.local-impact-profile {
 	font-size: 25px;
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 20px;
+}
+
+.not-active {
+	display: hidden;
+}
+.orbit-container div {
+	width: 60%;
+}
+.orbit-container .orbit-prev, .orbit-container .orbit-next {
+	background-color: #aaa;
 }
 
 /*
