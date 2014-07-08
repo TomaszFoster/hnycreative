@@ -66,7 +66,7 @@ ul.off-canvas-list li a {
 	background: #73c8b7;
 }
 h1.title {
-	font-size: 30px;
+	font-size: 20px;
 }
 .left-small {
 	border-right: none;
@@ -75,7 +75,7 @@ h1.title {
 	border-left: none;
 }
 .gift-icon {
-	margin: 80px 0 10px -20px;
+	margin: 20px 0 10px -20px;
 }
 .heart-count-text {
 	font-family: 'Kreon-Bold';
@@ -1115,6 +1115,14 @@ h2.local-impact-profile {
 	background-color: #aaa;
 }
 
+/*
+* Style Changes after porting to phonegap
+*/
+.tab-bar-section a, .tab-bar-section p {
+	padding-left:0;
+	padding-right:0;
+	font-size:23px;
+}
 /*
 .orbit-container .orbit-prev > span,
 .orbit-container .orbit-next > span {
